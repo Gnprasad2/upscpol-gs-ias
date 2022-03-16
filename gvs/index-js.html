@@ -1,0 +1,103 @@
+<script>
+
+
+
+  var runButton = document.getElementById("btnR");
+  runButton.addEventListener("click", runButtonClickAction);
+
+  
+
+
+
+  function runButtonClickAction () {
+   var toValidate = {
+       fn: "First name is required",
+       email: "valid email is required ",
+
+   };
+
+   var idKeys = Object.keys(toValidate);
+   var allValid = true;
+  //  idKeys.forEach(function(id) {
+  //      var isValid = checkIfValid(id, toValidate[id]);
+  //      if (!isValid) {
+  //          allValid = false;
+  //      }
+  //  });
+   if (allValid) {
+       addRecord();
+   }
+}
+
+function addRecord () {
+   var userInfo = {};
+   userInfo.userName = document.getElementById("fn").value;
+   userInfo.email = document.getElementById("email").value;
+   userInfo.telephone = document.getElementById("icon_telephone").value;
+   userInfo.password = document.getElementById("password").value;
+   userInfo.state = document.getElementById("state").value;
+   userInfo.pin = document.getElementById("PIN").value;
+   
+
+   
+
+   google.script.run
+   .withSuccessHandler(displaySuccess)
+   .withFailureHandler(displayFailure)
+   .userClickedForm(userInfo);
+
+   
+
+  document.getElementById("fn").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("icon_telephone").value = "";
+  document.getElementById("password").value = "";
+
+  document.getElementById("state").value = "";
+  document.getElementById("PIN").value = "";
+  
+ 
+}
+
+  $(document).ready(function() {
+    $('input#PIN, input#icon_telephone, textarea#textarea2').characterCounter();
+  });
+
+  function displaySuccess() {
+    console.log("user record added");
+  }
+
+  function displayFailure(error) {
+     console.log("error");
+
+  }
+
+   $(document).ready(function() {
+    M.updateTextFields();
+  });
+
+
+  // oauth code:
+
+
+  // function handleCredentialResponse(response) {
+  //    // decodeJwtResponse() is a custom function defined by you
+  //    // to decode the credential response.
+  //    const responsePayload = decodeJwtResponse(response.credential);
+
+  //    console.log("ID: " + responsePayload.sub);
+  //    console.log('Full Name: ' + responsePayload.name);
+  //    console.log('Given Name: ' + responsePayload.given_name);
+  //    console.log('Family Name: ' + responsePayload.family_name);
+  //    console.log("Image URL: " + responsePayload.picture);
+  //    console.log("Email: " + responsePayload.email);
+  // }
+
+  function handleCredentialResponse(response) {
+            var decodedToken = jwt_decode(response.credential);
+            console.log(decodedToken.name);
+            console.log(decodedToken.email);
+        }
+
+
+</script>

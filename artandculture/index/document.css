@@ -1,0 +1,72 @@
+﻿@charset "UTF-8"; * {margin:0; padding:0; text-indent:0; }
+ h4 { color:darkolivegreen; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .p, p { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size:100%; margin:0pt; }
+ h2 { color:goldenrod; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s1 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ h3 { color:darkolivegreen; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s2 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s3 { color: #355E91; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; }
+ .s4 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s5 { color: black; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s6 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s7 { color: #355E91; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; vertical-align: 1pt; }
+ .s8 { color: #355E91; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; vertical-align: -3pt; }
+ .s9 { color: #355E91; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; vertical-align: -4pt; }
+ .s10 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s12 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s13 { color: black; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s14 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s15 { color: #233E5F; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s16 { color: black; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s17 { color: #FFF; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s18 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s19 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s20 { color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s21 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s23 { color: black; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s24 { color: #221E1F; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s26 { color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s27 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s28 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; }
+ .s29 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 130%;  }
+ .s30 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s31 { color: #355E91; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; vertical-align: -2pt; }
+ .s32 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ h1 { color: #00C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: underline;   font-size: 125%; }
+ .s33 { color: #00F; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 130%;  }
+ .s34 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s35 { color: #434343; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s36 { color: #00C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: underline;   font-size: 125%; }
+ a { color: #00F; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ table, tbody {vertical-align: top; overflow: visible; }
+
+.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+ .noDisplay {display: none;}
+ html {  background-color:ivory; } 
+body {
+    min-height: 100vh;
+    max-width: 1700px;
+    background-color:ivory;
+    margin: 10px auto;
+    padding-right: 60px;
+    padding-left: 30px;
+    padding-top: 30px;
+    
+    
+}
+
+@media screen and (min-width: 850px) and (max-width: 1200px) {
+    body {
+        padding-right: 100px;
+        padding-left: 50px;
+    }
+    
+  }
+
+@media screen and (min-width: 1200px) {
+    body {
+     column-count: 2;
+      column-gap: 40px;
+    }
+    
+  }

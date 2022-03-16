@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+   <head>
+    <base target="_self">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GS IAS</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+     <?!= includeExternalFile("index-css"); ?>
+
+
+   
+  </head>
+  <body>
+      <div class="container">
+
+
+  <div id="g_id_onload"
+     data-client_id="492588668881-5ltv6b92upgl4tbek0p8nf5he1aogejc.apps.googleusercontent.com"
+     
+     data-ux_mode="redirect"
+     data-auto_prompt="true"
+     
+     
+     data-login_uri="https://script.google.com/macros/s/AKfycbyaV7YNwZLEfpRagpgkMctfJPrwjACjoOP5fmumjcc/dev"
+     data-native_login_uri="https://script.google.com/macros/s/AKfycbyaV7YNwZLEfpRagpgkMctfJPrwjACjoOP5fmumjcc/dev"
+      data-allowed_parent_origin="https://sites.google.com">
+    
+  </div>
+
+  
+
+  
+ 
+
+  
+  <div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="pill"
+     data-logo_alignment="right"
+     data-theme="filled_black">
+    
+  </div>
+  
+       <div class="row">
+         <br>
+         <h6>Create account:</h6>   
+        
+          <hr>
+      </div>
+
+
+     <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix indigo-text">account_circle </i>
+                <input id="fn" type="text" class="validate">
+                <label for="fn">Name</label>
+              </div>
+              
+              <div class="input-field col s6">
+                <i class="material-icons prefix indigo-text">phone</i>
+                <input id="icon_telephone" type="tel" class="validate" data-length="10">
+                <label for="icon_telephone">Telephone</label>
+              </div>
+             
+            
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate">
+                <i class="material-icons indigo-text Large">contact_mail</i>
+                <label for="email">Email</label>
+              </div>
+
+
+              <div class="input-field col s6">
+                <input id="password" type="password" class="validate">
+                <i class="material-icons indigo-text Large">password</i>
+                <label for="password">Password</label>
+              </div>
+            </div> 
+             <div class="row">
+             <div class="input-field col s6">
+                
+                <input id="state" type="text" class="validate">
+                <i class="material-icons indigo-text Large">state</i>
+                <label for="state">State</label>
+              </div>
+              
+           
+            <div class="input-field col s6">
+            <input id="PIN" type="text" data-length="6">
+            <label for="PIN">PIN CODE</label>
+            </div>
+          </div>
+           </div>
+           
+           
+           
+             <div class="row">
+                <div class="input-field col s6">
+                <button id="btnR" class="btn waves-effect waves-light" type="submit" name="action">Run It
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
+             </div>
+
+
+
+          
+
+
+              <!-- code from google site for jquery  -->
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+   <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+   <script src="https://accounts.google.com/gsi/intermediate"></script>
+
+ 
+  <?!= includeExternalFile("index-js"); ?>
+            
+  </body>
+</html>

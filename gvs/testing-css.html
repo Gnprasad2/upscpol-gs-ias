@@ -1,0 +1,748 @@
+<style>
+
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"); */
+
+/* SET UP */
+
+
+
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background-color: rgb(255, 219, 140);
+  margin: 0 auto;
+  
+}
+
+.container {
+  width: 100%;
+}
+
+
+
+.item {
+  /* padding: 4px; */
+  padding: 1px;
+  background-color: white;
+  border: 2px solid tomato;
+  border-radius: 6px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  
+  
+}
+
+.height-50 {
+  height: 50vh;
+}
+
+
+
+/* Task 3.2 */
+
+.task-3-2.container {
+    display: grid;
+    /* height: 100vh; */
+    height: min-content;
+   
+    /* row-gap: 8px;
+    column-gap: 8px; */
+    row-gap: 1px;
+    column-gap: 2px;
+
+    /* gap: 24px; */
+
+    grid-template-rows: auto auto 1fr auto auto auto;
+
+    /* grid-template-areas: "header"
+    "nav"
+    "main"
+    "sidebar"
+    "ads"
+    "footer"; */
+
+    grid-template-areas: "header"
+    /* "nav" */
+    "main"
+    "sidebar"
+    "nav"
+    /* "ads" */
+    "footer"
+    "ads";
+}
+
+
+.task-3-2 .header {
+    grid-area: header;
+}
+
+.task-3-2 .navigation {
+   grid-area: nav;
+  
+  max-height: 750px;
+  /* min-width: fit-content; */
+  min-width:40vw;
+  overflow-y: auto;
+  align-items: center;
+  resize: vertical;
+  
+  
+  
+    
+}
+    
+   
+
+
+.task-3-2 .ads {
+    grid-area: ads;
+}
+
+.task-3-2 .sidebar {
+    grid-area: sidebar;
+    overflow: auto;
+    resize: horizontal;
+    
+    min-width: 25vw;
+    max-width: 95vw;
+    
+    
+    
+   
+
+}
+
+.task-3-2 .main {
+    grid-area: main;
+    /* resize: horizontal; */
+    max-height: 600px;
+    overflow-y: auto;
+    min-width: 50vw;
+  
+    
+    
+    
+    
+
+}
+
+.task-3-2 .footer {
+    grid-area: footer;
+}
+
+@media (min-width: 600px) {
+    .task-3-2.container {
+        grid-template-areas: 
+            /* "header header header header header header"
+            "sidebar sidebar sidebar nav nav nav"
+            "sidebar sidebar sidebar main main main"
+            "ads ads footer footer footer footer"; */
+         "header header header header header header"
+        "sidebar sidebar sidebar main main main"
+        "sidebar sidebar sidebar nav nav nav"
+        "sidebar sidebar sidebar ads footer footer";
+        grid-template-rows: auto auto 1fr auto;
+    }
+}
+
+@media (min-width: 850px) {
+    .task-3-2.container {
+        grid-template-areas: 
+        /* "header header header header header header"
+        "sidebar sidebar sidebar nav nav nav"
+        "sidebar sidebar sidebar main main main"
+        "sidebar sidebar sidebar ads footer footer"; */
+        "header header header header header header"
+        "sidebar sidebar sidebar main main main"
+        "sidebar sidebar sidebar nav nav nav"
+        "sidebar sidebar sidebar ads footer footer";
+    grid-template-rows: auto auto 1fr auto;
+            /* "footer footer ads ads" */
+
+        grid-template-rows: auto  auto 1fr auto ;
+    }
+    .container {
+      width: 100%;
+    }
+}
+
+@media (min-width: 1100px) {
+    .task-3-2.container {
+        grid-template-areas: 
+        /* "header header header header header header"
+        "sidebar sidebar sidebar nav nav nav"
+        "sidebar sidebar sidebar main main main"
+        "sidebar sidebar sidebar ads footer footer"; */
+
+        "header header header header header header"
+        "sidebar sidebar sidebar main main main"
+        "sidebar sidebar sidebar nav nav nav"
+        "sidebar sidebar sidebar ads footer footer";
+    grid-template-rows: auto auto 1fr auto;
+            /* "footer footer ads ads" */
+
+        grid-template-rows: auto  auto 1fr auto ;
+    }
+    .container {
+      width: 95%;
+    }
+}
+
+/* The below is material design CSS for changing clour of input fields*/
+
+ /* label color */
+ .input-field label {
+    color: #000;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #000;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+
+/* The above is material design CSS for changing colour of input fields*/
+
+p::first-letter {
+    color: white;
+    background-color: black;
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 red;
+    font-size: 100%;
+    padding: 6px 3px;
+    margin-right: 6px;
+    float: left;
+}
+
+pre::first-letter {
+    color: white;
+    background-color: hsla(276, 95%, 26%, 0.911);
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 rgba(255, 0, 179, 0.945);
+    font-size: 90%;
+    padding: 6px 3px;
+    margin-right: 6px;
+    float: left;
+}
+
+.questionNo {
+  color: white;
+    background-color: black;
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 red;
+    font-size: 100%;
+    padding: 6px 3px;
+    margin-right: 6px;
+    float: left;
+}
+
+
+.choiceInd {
+    color: white;
+    background-color: hsla(276, 95%, 26%, 0.911);
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 rgba(255, 0, 179, 0.945);
+    font-size: 100%;
+    padding: 6px 3px;
+    margin-right: 6px;
+    float: left;
+}
+
+.shortListed {
+    display:inline-block;
+    text-align: center;
+    
+} 
+
+
+
+
+
+
+
+
+#welcomes {
+  font-family: 'Roboto Mono';
+  color:black;
+
+
+}
+
+.welcome {
+  font-family: 'Roboto Mono';
+  font-style: italic;
+   color:darkgoldenrod;
+}
+
+
+.circle {
+    border-radius: 25%;
+    border-spacing: 5px;
+  }
+
+  .qbtn:active {
+      color: pink;
+  }
+
+
+
+
+
+.sidebar {
+    color: indigo;
+    overflow-wrap: break-word;
+    font-size: 1.2rem;
+    font-weight:600;
+
+}
+   
+   
+
+.source {
+    color: mediumorchid;
+    overflow-wrap: break-word;
+    font-size: 1.2rem;
+    
+}
+
+.question {
+    color:rgb(68, 153, 47);
+    overflow-wrap: break-word;
+    font-size: 1.2rem;
+    font-weight:600;
+    font-family: 'Roboto Mono';
+    
+    text-align: justify;     
+}
+
+
+
+.explanation {
+    font-size: 1.2rem;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: 'Roboto Mono';
+    text-align: justify;
+    color: indigo;
+    
+}
+
+
+
+.correctHighLight {
+  background-color:seashell;
+   
+   font-weight: bold;
+    color: sienna;
+    /* color: darkgoldenrod; */
+
+  }
+  
+.answerHighLight {
+  background-color:blanchedalmond;
+  font-weight: bold;
+  color: darkgoldenrod;
+}
+
+.questionHighLight {
+   /* background-color:seashell; */
+    background-color:ivory;
+   font-weight: bold;
+    color: green;
+}
+
+
+.romanAnswer {
+  background-color:palegoldenrod;
+  font-weight: bold;
+  color: sienna;
+}
+
+
+
+
+
+
+
+
+.correct {
+    background-color: chartreuse;
+}
+
+.wrong {
+    background-color: rgb(245, 87, 118);
+}
+
+
+
+
+/* my style */
+
+
+.img {
+   
+    display: inline-block;
+}
+
+.mcqimg {
+    width: 50%;
+    float: right;
+    
+    
+}
+
+
+pre {
+    color: indigo;
+    font-size: 1rem;
+    
+    overflow-wrap: break-word;
+    
+}
+
+
+
+
+
+
+
+
+.choiceButtonListul {
+    text-align: left;   
+}
+
+ul {
+  text-align: justify;
+}
+
+
+.choiceButtonList {
+    list-style: none;
+    display: inline-block; 
+    margin-right: 5px; 
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    
+} 
+
+h5 {
+    display: inline-block;
+   
+}
+
+
+
+
+
+hr {
+    border-color: darkorange;
+    
+    /* border-style: none;
+    border-top-style:dotted;
+    
+    border-width: 8px;
+  
+    width: 30%; */
+}
+
+
+
+
+
+#myButtons {
+  
+  text-align: center;
+  
+ 
+}
+
+#msgBox {
+
+     text-align: center;
+      color: black;
+      font-family: 'Roboto Mono';
+       font-weight: bold;
+      
+     background-color: gold;
+      
+      font-size: large;
+      /* top: 0;
+      position: sticky;
+      z-index: 50; */
+   
+}
+
+.mcq  {
+    background-color: blue;
+    color: cornsilk;
+}
+
+
+/* .top-list {
+    align-items:flex-end;
+} */
+.choice {
+    font-weight: bold;
+}
+
+
+.noDisplay {
+    display: none;
+}
+
+.bright {
+    font-style: italic;
+    color: darkblue;
+  
+}
+
+<!-- Table Formatting -->
+
+  #score-Table {
+    max-height: 250px; 
+    
+    min-width:fit-content;
+    
+    
+    overflow-y: auto;
+    
+   
+  }
+  
+  #score-Table tr:nth-child(even){background-color:aliceblue;}
+  
+  #score-Table tr:hover {
+      background-color:lightsalmon;
+      color: indigo;
+      font-weight: 800;
+      
+    }
+
+  #thQno {
+    top: 0;
+    
+    position: sticky;
+    z-index: 35;
+     
+
+  }
+  
+ th {
+      background-color:palegoldenrod;
+      font-weight: bolder;
+      color: black;
+      font-family: 'Roboto Mono';
+      top: 0;
+      position: sticky;
+      /* z-index: 20; */
+      text-align: center; 
+  }
+
+  #scoreTableHeadRow {
+        font-size: larger;
+        font-weight: 900;
+  }
+ 
+
+  tbody > tr {
+    
+    cursor: pointer;
+    
+  }
+
+
+  .table-qNo {
+       font-size: larger;
+        font-weight: bolder;
+        color: white;
+        
+        left: 0;
+        position: sticky;
+        z-index: 10;
+        /* background-color: lavender; */
+       
+        
+        border-radius: 25%;
+
+    }
+
+  h3 {
+    background-color: goldenrod;
+    color: white;
+  }
+
+  #time-analysis-body {
+    cursor:not-allowed;
+
+  }
+
+  #time-Table tr:nth-child(even){background-color:aliceblue;}
+
+  tr {
+    font-weight: bold;
+  }
+
+.modal-content {
+  background-color: orange;
+}
+
+#button-info {
+  text-align: left;
+  color: black;
+  font-family: 'Roboto Mono';
+}
+
+#button-info-header{
+ background-color:black;
+  font-weight: bold;
+  color: sienna;
+  font-family: 'Roboto Mono';
+}
+
+.duration {
+  text-align: left;
+  background-color:palegoldenrod;
+  font-weight: bold;
+  color: sienna;
+  font-family: 'Roboto Mono';
+}
+
+
+
+ .bigAndBoldClass {
+      background-color:palegoldenrod;
+      font-weight: 900;
+      color: sienna;
+      font-family: 'Roboto Mono';
+      /* top: 0;
+      position: sticky;
+      z-index: 50; */
+      text-align: center; 
+  }
+
+
+.google-visualization-table-td {
+  text-align: center !important;
+}
+
+
+ /* #piechart_3d {
+    display: inline-block;
+    float: right;
+    
+} */
+
+
+.tabright {
+  display: inline-block;
+  float: right;
+}
+
+.tableft {
+  display: inline-block;
+  float: left;
+}
+
+
+	.horizontal-list li {
+	 float: left;
+    margin: 0 20px;
+	}
+
+ 
+ /* context menu */
+
+  .context-menu {
+            position: absolute;
+            
+            text-align: center;
+            border: 1px solid palegoldenrod;
+            background-color:palegoldenrod;
+            font-weight: bolder;
+            color: black;
+            font-family: 'Roboto Mono';
+      
+ 
+        }
+  
+        .context-menu ul {
+            padding: 0px;
+            margin: 0px;
+            min-width: 100px;
+            list-style: none;
+             text-align: center;
+
+        }
+  
+        .context-menu ul li {
+            padding-bottom: 7px;
+            padding-top: 7px;
+            border: 1px solid darkgoldenrod;
+        }
+  
+        .context-menu ul li a {
+            text-decoration: none;
+            color: sienna;
+        }
+  
+        .context-menu ul li:hover {
+            background: gold;
+            color: darkolivegreen;
+        }
+
+
+           .tabs .tab a{
+            color:purple;
+        } /*Black color to the text*/
+
+        .tabs .tab a:hover {
+            background-color:gold;
+            color: darkolivegreen;
+        } /*Text color on hover*/
+
+        .tabs .tab a.active {
+            font-weight: bold;
+            background-color: khaki;
+            color: sienna;
+        } /*Background and text color when a tab is active*/
+
+        .tabs .indicator {
+            background-color: orange;
+        } 
+
+        #ifameContent {
+          display: black;
+        }
+
+      
+
+
+
+
+
+  
+
+  
+
+
+
+</style>

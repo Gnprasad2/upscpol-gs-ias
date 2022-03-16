@@ -1,0 +1,143 @@
+﻿@charset "UTF-8"; * {margin: 10; padding: 10; text-indent:0; margin-right: 10; }
+ h1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s1 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s2 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s3 { color:brown; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .p, p { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; margin:0pt; }
+ .s4 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s5 { color:indianred; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s6 { color: #0000ED; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s7 { color: #0000ED; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s8 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s9 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s10 { color:indianred; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .a, a { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ h2 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s12 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s13 { color:darkslateblue; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s14 { color: #0000ED; font-family:Arial, sans-serif; font-style:normal; font-weight: normal; text-decoration: none; font-size: 80%; vertical-align: -3pt; }
+ .s15 { color: #eddd00; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s16 { color:indianred; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s17 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s18 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s19 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s20 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s21 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s22 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s23 { color: #0000ED; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s24 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s25 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s28 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s29 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 1pt; }
+ .s30 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s31 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s32 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s33 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s34 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 4pt; }
+ .s35 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s36 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s37 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s38 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 4pt; }
+ .s40 { color: #0000ED; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 4pt; }
+ .s41 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s42 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ h4 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%;}
+ .s44 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s45 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s46 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s47 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s48 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s49 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s50 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s51 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s52 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s53 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s54 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s55 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s56 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s57 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 1pt; }
+ .s58 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s61 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 1pt; }
+ .s62 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s63 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: -1pt; }
+ .s65 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; }
+ h3 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s66 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s67 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s68 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s69 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s70 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s71 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s72 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s73 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s74 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s75 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s77 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s78 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s79 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s80 { color: #616161; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s82 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s84 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; vertical-align: 6pt; }
+ .s85 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s86 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s87 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s88 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: -5pt; }
+ .s89 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s90 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s91 { color: #0000ED; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s92 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s93 { color: #616161; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s94 { color: #0000ED; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s95 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s96 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 1pt; }
+ .s97 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s98 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s99 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s100 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s101 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s102 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 1pt; }
+ .s104 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 5pt; }
+ .s105 { color: #FFF280; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; vertical-align: 6pt; }
+ .s106 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: -1pt; }
+ .s107 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: 4pt; }
+ .s108 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; vertical-align: -4pt; }
+ .s109 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; vertical-align: -3pt; }
+ .s110 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s112 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s113 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ .s114 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s115 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
+ .s116 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
+ table, tbody {vertical-align: top; overflow: visible; }
+.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+ .noDisplay {display: none;}
+ html {  background-color:ivory; } 
+body {
+    min-height: 100vh;
+    max-width: 1700px;
+    background-color:ivory;
+    margin: 10px auto;
+    padding-right: 60px;
+    padding-left: 30px;
+    padding-top: 30px;
+    
+    
+}
+
+@media screen and (min-width: 850px) and (max-width: 1200px) {
+    body {
+        padding-right: 100px;
+        padding-left: 50px;
+    }
+    
+  }
+
+@media screen and (min-width: 1200px) {
+    body {
+     column-count: 2;
+      column-gap: 40px;
+    }
+    
+  }

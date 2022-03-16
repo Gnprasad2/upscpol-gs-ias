@@ -1,0 +1,3283 @@
+<script>
+
+  google.charts.load('current', {packages: ['corechart']});
+  // google.charts.setOnLoadCallback(drawChart);
+   google.charts.load('current', {'packages':['table']});
+
+
+   
+    
+ 
+
+
+
+ // Questions buttons constants
+const startingColourofButtons= "grey";
+const correctButtonColor = "green";
+const wrongButtonColor = "red";
+const attemptedButtonColor = "indigo";
+const visitedButtonColor = "orange";
+const activeButtonColor = "purple"; // checked main question render
+const answerCheckedNA = "cyan";
+
+var choices = document.getElementsByName("choices");
+var myButtonsSection = document.getElementById("myButtons");
+
+// var ca  = document.getElementsByName("choices")[4].value;
+
+var runButton = document.getElementById("btnR");
+var previousButton = document.getElementById("btnP");
+var checkAnswerButton = document.getElementById("btnA");
+var nextButton = document.getElementById("btnN");
+var questionsButton = document.getElementById("btnQ");
+
+
+
+// var submitButton = document.getElementById("btnSubmit");
+// for enabling candidate to eliminate some choices.
+var probableChoices = document.getElementsByName("candidateCheckBoxes");
+var answerSpeaker= document.getElementById("answerSpeak");
+var reportSection = document.getElementById("report");
+var referenceSection = document.getElementById("reference");
+var referenceSubSection = document.getElementById("reference_sub");
+
+
+
+
+
+
+var navbarFixedSection = document.getElementById('navbarFixed');
+var headerSection  = document.getElementsByClassName("header")[0];
+var mainSection = document.getElementsByClassName("main")[0];
+var explanationsection = document.getElementsByClassName("explanation")[0];
+var navigationSection = document.getElementsByClassName("navigation")[0];
+var adsSection = document.getElementsByClassName("ads")[0];
+var footerSection = document.getElementsByClassName("footer")[0];
+var sidebarSection = document.getElementsByClassName("sidebar")[0];
+var questionsSection = document.getElementsByClassName("questions")[0];
+var choiceSection = document.getElementsByClassName("choice")[0];
+var questionButtonsSection = document.getElementById("myButtons");
+var sidebarQuestionButtonsSection = document.getElementById("mySidebarButtons");
+// var tableSection = document.getElementById("score-Table");
+var shortListSetting = document.getElementById("shortListSetting");
+var qidSetting = document.getElementById("qidSetting");
+var remainingTmeSection = document.getElementById("remainingTime");
+var percentageMarks;
+var totalMarks;
+var marksObtained;
+var table; // google table chart
+
+
+
+
+
+// declaration of variables at the starting
+var currentQuestionNo;
+var previousQuestionNo;
+var ca, explanation, id, imgA, imgQ, isCurrentAffair, oA, oB, oC, oD;
+var qnum, question, source, subject, year;
+var mcqs = [];
+var qButtons;
+// multiselect drop-down input
+var chip;
+var prepMode;
+var qId;
+
+
+
+var subjects;
+var years;
+var exams;
+var numQuestions;
+// for mcqs timing
+var startQuiz = 0;
+var testTime = {};
+var endQuiz;
+var startMcq;
+var endMcq;
+var mcqsTiming;
+var tScore;
+var formSubmitted;
+var testSummary;
+var sidenav;
+var answeSpeaking;
+var amIPaused;
+
+
+// at the time of document loading
+
+explanationsection.classList.add("noDisplay");
+mainSection.classList.add("noDisplay");
+navigationSection.classList.add("noDisplay");
+adsSection.classList.add("noDisplay");
+footerSection.classList.add("noDisplay");
+sidebarSection.classList.add("noDisplay");
+// tableSection.classList.add("noDisplay");
+
+
+
+//mcq status is one of visited, umvisited, answered, answerChecked 
+
+question = "Great Going . Keep it up.";
+explanation = "That's wonderful.";
+console.log(`That's fine. ${question}`);
+
+
+
+// const card = document.querySelector('aside');
+
+// card.addEventListener('dblclick', function (e) {
+//   card.classList.toggle('large');
+// });
+
+
+// Global event listeners
+
+document.addEventListener('dblclick', function(e) {
+  navbarFixedSection.classList.toggle('noDisplay');
+  referenceSubSection.classList.toggle("noDosplay");
+  
+})
+
+// navigationSection.addEventListener('dblclick', function(e) {
+//   e.preventDefault();
+//   referenceSubSection.classList.toggle("noDosplay");
+// })
+
+document.addEventListener('keyup', function(e) {
+// e.key returns key pressed
+  switch(e.keyCode){
+    case 39: // right arrow key code
+    getNextQuestion();
+    break;
+    case 37: // left arrow key
+    getPreviousQuestion();
+    break;
+    case 65: // key a pressed
+    if(prepMode == 'practice' || formSubmitted){
+      checkAnswer();
+      mainSectionToggle();
+      break;
+    } 
+    case 81: //key q 
+    navigationSectionToggle();
+    break;
+  }
+
+})
+
+
+
+//Button Functions
+
+runButton.addEventListener("click", headerNoShow);
+runButton.addEventListener("click", showMainSection);
+runButton.addEventListener("click", navigationSectionNoShow);
+//  runButton.addEventListener("click", getQuestions);
+
+// materialise form validate
+runButton.addEventListener("click", runButtonClickAction);
+checkAnswerButton.addEventListener("click", mainSectionToggle );
+checkAnswerButton.addEventListener("click",checkAnswer);
+questionsButton.addEventListener("click",  navigationSectionToggle);
+nextButton.addEventListener("click", getNextQuestion);
+previousButton.addEventListener("click", getPreviousQuestion);
+shortListSetting.addEventListener("click", displayShortListChoices);
+qidSetting.addEventListener("click", displayQId);
+
+
+// submitButton.addEventListener("click", submitButtonClicked);
+
+
+
+
+
+
+// get the values of input items and pass it getQuestionsfromSheet
+//  function getQuestions() {
+
+//   google.script.run
+//          .withSuccessHandler(displaySuccess)
+//          .withFailureHandler(displayFailure)
+//          .getQuestionsfromSheet();
+
+//  }
+
+
+function displayFailure(error) {
+  console.log(error);
+}
+
+
+
+function displaySuccess(things) {
+  if(things.length !== 0) {
+     mcqs = things;
+    
+    buttonGenerator();
+    qButtons = document.getElementsByClassName("qButton");
+    // console.log(mcqs);
+    currentQuestionNo = 1;
+    startQuiz = new Date();
+    startMcq = startQuiz;
+    formSubmitted = false;
+    mcqsTiming = [];
+    tScore = 0;
+    prepMode = mcqs[0].prepMode;
+    // console.log(prepMode);
+    if(prepMode == "test") {
+      checkAnswerButton.classList.add("noDisplay");
+    }
+
+    
+   
+    mcqRender(currentQuestionNo);
+    var answers = mcqs.map(function(mcq){return mcq.cA});
+    // console.log(answers);
+
+  } else {
+    sidebarSection.innerHTML = `At present, no data matching the given criteria. Please try with broader criteria`;
+  }
+   
+}
+
+
+// Gets input of one mcq object from mcqs[i]
+
+function questionChoiceTemplate(mcq) {
+  if(mcq.imgQ) {
+    var srcQ = `https://drive.google.com/uc?export=view&id=${mcq.imgQ}`;
+
+  } else {
+    var srcQ = "";
+  }
+    
+    return `
+    <div class="row questions" >
+   
+        <fieldset>
+            <legend>
+             <span id="qId"><em>${mcq.id} Question. </em> </span>
+               <ul class="center notranslate"> 
+                <li class="col s4"><a href="javascript:questionSpeak()"><i id="qPlay-stop" class="tiny green-text material-icons">play_circle_filled</i></a></li>
+              <li class="col s4"><a href="javascript:resumeSpeak()"><i id="pause-resume" class="tiny pink-text material-icons noDisplay">pause</i></a></li>
+              <li class="col s4"><a href="javascript:stopSpeak()"><i class="tiny black-text material-icons">stop</i></a></li>  
+          </ul>
+            
+                
+            </legend>  
+            <div class="question" id="question">
+                <span class="questionNo">${mcq.qnum}</span>
+                ${mcq.question} 
+                 
+                <div>
+                <img class="qimg responsive-img" src="${srcQ}"  >
+                </div> 
+               
+            </div>
+      <fieldset id="shortListed" class="shortListed">
+        <legend class="shortListed">
+           Short-Listed Choices :
+        </legend>
+      <label>
+        <input type="checkbox" name="candidateCheckBoxes" class="filled-in"/>
+        <span></span>
+      </label>
+      <label>
+        <input type="checkbox" name="candidateCheckBoxes" class="filled-in"/>
+        <span></span>
+      </label>
+      <label>
+        <input type="checkbox" name="candidateCheckBoxes" class="filled-in"/>
+        <span></span>
+      </label>
+      <label>
+        <input type="checkbox" name="candidateCheckBoxes" class="filled-in"/>
+        <span></span>
+      </label>
+      </fieldset>
+            
+       
+        
+        <div class="choice">
+        <fieldset>
+        <legend>
+           Choices :
+        </legend>
+          <p>
+            <label>
+            <span class="choiceInd">(a)</span>
+            <input name="choices" type="radio"  value="a" />
+            <span>${mcq.oA}</span>
+            </label>
+          </p>
+         <p>
+            <label>
+            <span class="choiceInd">(b)</span>
+            <input name="choices" type="radio"  value="b" />
+            <span>${mcq.oB}</span>
+            </label>
+          </p>
+        <p>
+            <label>
+            <span class="choiceInd">(c)</span>
+            <input name="choices" type="radio"  value="c" />
+            <span>${mcq.oC}</span>
+            </label>
+        </p>
+        <p>
+            <label>
+            <span class="choiceInd">(d)</span>
+            <input name="choices" type="radio"  value="d" />
+            <span>${mcq.oD}</span>
+            </label>
+        </p>
+        <p>
+            <label hidden><
+            <input  name="choices" type="radio" disabled value=${mcq.cA}/>
+            <span>myValue</span>
+            </label>
+        </p>
+        </fieldset>
+    </div>
+
+    <div>
+        <img class="qimg" src="" alt="" >
+    </div>
+
+</div>
+ 
+    `;
+}
+
+
+
+
+function explanationTemplate(mcq) {
+ 
+if(mcq.imgA) {
+  var srcA = `https://drive.google.com/uc?export=view&id=${mcq.imgA}`;
+
+} else {
+  var srcA = "";
+}
+ 
+   
+   
+    return `
+      <div class="row explanation">
+    <fieldset>
+      <legend>
+        <b>Correct answer for Question   ${mcq.qnum}  is <em>(${mcq.cA})</em>. </b>
+     </legend>         
+    <div>
+           <p><em>Explanation. </em>
+           <span class="explanation">${mcq.explanation}</span>
+           </p>
+       
+          
+           <img class="aimg responsive-img" src="${srcA}"  >
+            
+       
+        <em class="source">${mcq.source}</em>
+    </div>
+    </fieldset>
+    </div>
+    
+
+
+    `;
+}
+
+
+
+
+
+function addEventListenersToRadios() {
+  for (let i = 0; i < choices.length; i++) {
+      choices[i].addEventListener("click", saveResponse);
+      
+
+      
+  }
+
+}
+
+function mainSectionHide() {
+  if (!mainSection.classList.contains("noDisplay")) {
+      mainSection.classList.add("noDisplay");
+  }
+// console.log (`mainSectionHide executed`);
+
+}
+
+function mainSectionToggle() {
+mainSection.classList.toggle("noDisplay");
+// console.log(`mainSectionToggle executed.`);
+
+}
+
+function navigationSectionNoShow() {
+    if(!navigationSection.classList.contains("noDisplay")) {
+        navigationSection.classList.add("noDisplay");
+
+    }
+}
+
+
+function navigationSectionToggle() {
+// used by mcqRender(n) function
+navigationSection.classList.toggle("noDisplay");
+if(formSubmitted) {
+  if(!navigationSection.classList.contains('noDisplay')){
+    if(!sidebarSection.classList.contains('noDisplay')) {
+       sidebarSection.classList.add('noDisplay');
+    }
+  } else {
+     if(sidebarSection.classList.contains('noDisplay')) {
+       sidebarSection.classList.remove('noDisplay');
+    }
+
+  }
+
+   if(reportSection.classList.contains('noDisplay')) {
+       reportSection.classList.remove('noDisplay');
+  }
+
+  if(!referenceSection.classList.contains('noDisplay')) {
+       referenceSection.classList.add('noDisplay');
+  }
+ 
+ 
+}
+
+  
+
+
+
+
+
+// console.log (`navigationSectionHide executed`);
+ var instance = M.Tooltip.getInstance(document.getElementById("btnQ"));
+        setTimeout(toolTipClose, 2000, instance);
+ 
+
+}
+
+function tableSectionToggle () {
+  // tableSection.classList.toggle("noDisplay");// previous table removed on 01/09/21
+}
+
+// sets the previous question button to inactive.
+
+
+// timingHandler
+
+function timingHandler(endMcq) {
+    // This function called by mcqRenderer
+    if (startMcq !== startQuiz && endMcq !== endQuiz) {
+      timeSpentOnQuestion = endMcq.getTime() - startMcq.getTime();
+      // console.log(timeSpentOnQuestion);
+      if (timeSpentOnQuestion > 1000){
+        previousMcqTiming = [previousQuestionNo, startMcq, endMcq];
+        mcqsTiming.push(previousMcqTiming); 
+      }
+       
+      //  mcqsTiming array contains all the timing details of mcqs
+      
+      // function form submit shall also call this function.
+      //  console.log (`above timingHandler inside function was executed`);
+    }
+    return mcqsTiming;
+}
+
+
+function mcqVisitsTiming () {
+
+  var mcqsTiming = timingHandler(endMcq);
+  // get the mcqsTiming from timingHandler;
+    // gives mcq number, numVisits, totalTime in ms.
+  for (let i = 0; i < mcqs.length; i++) {
+    mcqsTiming.forEach(function(r) {
+      mcqNum = i + 1;
+      if (r[0] === mcqNum) {
+        mcqs[i].visits += 1;
+        mcqs[i].spentTime += r[2].getTime() - r[1].getTime();
+        // get the time in milli Seconds.
+      }
+    }) 
+
+    // console.log(`${mcqs[i].qnum}, visits: ${mcqs[i].visits} , 
+    // timespent: ${mcqs[i].spentTime}`);
+  }
+    
+}
+
+function submitForm() {
+    endQuiz = new Date();
+    timingHandler(endQuiz);
+    endMcq = endQuiz;
+    currentQuestionNo = 0;
+
+    for (let i = 0; i < mcqs.length; i ++) {
+      currentQuestionNo += 1;
+      mcqRender(currentQuestionNo);
+      checkAnswer();
+      // console.log(mcqs[i].evaluation);
+      
+    }
+  mcqVisitsTiming ();
+  currentQuestionNo = 1;
+  mcqRender(currentQuestionNo);
+
+}
+
+
+
+
+// Gets input of one mcq from mcqs[i]
+
+function mcqRender(questionNum) {
+    endMcq = new Date();
+    timingHandler(endMcq);
+    currentQuestionNo = questionNum;
+    let indexOfMcq = currentQuestionNo - 1;
+    var mcq = mcqs[indexOfMcq]; //Call with the index from questionNum
+    mainSection.innerHTML = explanationTemplate(mcq);
+    sidebarSection.innerHTML = questionChoiceTemplate(mcq);
+    // sidebarSection.innerHTML =  explanationTemplate(mcq);
+    if (formSubmitted === false) {
+      mainSectionHide();
+    }
+    // mainSectionHide();
+    addEventListenersToRadios();
+    addEventListenersToCheckBoxes();
+    if(mcqs[indexOfMcq].status === "unvisited") {
+        mcqs[indexOfMcq].status = "visited";
+    }
+    checkStatus(indexOfMcq);
+    if(sidebarSection.classList.contains("noDisplay")) {
+          sidebarSection.classList.remove("noDisplay");
+    }
+    if (synth.speaking) {
+      synth.cancel(); 
+    }  
+
+    if(mcq.status == "answerChecked") {
+      if (answerSpeaker.classList.contains("noDisplay")) {
+            answerSpeaker.classList.remove('noDisplay');
+          }
+    } else {
+      if (!answerSpeaker.classList.contains("noDisplay")) {
+            answerSpeaker.classList.add('noDisplay');
+      }
+
+    }
+
+    answeSpeaking = false;
+    amIPaused = false;
+
+    document.getElementById("answerSpeakI").textContent = "play_circle_filled"; 
+   
+
+    
+
+    displayQId();
+    buttonClassListHandler();
+    // for enabling candidate to eliminate some choices.
+    renderCheckBoxes();
+    displayShortListChoices();
+    previousQuestionNo = currentQuestionNo;
+    startMcq = endMcq; 
+}
+
+
+
+function checkStatus(indexOfMcq) { 
+    //called when the new question is called (next, prev, button).
+    if (indexOfMcq < mcqs.length) {
+        let status = mcqs[indexOfMcq].status;
+        let selectedAnswer = mcqs[indexOfMcq].selectedAnswer;
+        let ca = mcqs[indexOfMcq].cA;
+        let checkedOption = mcqs[indexOfMcq].checkedOption;
+        if (checkedOption >= 0 && checkedOption < choices.length) {
+            choices[checkedOption].checked = true;
+        }
+       
+    
+        switch (status) {
+           
+            case "answered" :
+            case "visited" :
+            case "unvisited" :
+                for ( let i = 0; i < choices.length; i++) {
+                    if (!choices[i].parentElement.classList.contains("bright") ){
+                        choices[i].parentElement.classList.add("bright"); // add blue colour of font
+                    }
+    
+                }
+                break;
+            case "answerChecked" :
+                for ( let i = 0; i < choices.length; i++) { // same code from checkAnswer() pasted here.
+                    if (choices[i].checked === true && selectedAnswer === ca) {
+                        mcqs[indexOfMcq].selectedAnswer = choices[i].value;
+                        // choices[i].parentElement.classList.toggle("correct");
+                         if (!choices[i].parentElement.classList.contains("correct")) {
+                             choices[i].parentElement.classList.add("correct");
+                         }
+                        mcqs[indexOfMcq].checkedOption = i;
+                        mcqs[indexOfMcq].evaluation = "correct";
+                    } else if (choices[i].checked === true && selectedAnswer !== ca) {
+                        mcqs[indexOfMcq].selectedAnswer = choices[i].value; // get the selected choice.
+                        // choices[i].parentElement.classList.toggle("wrong");
+                         if (!choices[i].parentElement.classList.contains("wrong")) {
+                            choices[i].parentElement.classList.add("wrong");
+                         }
+                        mcqs[indexOfMcq].checkedOption = i;
+                        mcqs[indexOfMcq].evaluation = "wrong";
+                    } 
+        
+                    if (choices[i].value === ca && choices[i]
+                    .parentElement.classList.contains    ("correct") === false ){
+                        // choices[i].parentElement.classList.toggle("correct");
+                        if (!choices[i].parentElement.classList.contains("correct")) {
+                             choices[i].parentElement.classList.add("correct");
+                         }
+                    }
+                    
+                    choices[i].disabled = true;
+                    if (choices[i].parentElement.classList.contains("bright") === true ){
+                        choices[i].parentElement.classList.remove("bright"); 
+                        // remove blue colour of font
+                    }
+                }
+                break;
+            default :
+                // console.log(`The status of the question is ${status} .`);
+            
+         }
+
+
+    }
+   
+          
+};
+
+
+
+// gets called when next button is pressed.
+function getNextQuestion() { 
+   if (currentQuestionNo < mcqs.length) {
+     // render next question if if it is not the last question.
+        currentQuestionNo = currentQuestionNo + 1;
+        mcqRender(currentQuestionNo);
+       
+    } else if (currentQuestionNo === mcqs.length) {
+        currentQuestionNo = 1;
+        mcqRender(currentQuestionNo);
+    }
+
+   
+       var instance = M.Tooltip.getInstance(document.getElementById("btnN"));
+        setTimeout(toolTipClose, 2000, instance);
+
+    if(sidebarSection.classList.contains("noDisplay")) {
+          sidebarSection.classList.remove("noDisplay");
+      }
+      
+      
+
+}
+
+
+
+function getPreviousQuestion () {
+     if (currentQuestionNo > 1){
+       currentQuestionNo = currentQuestionNo - 1;
+        mcqRender(currentQuestionNo);
+     } else if (currentQuestionNo === 1) {
+        currentQuestionNo = mcqs.length;
+        mcqRender(currentQuestionNo);
+    }
+     var instance = M.Tooltip.getInstance(document.getElementById("btnP"));
+        setTimeout(toolTipClose, 2000, instance);
+
+    if(sidebarSection.classList.contains("noDisplay")) {
+          sidebarSection.classList.remove("noDisplay");
+    }
+        
+    // console.log(`getPreviousQuestion() function was called to render question ${currentQuestionNo}`);
+}
+
+
+
+function saveResponse() { 
+// button activated. same choice second time clicking checked option would be deselected.
+
+ let indexOfMcq = currentQuestionNo - 1;
+    if (indexOfMcq < mcqs.length) {
+        if (mcqs[indexOfMcq].status !== "answerChecked") {
+            for ( let i = 0; i < choices.length; i++) {
+                if(choices[i].checked === true && mcqs[indexOfMcq].checkedOption !== i){
+                    mcqs[indexOfMcq].selectedAnswer = choices[i].value; 
+                    mcqs[indexOfMcq].checkedOption = i; 
+                    mcqs[indexOfMcq].status = "answered";
+                    break;
+               } else if(choices[i].checked === true && mcqs[indexOfMcq].checkedOption === i) {
+                   choices[i].checked = false;
+                   mcqs[indexOfMcq].selectedAnswer = "";
+                   mcqs[indexOfMcq].checkedOption = 6; 
+                   mcqs[indexOfMcq].status = "visited";
+                   break;
+               } else {
+                  mcqs[indexOfMcq].status = "visited";
+
+               }
+            } 
+
+        } 
+
+        // console.log(`savedResponse function was called. status of mcq is ${mcqs[indexOfMcq].status}`);
+
+        buttonClassListHandler ();
+
+    }
+   
+}
+
+
+// for mobile sidenav
+
+$(document).ready(function(){
+// $('.sidenav').sidenav();
+    $('.sidenav').sidenav({
+      
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+});
+
+
+
+ $(document).ready(function(){
+      $('.modal').modal();
+  });
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    //   initialise multi select drop down subjects
+    // var options = {10, 20, 25, 50, 100};
+    var options = {};
+     M.updateTextFields();
+    var subjectEl = document.getElementById("subjects");
+    subjects = M.FormSelect.init(subjectEl);
+    //   initialise multi select drop down years
+    // var yearsEl = document.getElementById("years");
+    // years = M.FormSelect.init(yearsEl);
+    //   initialise multi select drop down exams
+    var examsEl = document.getElementById("exams");
+    exams = M.FormSelect.init(examsEl);
+    //   initialise multi select drop down numQuestions
+    var numQuestionsEl = document.getElementById("numQuestions");
+    numQuestions = M.FormSelect.init(numQuestionsEl, options);
+
+    var toolTippedBtnsEl = document.querySelectorAll('.tooltipped');
+    var toolTippedBtns = M.Tooltip.init(toolTippedBtnsEl, {margin: 65});
+
+    var tabsEl = document.querySelectorAll('.tabs');
+    var tabBtns = M.Tabs.init(tabsEl, {swipeable: true});
+
+    
+
+    
+
+
+    // var elems = document.querySelectorAll('.chips');
+
+    var chipEl = document.getElementById("chip");
+    chip = M.Chips.init(chipEl, {
+      placeholder: 'key word(s)',
+      secondaryPlaceholder: '+ key word',
+      });
+
+      
+   
+
+})
+
+  // $(document).ready(function() {
+  //   M.updateTextFields();
+  // });
+
+    $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+
+    
+
+ 
+    
+
+
+
+
+
+function runButtonClickAction () {
+   var toValidate = {
+       fn: "First name is required",
+       email: "valid email is required ",
+   };
+
+   var idKeys = Object.keys(toValidate);
+   var allValid = true;
+   // idKeys.forEach(function(id) {
+   //     var isValid = checkIfValid(id, toValidate[id]);
+   //     if (!isValid) {
+   //         allValid = false;
+   //     }
+   // });
+   if (allValid) {
+       addRecord();
+   }
+}
+
+function getPrepMode() {
+  // used by testInfo.prepMode
+            var prepModes = document.getElementsByName("prep-mode"); 
+            for(i = 0; i < prepModes.length; i++) {
+                if(prepModes[i].checked) {
+                  prepMode = prepModes[i].value;
+                } 
+            }
+  return  prepMode;
+}
+
+function addRecord () {
+   var testInfo = {};
+   testInfo.userName = document.getElementById("fn").value;
+   testInfo.email = document.getElementById("email").value;
+   testInfo.exams = exams.getSelectedValues();
+   testInfo.subjects = subjects.getSelectedValues();
+  //  testInfo.years = years.getSelectedValues();
+    testInfo.year = document.getElementById("year").value;
+   testInfo.prepMode = getPrepMode();
+   // chip variable initialised in document loading
+   var chipsData = chip.chipsData;
+   testInfo.chips = chipsData.map(function(chipData) {
+       return chipData.tag;
+   });
+   testInfo.numQuestions = document.getElementById("numQuestions").value;
+
+  //  testInfo.numQuestions = numQuestions.getSelectedValues();
+
+   google.script.run
+   .withSuccessHandler(displaySuccess)
+   .withFailureHandler(displayFailure)
+   .userClicked(testInfo);
+
+   document.getElementById("fn").value = "";
+   document.getElementById("email").value = "";
+   document.getElementById("year").value = "";
+  
+   M.updateTextFields();
+   chip.data = [];
+   var chipEl = document.getElementById("chip");
+   chip = M.Chips.init(chipEl);
+}
+
+ $(document).ready(function() {
+    $('input#year, textarea#textarea2').characterCounter();
+  });
+
+
+function headerNoShow() {
+headerSection.classList.toggle("noDisplay");
+navigationSection.classList.toggle("noDisplay");
+sidebarSection.classList.toggle("noDisplay");
+}
+
+
+
+
+
+
+function showMainSection() {
+mainSection.classList.toggle("noDisplay");
+// footerSection.classList.toggle("noDisplay");
+// adsSection.classList.toggle("noDisplay");
+}
+
+
+
+function checkAnswer() {  
+ //button activated function
+  if(startQuiz > 0) {
+   let indexOfMcq = currentQuestionNo - 1;
+   checkStatus(indexOfMcq);
+   mcqs[indexOfMcq].status = "answerChecked" ;
+   
+   for ( let i = 0; i < choices.length; i++) {
+       choices[i].disabled = true; 
+   }
+
+    var selectedAnswer =  mcqs[indexOfMcq].selectedAnswer;
+    var ca = mcqs[indexOfMcq].cA;
+
+    // console.log(`This is from checkAnswer function.
+    // selected answer: ${selectedAnswer}, correct Answer: ${ca}`);
+    // console.log(`status of ${mcqs[indexOfMcq].qnum} is ${mcqs[indexOfMcq].status}`);
+     
+        for ( let i = 0; i < choices.length; i++) {
+            if (choices[i].checked === true && selectedAnswer === ca) {
+               mcqs[indexOfMcq].evaluation = "correct";
+                mcqs[indexOfMcq].selectedAnswer = choices[i].value;
+                if (!choices[i].parentElement.classList.contains("correct")) {
+                    choices[i].parentElement.classList.add("correct");
+                }
+                mcqs[indexOfMcq].checkedOption = i;
+            } else if (choices[i].checked === true && selectedAnswer !== ca) {
+               mcqs[indexOfMcq].evaluation = "wrong";
+                mcqs[indexOfMcq].selectedAnswer = choices[i].value; // get the selected choice.
+                
+                if (!choices[i].parentElement.classList.contains("wrong")) {
+                    choices[i].parentElement.classList.add("wrong");
+                }
+                mcqs[indexOfMcq].checkedOption = i;
+            }
+
+            if (choices[i].value === ca && choices[i].parentElement.classList.contains("correct") === false ){
+                choices[i].parentElement.classList.add("correct");
+            }
+            
+        
+            if (choices[i].parentElement.classList.contains("bright") === true ){
+                choices[i].parentElement.classList.remove("bright"); // remove blue colour of font
+            }
+
+       
+        }
+
+         
+          if (answerSpeaker.classList.contains("noDisplay")) {
+            answerSpeaker.classList.remove('noDisplay');
+          }
+
+
+   
+    buttonClassListHandler();
+     var instance = M.Tooltip.getInstance(document.getElementById("btnA"));
+        setTimeout(toolTipClose, 2000, instance);
+  }
+}
+
+
+
+//  Presentation of Questions and Answers from template
+
+
+
+// qurestion button handler section
+function twoDigit(number) {
+var twodigit = number >= 10 ? number.toString() : "0"+number.toString();
+return twodigit;
+}
+
+function buttonGenerator() {
+var noOfQuestions = mcqs.length;
+if (noOfQuestions > 0) {
+    for (let i = 0; i < noOfQuestions; i++) {
+        var qbutton = `<a href="#" class="btn pink waves-effect waves-light">
+        <span>${i}</span>
+        <i class="material-icons left">send</i>
+        </a>`;
+        var questionButton = document.createElement("BUTTON");
+        questionButton.innerHTML = `<li class="questionButtonList"><b>${twoDigit(i + 1)}</b></li>`;
+        questionButton.value = i + 1;
+        // console.log(questionButton.value);
+        myButtonsSection.appendChild(questionButton);
+        sidebarQuestionButtonsSection.appendChild(questionButton);
+        questionButton.classList.add("btn");
+        questionButton.classList.add(startingColourofButtons);
+        questionButton.classList.add("waves-effect");
+        questionButton.classList.add("waves-light");
+        // questionButton.classList.add("btn-large");
+        questionButton.classList.add("circle");
+        questionButton.classList.add("qButton");
+        questionButton.addEventListener("click", mcqRenderPre);
+
+       
+
+       
+
+        // console.log(`This buttonGenerator function executed ${i} th time`);
+    }
+    
+}
+
+}
+
+function mcqRenderPre() {
+currentQuestionNo = parseInt(this.value);
+
+// console.log(this.value);
+
+mcqRender(currentQuestionNo);
+
+}
+
+
+function removeCurrentButtonColor() {
+   // var qButtons = document.getElementsByClassName("qButton");
+   let indexOfMcq = currentQuestionNo - 1;
+   let buttonColors = [correctButtonColor, wrongButtonColor, attemptedButtonColor, visitedButtonColor,activeButtonColor, startingColourofButtons, answerCheckedNA];
+   buttonColors.forEach(function(color){
+      //  console.log(`remove color ${color} was executed`);
+       if (qButtons[indexOfMcq].classList.contains(color)) {
+           qButtons[indexOfMcq].classList.remove(color);
+          //  console.log(`remove color clear ${color} was executed`);
+       }
+   }) 
+}
+
+
+function updateCurrentButtonColor () {
+
+   removeCurrentButtonColor();
+   let indexOfMcq = currentQuestionNo - 1;
+   let status = mcqs[indexOfMcq].status;
+   var qButtons = document.getElementsByClassName("qButton");
+
+  //  console.log(`update current button color staus is ${status}`);
+    if (startMcq !== startQuiz && mcqs[previousQuestionNo - 1].status === "visited"
+     && currentQuestionNo !== previousQuestionNo) {
+              if(qButtons[previousQuestionNo - 1].classList.contains(activeButtonColor)) {
+                qButtons[previousQuestionNo - 1].classList.remove(activeButtonColor);
+              }
+              qButtons[previousQuestionNo - 1].classList.add(visitedButtonColor);
+              mcqs[indexOfMcq].color = visitedButtonColor;
+    };
+
+
+   switch (status) {
+       case "answered":
+           qButtons[indexOfMcq].classList.add(attemptedButtonColor);
+           mcqs[indexOfMcq].color = attemptedButtonColor;
+
+
+          //  console.log("switch case answered was executed");
+          //  console.log(`add color ${attemptedButtonColor} was executed`);
+          
+       break;
+
+       case "answerChecked":
+               if(mcqs[indexOfMcq].evaluation === "correct") {
+                   qButtons[indexOfMcq].classList.add(correctButtonColor);
+                  //  console.log("switch case correct was executed");
+                  //  console.log(`add color ${correctButtonColor} was executed`);
+                   mcqs[indexOfMcq].color = correctButtonColor;
+               } else if (mcqs[indexOfMcq].evaluation === "notAttempted") {
+                 qButtons[indexOfMcq].classList.add(answerCheckedNA);
+                 mcqs[indexOfMcq].color = answerCheckedNA;
+               } else {
+                   qButtons[indexOfMcq].classList.add(wrongButtonColor);
+                  //  console.log("switch case wrong was executed");
+                  //  console.log(`add color ${wrongButtonColor} was executed`);
+                   mcqs[indexOfMcq].color = wrongButtonColor;
+               }
+       break; 
+       
+       
+       case "visited":
+             if (mcqs[indexOfMcq].qnum === currentQuestionNo) {
+              qButtons[indexOfMcq].classList.add(activeButtonColor);
+              mcqs[indexOfMcq].color = attemptedButtonColor;
+             }
+
+            // } else {
+            //          qButtons[indexOfMcq].classList.add(visitedButtonColor);
+            //          console.log("switch case visited was executed");
+            //          console.log(`add color ${visitedButtonColor} was executed`);
+            // };
+
+            // if (startMcq !== startQuiz && mcqs[previousQuestionNo - 1].status === "visited" && currentQuestionNo !== previousQuestionNo) {
+            //   if(qButtons[previousQuestionNo - 1].classList.contains(activeButtonColor)) {
+            //     qButtons[previousQuestionNo - 1].classList.remove(activeButtonColor);
+            //   }
+            //   qButtons[previousQuestionNo - 1].classList.add(visitedButtonColor);
+            // };
+
+       break;
+
+     
+       case "unvisited":
+           // qButtons[indexOfMcq].classList.add(startingColourofButtons);
+          //  console.log("switch case unvisited was executed");
+           mcqs[indexOfMcq].color = startingColourofButtons;
+        
+       break;
+
+
+   } 
+   
+}
+
+
+function buttonClassListHandler () {
+
+   removeCurrentButtonColor();
+   updateCurrentButtonColor ();
+  //  console.log("buttonClassListHandler was executed");
+
+}
+
+
+function mcqRenderPreRow() {
+    currentQuestionNo = parseInt(this.rowIndex);
+    // console.log(this.rowIndex);
+    mcqRender(currentQuestionNo);
+}
+
+
+function scoreTableRender() {
+
+    // var tbody = document.getElementById("score-table");
+    var msgBox = document.getElementById("msgBox");
+    var tScore = 0;
+    
+    let score;
+    
+        mcqs.forEach(function(mcq) {
+      
+            // var row = document.createElement("tr");
+            // document.addEventListener("row", mcqRender(mcq.))
+            // row.addEventListener("click", mcqRenderPreRow);
+
+            // var col1 = document.createElement("td");
+            // col1.textContent = `${twoDigit(mcq.qnum)}`; // question number
+            // col1.classList.add("table-qNo");
+            
+            // col1.classList.add("btn-large", "waves-effect","waves=light", `${mcq.color}`);
+            // terms. setAttribute('id','para-1')
+            
+            // var col2 = document.createElement("td");
+            // col2.textContent = `${subjectTo3Letter(mcq.subject)}`; // sub
+            
+            // var col3 = document.createElement("td");
+            // col3.textContent = `${mcq.cA}`; // ans
+            
+            // var col4 = document.createElement("td");
+            // col4.textContent = `${mcq.selectedAnswer}`; // you
+            
+            // var col5 = document.createElement("td");
+            // col5.textContent = `${getSpentTime(mcq)}`; // duration in minutes and seconds
+            
+            // var col6 = document.createElement("td");
+            // col6.textContent = `${mcq.visits}`; // vis
+            
+          //  var col7 = document.createElement("td");
+            // col7.textContent = `${getEvaluation(mcq.evaluation)}`; // eva
+      
+            // var col8 = document.createElement("td");
+            score = getScore(mcq);
+            score1 = (score * (2/3)).toFixed(2);
+            // col8.textContent = `${score1}`; // Score of mcq
+            tScore += score;
+            
+            // row.appendChild(col1);
+            // row.appendChild(col2);
+            // row.appendChild(col3);
+            // row.appendChild(col4);
+            // row.appendChild(col5);
+            // row.appendChild(col6);
+            // row.appendChild(col7);
+            // row.appendChild(col8);
+
+            // tbody.appendChild(row);
+
+        })
+
+        totalMarks = 2*mcqs.length;
+        marksObtained = (2/3)*tScore;
+        percentageMarks = marksObtained / totalMarks * 100;
+        // console.log(percentageMarks);
+        // console.log(totalMarks);
+        // console.log(marksObtained);
+
+ 
+
+    msgBox.innerHTML = `<span id='scoreBox'> Score = 
+      ${percentageMarks.toFixed(2)} % ~ (${marksObtained.toFixed(2)} / ${totalMarks}) </span> `;
+      
+}
+
+function getEvaluation(evaluation) {
+    return evaluation === "notAttempted" ? "NA" : evaluation === "correct" ? "RT" : "WG";
+
+}
+
+
+ function getScore(mcq) {
+    switch (mcq.evaluation) {
+      case "correct":
+        mcq.score = 3;
+        break;
+
+      case "wrong":
+        mcq.score = -1;
+        break;
+
+      case "notAttempted":
+       mcq.score = 0;
+
+        break;
+    }
+    return mcq.score;
+  }
+
+  function getSpentTime(mcq) {
+    // in minutes and seconds. this.time is in milli seconds.
+    let minutes = Math.floor(mcq.spentTime/(60*1000));
+    let seconds = Math.floor((mcq.spentTime % (60*1000)) / 1000);
+    seconds = seconds > 9 ? `${seconds}` : `0${seconds}`;
+    return (`${minutes} m : ${seconds} s`);
+  }
+
+
+
+
+
+function submitButtonClicked() {
+  
+  var sidenavEl = document.getElementById("mobile-links");
+   sidenav = M.Sidenav.getInstance(sidenavEl);
+  sidenav.close();
+  if(startQuiz > 0) {
+    if (formSubmitted === false) {
+      submitForm();
+      scoreTableRender();
+      if(!questionButtonsSection.classList.contains("noDisplay")) {
+        questionButtonsSection.classList.add("noDisplay");
+      }
+      // var timeTable = document.getElementById("time-Analysis");
+      // timeTable.innerHTML = timeTableRender(); // removed on 03/09/21
+      if(navigationSection.classList.contains("noDisplay")) {
+          navigationSection.classList.remove("noDisplay");
+      }
+       if(!mainSection.classList.contains("noDisplay")) {
+          mainSection.classList.add("noDisplay");
+      }
+       if(!sidebarSection.classList.contains("noDisplay")) {
+          sidebarSection.classList.add("noDisplay");
+      }
+
+      if(reportSection.classList.contains('noDisplay')) {
+       reportSection.classList.remove('noDisplay');
+      }
+
+      if(!referenceSection.classList.contains("noDisplay")) {
+          referenceSection.classList.add("noDisplay");
+      }
+
+      
+    }
+    formSubmitted = true;
+    tableSectionToggle ();
+    myStopFunction();
+    // remainingTmeSection.innerHTML = `<h5>${marksObtained.toFixed(2)} / ${totalMarks} </h5> `;
+    sidebarScoreTable(mcqs);
+    if(checkAnswerButton.classList.contains("noDisplay")) {
+      checkAnswerButton.classList.remove("noDisplay");
+    }
+    var submitTestButtons = document.getElementsByClassName("modal-trigger");
+    for(let i = 0; i < submitTestButtons.length; i++) {
+      if(!submitTestButtons[i].classList.contains("noDisplay")) {
+        submitTestButtons[i].classList.add("noDisplay");
+      }
+    }
+    // below section added on 09/08/21
+   
+    
+    drawChart(mcqs);
+
+      google.script.run
+         .withSuccessHandler(displayChart)
+         .withFailureHandler(displayFailure)
+         .userSubmittedForm(mcqs); 
+
+  } 
+}
+
+function displayChart() {
+  // to draw chart
+
+}
+
+
+function timeAnalyser() {
+  let numRightQuestions = 0;
+  let numWrongQuestions = 0;
+  let numNotAttemptedQuestions = 0;
+  let timeOnRT = 0;
+  let timeOnWG = 0;
+  let timeOnNA = 0;
+  let totalQuestions = mcqs.length;
+  let numVisitsOnRT = 0;
+  let numVisitsOnWG = 0;
+  let numVisitsOnNA = 0;
+  let numTotalVisits = 0;
+  // time in millis seconds
+  let totalQuizTime = 0; 
+  mcqs.forEach(function(mcq){
+      totalQuizTime += mcq.spentTime;
+      numTotalVisits += mcq.visits;
+
+     switch (mcq.evaluation) {
+      case "correct":
+        numRightQuestions += 1;
+        timeOnRT += mcq.spentTime;
+        numVisitsOnRT += mcq.visits;
+        
+        break;
+
+      case "wrong":
+        numWrongQuestions += 1;
+        timeOnWG += mcq.spentTime;
+        numVisitsOnWG += mcq.visits;
+        break;
+
+      case "notAttempted":
+        numNotAttemptedQuestions += 1;
+        timeOnNA += mcq.spentTime;
+        numVisitsOnNA = mcq.visits;
+        break;
+    }
+   
+
+  })
+
+  let timeOnRTFormatted = getTimeInFormat(timeOnRT);
+  let timeOnWGFormatted = getTimeInFormat(timeOnWG);
+  let timeOnNAFormatted = getTimeInFormat(timeOnNA);
+  let totalQuizTimeFormatted = getTimeInFormat(totalQuizTime);
+
+   testSummary = [numRightQuestions, numWrongQuestions, numNotAttemptedQuestions, timeOnRT, timeOnRTFormatted, timeOnWG, 
+  timeOnWGFormatted, timeOnNA, timeOnNAFormatted, numVisitsOnRT, numVisitsOnWG, numVisitsOnNA, numTotalVisits, totalQuizTime, totalQuizTimeFormatted, totalQuestions];
+
+  
+
+  return(testSummary);
+  
+
+
+}
+
+
+ function getTimeInFormat(timeInMs) {
+    // in minutes and seconds. same function getSpentTime(mcq) duplicated.
+    let minutes = Math.floor(timeInMs/(60*1000));
+    let seconds = Math.floor((timeInMs % (60*1000)) / 1000);
+    seconds = seconds > 9 ? `${seconds}` : `0${seconds}`;
+    return (`${minutes} : ${seconds}`);
+  }
+
+
+
+
+function timeTableRender () {
+
+  var timeArr = timeAnalyser();
+
+  // return `
+
+  //   <table id="time-Table" class="centered">
+
+  //     <thead>
+  //       <caption>Time Usage</caption>
+
+  //       <tr>
+  //         <th></th>
+  //         <th>n.Qs </th>
+  //         <th>(%)Qs</th>
+          
+  //         <th>t.Spent</th>
+  //         <th>% on t.Time</th>
+  //       </tr>
+  //     </thead>
+
+  //     <tbody id="time-analysis-body">
+
+  //       <tr>
+  //         <td>RT</td>
+  //         <td>${timeArr[0]}</td>
+  //         <td>${(timeArr[0]/timeArr[15]*100).toFixed()}</td>
+          
+  //         <td>${timeArr[4]}</td>
+  //         <td>${(timeArr[3]/timeArr[13]*100).toFixed()}</td>
+  //       </tr>
+  //       <tr>
+
+  //         <td>WG</td>
+  //         <td>${timeArr[1]}</td>
+  //         <td>${(timeArr[1]/timeArr[15]*100).toFixed()}</td>
+          
+  //         <td>${timeArr[6]}</td>
+  //         <td>${(timeArr[5]/timeArr[13]*100).toFixed()}</td>
+  //       </tr>
+
+  //       <tr>
+  //         <td>NA</td>
+  //         <td>${timeArr[2]}</td>
+  //         <td>${(timeArr[2]/timeArr[15]*100).toFixed()}</td>
+        
+  //         <td>${timeArr[8]}</td>
+  //         <td>${(timeArr[7]/timeArr[13]*100).toFixed()}</td>
+  //       </tr>
+
+  //       <tr>
+  //         <td>Total</td>
+  //         <td>${timeArr[15]}</td>
+  //         <td>${(timeArr[15]/timeArr[15]*100).toFixed()}</td>
+          
+  //         <td>${timeArr[14]}</td>
+  //         <td>${(timeArr[13]/timeArr[13]*100).toFixed()}</td>
+  //       </tr>
+  //     </tbody>
+
+  //   </table>
+  
+  
+  // `;
+
+}
+
+// for enabling candidate to eliminate some choices.
+
+function addEventListenersToCheckBoxes() {
+    for (let i = 0; i < probableChoices.length; i++) {
+        probableChoices[i].addEventListener("click", saveCheckBox);
+    }        
+}
+
+
+function saveCheckBox() {
+    let indexOfMcq = currentQuestionNo - 1;
+    for (let i = 0; i < probableChoices.length; i++) {
+       if( probableChoices[i].checked) {
+          mcqs[indexOfMcq].candidateProbableChoices[i] = true;
+       } else {
+        mcqs[indexOfMcq].candidateProbableChoices[i] = false;
+       }
+    }
+}
+
+function renderCheckBoxes() {
+   let indexOfMcq = currentQuestionNo - 1;
+  // console.log(mcqs[indexOfMcq].candidateProbableChoices);
+  
+   
+    for (let i = 0; i < probableChoices.length; i++) {
+      // console.log(probableChoices[i].checked);
+        probableChoices[i].checked = mcqs[indexOfMcq].candidateProbableChoices[i];
+        // console.log(probableChoices[i].checked);
+
+    }
+
+}
+
+function displayShortListChoices() {
+  if(startQuiz > 0) {
+  // var shortListSetting = document.getElementById("shortListSetting");
+  
+  var shortListedSection  = document.getElementById("shortListed");
+  if(shortListSetting.checked){
+    
+    if(shortListedSection.classList.contains("noDisplay")){
+      shortListedSection.classList.remove("noDisplay");
+    }
+  } else {
+     if(!shortListedSection.classList.contains("noDisplay")){
+      shortListedSection.classList.add("noDisplay");
+        var instance = M.Tooltip.getInstance(document.getElementById("shortListSettingL"));
+        setTimeout(toolTipClose, 2000, instance);
+      // console.log("displayShortListChoices inside else executed");
+     }
+
+  }
+
+ 
+  } 
+   
+ 
+}
+
+function displayQId() {
+   if(startQuiz > 0) {    
+     let qidSection = document.getElementById("qId");
+     if(qidSetting.checked){
+       if(qidSection.classList.contains("noDisplay")){
+          qidSection.classList.remove("noDisplay");
+        }
+
+     } else {
+        if(!qidSection.classList.contains("noDisplay")){
+          qidSection.classList.add("noDisplay");
+     } 
+   }
+  //  console.log("display qid executed");
+  }
+}
+
+
+function toolTipClose(instance) {
+    if (instance){
+           instance.destroy();
+          //  console.log("inside executed");// tooltips destroyed after 2 sec
+        }
+
+}
+
+
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+  if(startQuiz) {
+    var d = new Date();
+    var timeElapsed = d - startQuiz;
+    var t = getTimeInFormat(timeElapsed);
+    document.getElementById("duration").innerHTML =`<h3 class="duration"> ${t} </h3>`;
+
+    if(prepMode =="test"){
+      var allowedTime = mcqs.length * 1.2 * 60 * 1000;
+      var remainingTime = allowedTime - timeElapsed;
+      if(remainingTime >= 0) {
+        var rt = getTimeInFormat(remainingTime);
+        remainingTmeSection.innerHTML =`<h5 class="remainingTime">${rt} </h5>`;
+      }
+      
+      
+
+      if(timeElapsed >= allowedTime){
+        submitButtonClicked();
+      }
+
+    }
+
+
+
+
+
+  }
+  
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+}
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
+  });
+
+
+<!-- convert to 3 letter of subject -->
+  function subjectTo3Letter (subject) {
+
+    switch(subject) {
+      
+      case "Polity":
+        return "POL";
+        break;
+
+      case "Economy":
+        return "ECO";
+        break;
+
+      case "Indian Geography":
+        return "I.GEO";
+        break;
+
+      case "World Geography":
+        return "W.GEO"
+        break;
+
+      case "Ancient History":
+        return "A.HIS";
+        break;
+
+      case "Medieval History":
+        return "M.HIS";
+        break;
+
+      case "Modern India":
+        return "M.IND";
+        break;
+
+      case "Art and Culture":
+      return "A&C";
+        break;
+
+      case "International Relations":
+        return "IR";
+        break;
+
+      case "Science and Tech":
+        return "S&T";
+        break;
+
+      case "Environment":
+        return "ENV";
+        break;
+
+      case "Miscellaneous":
+        return "MISC";
+        break;
+
+      default:
+        return "MISC";
+
+    }
+
+  }
+
+
+  function sidebarScoreTable(mcqs) {
+
+    //  var tbody = document.getElementById("sidebar-score-table");
+   
+    // var tScore = 0;
+    
+    // let score;
+    
+    //     mcqs.forEach(function(mcq) {
+      
+    //         var row = document.createElement("tr");
+    //         // document.addEventListener("row", mcqRender(mcq.))
+    //         row.addEventListener("click", mcqRenderPreRow);
+
+    //         var col1 = document.createElement("td");
+    //         col1.textContent = `${twoDigit(mcq.qnum)}`; // question number
+    //         col1.classList.add("table-qNo");
+            
+    //         col1.classList.add("btn", "waves-effect","waves=light", `${mcq.color}`);
+    //         // terms. setAttribute('id','para-1')
+            
+    //         var col2 = document.createElement("td");
+    //         col2.textContent = `${subjectTo3Letter(mcq.subject)}`; // sub
+            
+    //         var col3 = document.createElement("td");
+    //         col3.textContent = `${mcq.cA}`; // ans
+            
+    //         var col4 = document.createElement("td");
+    //         col4.textContent = `${mcq.selectedAnswer}`; // you
+            
+    //       //   var col5 = document.createElement("td");
+    //       //   col5.textContent = `${getSpentTime(mcq)}`; // duration in minutes and seconds
+            
+    //       //   var col6 = document.createElement("td");
+    //       //   col6.textContent = `${mcq.visits}`; // vis
+            
+    //       //  var col7 = document.createElement("td");
+    //       //   col7.textContent = `${getEvaluation(mcq.evaluation)}`; // eva
+      
+    //       //   var col8 = document.createElement("td");
+    //         score = getScore(mcq);
+    //         score1 = (score * (2/3)).toFixed(2);
+    //         // col8.textContent = `${score1}`; // Score of mcq
+    //         tScore += score;
+            
+    //         row.appendChild(col1);
+    //         row.appendChild(col2);
+    //         row.appendChild(col3);
+    //         row.appendChild(col4);
+    //         // row.appendChild(col5);
+    //         // row.appendChild(col6);
+    //         // row.appendChild(col7);
+    //         // row.appendChild(col8);
+
+    //         tbody.appendChild(row);
+
+    //     })
+
+    //     totalMarks = 2*mcqs.length;
+    //     marksObtained = (2/3)*tScore;
+    //     percentageMarks = marksObtained / totalMarks * 100;
+    //     // console.log(percentageMarks);
+    //     // console.log(totalMarks);
+    //     // console.log(marksObtained);
+
+  }
+
+
+
+
+
+
+
+
+
+
+  // draw chart
+
+  function drawChart(mcqs) {
+
+
+      const tableSelectHandler = function () {
+          if(table.getSelection().length !== 0) {
+            currentQuestionNo = parseInt(table.getSelection()[0].row + 1);
+        
+            mcqRender(currentQuestionNo);
+          }
+
+      }
+
+
+      const tableSelectHandler2 =  function () {
+          if(table2.getSelection().length !== 0) {
+            currentQuestionNo = parseInt(table2.getSelection()[0].row + 1);
+        
+            mcqRender(currentQuestionNo);
+          }
+
+      }
+
+
+      const getFormattedScore =  function (score) {
+          return ((2/3)*score).toFixed(2);
+      }
+
+
+
+  const modifyEvaluation = function(evaluation) {
+    
+      //  return evaluation === "notAttempted" ? "NA" : evaluation === "correct" ? "RT" : "WG";
+
+      switch (evaluation) {
+        case "correct":
+        return "RT";
+        break;
+        case  "wrong":
+        return "WG";
+        break;
+        case "notAttempted":
+        return 'NA';
+        break;
+        default:
+        return 'NA';
+
+      }
+    
+  }
+
+
+    var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Q.No');
+    data.addColumn('string', 'Sub');
+    data.addColumn('string', 'CA');
+    data.addColumn('string', 'Mkd');
+    data.addColumn('string', 'Eval');
+    data.addColumn('number', 'Visits');
+    data.addColumn('number', 'S.Time');
+    data.addColumn('number', 'Score');
+    data.addColumn('string', 'S.Time');
+
+
+    
+    
+
+
+    mcqs.forEach(function(mcq) {
+      data.addRow([twoDigit(mcq.qnum), subjectTo3Letter(mcq.subject), mcq.cA, mcq.selectedAnswer,
+     modifyEvaluation(mcq.evaluation)  , mcq.visits, mcq.spentTime , mcq.score, getTimeInFormat(mcq.spentTime)]);
+    })
+
+    // data.setProperty(1, 1, 'style', 'background-color: red;');
+    for (var i = 0; i < data.getNumberOfRows(); i++) {
+  // console.log((data.getValue(i, 7)));
+  if (data.getValue(i, 7) < 0) {
+   data.setProperties(i, 0, {'className': 'btn waves-effect waves-pink red circle', style: 'color: white; font-style:italic; font-weight:800; font-size: 1.2rem;'}); 
+  } else if (data.getValue(i, 7) > 0) {
+    data.setProperties(i, 0, {'className': 'btn waves-effect waves-pink green circle', style: 'color: white; font-style:italic; font-weight:800; font-size: 1.2rem;'});
+  } else {
+     data.setProperties(i, 0, {'className': 'btn waves-effect waves-pink cyan circle', style: 'color: white; font-style:italic; font-weight:800; font-size: 1.2rem;'} );
+  }
+}
+
+
+    var myView = new google.visualization.DataView(data);
+
+//     for (var i = 0; i < myView.getNumberOfRows(); i++) {
+//   console.log((myView.getValue(i, 7)));
+//   if (myView.getValue(i, 7) < 0) {
+//     console.log((myView.getValue(i, 7)));
+//     // change entire row
+//     // myView.setRowProperty(i, 'style', 'background-color:magenta;');
+//     // or change columns 0 & 1
+//     myView.setProperty(i, 0, 'style', 'background-color:magenta;');
+//     myView.setProperty(i, 1, 'style', 'background-color:magenta;');
+//   }
+// }
+
+    myView.setColumns([0, 1, 2, 3, 4 , 8, 5 ]);
+
+//     view.setRows(view.getFilteredRows([{column: 1, minValue: new Date(2007, 0, 1)}]));
+// var table = new google.visualization.Table(document.getElementById('test_dataview'));
+// table.draw(myView, {sortColumn: 1});
+var cssClassNames = {headerRow: 'bigAndBoldClass',headerCell: 'bigAndBoldClass' };
+// var cssClassNames = {}; 
+
+     table = new google.visualization.Table(document.getElementById('table_div'));
+    table.draw(myView, {allowHtml: true, showRowNumber: true, width: '100%', height: '100%',
+     cssClassNames: cssClassNames, page: 'enable', frozenColumns: 2});
+
+
+
+    //  sidebar table
+
+     var myView2 = new google.visualization.DataView(data);
+     myView2.setColumns([0, 1, 2, 3, 4]);
+
+         table2 = new google.visualization.Table(document.getElementById("sidebarScoretable_div"));
+    table2.draw(myView2, {allowHtml: true, showRowNumber: true, width: '100%', height: '100%',
+     cssClassNames: cssClassNames, page: 'disable'});
+
+
+
+
+
+
+
+
+
+//      for (var i = 0; i < data.getNumberOfRows(); i++) {
+//   if (data.getValue(i, 1) === 1100) {
+//     // change entire row
+//     data.setRowProperty(i, 'style', 'background-color:magenta;');
+//     // or change columns 0 & 1
+//     data.setProperty(i, 0, 'style', 'background-color:magenta;');
+//     data.setProperty(i, 1, 'style', 'background-color:magenta;');
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+
+
+// Show some columns directly from the underlying data.
+// Shows column 3 twice.
+// view.setColumns([3, 4, 3, 2]);
+
+// Underlying table has a column specifying a value in centimeters.
+// The view imports this directly, and creates a calculated column
+// that converts the value into inches.
+// view.setColumns([1,{calc:cmToInches, type:'number', label:'Height in Inches'}]);
+// function cmToInches(dataTable, rowNum){
+//   return Math.floor(dataTable.getValue(rowNum, 1) / 2.54);
+// }
+
+// var formatter = new google.visualization.NumberFormat(
+//     {prefix: '$', negativeColor: 'red', negativeParens: true});
+// formatter.format(data, 1); // Apply formatter to second column
+
+// table.draw(data, {allowHtml: true, showRowNumber: true, width: '100%', height: '100%'});
+
+
+// var formatter = new google.visualization.PatternFormat(
+//   '<a href="mailto:{1}">{0}</a>');
+
+
+// google.visualization.events.addListener(table, 'select', selectHandler);
+
+// function selectHandler(e) {
+//   // alert('A table row was selected');
+//   console.log(myView.getValue(1));
+//   // DataTable.getValue()
+// }
+// dataTable.setCell(22, 2, 15, 'Fifteen', {style: 'font-style:bold; font-size:22px;'});
+
+
+// Create our table.
+// var table = new google.visualization.Table(document.getElementById('table_div'));
+// table.draw(data, options);
+
+// Add our selection handler.
+google.visualization.events.addListener(table, 'select', tableSelectHandler);
+google.visualization.events.addListener(table2, 'select', tableSelectHandler2);
+
+// google.visualization.data.group(data_table, keys, columns)
+// keys examples can be of any [0], [0,2], [0,{column:1, modifier:myPlusOneFunc, type:'number'},2]
+
+// var myView3 = new google.visualization.DataView(data);
+//  myView3.setColumns([0, 1, 2, 3, 5]);
+
+
+
+//  var result = google.visualization.data.group(
+//   data,
+//   [0],
+//   [{'column': 3, 'aggregation': google.visualization.data.sum, 'type': 'number'}]
+// );
+
+const arrSumTimeInFormat = function(arr) {
+  return getTimeInFormat(arr.reduce(function(a,b){
+    return a + b;
+  },0));
+}
+
+const arrAvgTimeInFormat = function(arr) {
+  return getTimeInFormat((arr.reduce(function(a,b){
+    return a+b;
+  }, 0 ))/ arr.length);
+}
+
+
+const getAggregateScore = function(arrScore) {
+  let myScore = 0;
+  arrScore.forEach(function(score) {
+    myScore += score;
+  })
+  return (myScore * 2/3).toFixed(2);
+  
+}
+
+const getAggregateScoreT = function(arrScore) {
+  let myScore = 0;
+  arrScore.forEach(function(score) {
+    myScore += 2;
+  })
+  return myScore;
+  
+}
+
+const percentScore = function(arrScore) {
+  let myScore = 0;
+  let totalScore = 0;
+  arrScore.forEach(function(score){
+     myScore += score;
+     totalScore += 3; // score stored as -1, +3;
+  })
+
+  return myScore/totalScore;
+
+}
+
+
+
+
+
+
+const polSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "POL") {
+      count++;
+    }
+  });
+  return count;
+}
+
+const miscSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "MISC") {
+      count++;
+    }
+  });
+  return count;
+}
+
+const stSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "S&T") {
+      count++;
+    }
+  });
+  return count;
+}
+
+const geoSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "W.GEO" || sub == "I.GEO") {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+const hisSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "A.HIS" || sub == "M.HIS" || sub == "M.IND" ) {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+const acSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "A&C") {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+const ecoSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "ECO") {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+const irSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "IR") {
+      count++;
+    }
+  });
+  return count;
+}
+
+const envSubject = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "ENV") {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+const wgAttempt = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "WG") {
+      count++;
+    }
+  });
+  return count;
+}
+
+const rtAttempt = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "RT") {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+
+
+const notAttempt = function(arr) {
+  let count = 0;
+  arr.forEach(function(sub) {
+    if (sub == "NA") {
+      count++;
+    }
+  });
+  return count;
+}
+
+
+// modifier function
+
+
+const durationGroup = function(mst){
+  let ms = mst * 36; //for testing in seconds
+
+  return ms < 36 * 1000 ? "0-36" : ms >= 36*1000 && ms < 72*1000 ? "36-72" :
+   ms >= 72*1000 && ms < 99*1000 ? "72-99" : "99+";
+
+} 
+
+
+
+ var result = google.visualization.data.group(
+  data,
+  [4],
+  [ {'column': 4, 'aggregation': google.visualization.data.count, 'type': 'number', 'label': 'T.Qs'}, {'column': 6, 'aggregation': google.visualization.data.sum, 'type': 'number', 'label': 'T.Spent.Time'}, {'column': 6, 'aggregation': google.visualization.data.avg, 'type': 'number', 'label': 'A.S.Time'}, 
+   {'column': 5, 'aggregation': google.visualization.data.sum, 'type': 'number', 'label': 'T.visits'}, {'column': 5, 'aggregation': google.visualization.data.avg, 'type': 'number', 'label': 'Avg.Visits'}, {'column': 1, 'aggregation': polSubject, 'type': 'number', 'label': 'POL'}, {'column': 1, 'aggregation': hisSubject, 'type': 'number', 'label': 'HIS'}, {'column': 1, 'aggregation': geoSubject, 'type': 'number', 'label': 'GEO'}, {'column': 1, 'aggregation': ecoSubject, 'type': 'number', 'label': 'ECO'}, {'column': 1, 'aggregation': envSubject, 'type': 'number', 'label': 'ENV'}, {'column': 1, 'aggregation': stSubject, 'type': 'number', 'label': 'S&T'}, {'column': 1, 'aggregation': acSubject, 'type': 'number', 'label': 'A&C'}, {'column': 1, 'aggregation': irSubject, 'type': 'number', 'label': 'IR'}, 
+   {'column': 1, 'aggregation': miscSubject, 'type': 'number', 'label': 'MISC'}, {'column': 6, 'aggregation': arrSumTimeInFormat, 'type': 'string', 'label': 'Total.Spent.Time'} , {'column': 6, 'aggregation': arrAvgTimeInFormat, 'type': 'string', 'label': 'Avg.Spent.Time'}]
+);
+
+var formatter = new google.visualization.NumberFormat(
+    {fractionDigits: 1});
+// formatter.format(result, 7); // Apply formatter to fifth column
+
+var myViewResult = new google.visualization.DataView(result);
+
+myViewResult.hideColumns([2, 3, 4, 5, 15, 16]);
+
+
+ 
+
+
+
+
+
+ table3 = new google.visualization.Table(document.getElementById("table_div3"));
+    table3.draw(myViewResult, {allowHtml: true, showRowNumber: false, height: '100%',  
+     cssClassNames: cssClassNames, page: 'disable', frozenColumns: 1});
+
+
+
+
+
+
+
+
+      var subjectResult = google.visualization.data.group(
+  data,
+  [1],
+  [{'column': 4, 'aggregation': google.visualization.data.count, 'type': 'number', 'label': 'T.Qs'}, {'column': 4, 'aggregation': rtAttempt, 'type': 'number', 'label': 'RT'}, {'column': 4, 'aggregation': wgAttempt, 'type': 'number', 'label': 'WG'}, {'column': 4, 'aggregation': notAttempt, 'type': 'number', 'label': 'NA'},  {'column': 7, 'aggregation': getAggregateScore, 'type': 'number', 'label': 'M.Scored'}, {'column': 7, 'aggregation': getAggregateScoreT, 'type': 'number', 'label': 'Sub.M'}, {'column': 7, 'aggregation': percentScore, 'type': 'number', 'label': 'Marks'},
+   {'column': 6, 'aggregation': google.visualization.data.sum, 'type': 'number', 'label': 'T.Spent.Time'}, 
+   {'column': 6, 'aggregation': google.visualization.data.avg, 'type': 'number', 'label': 'A.S.Time'}, {'column': 6, 'aggregation': arrSumTimeInFormat, 'type': 'string', 'label': 'T.Spent.T'} , {'column': 6, 'aggregation': arrAvgTimeInFormat, 'type': 'string', 'label': 'Avg.S.T'}]
+);
+
+
+
+var formatterSub = new google.visualization.NumberFormat(
+    {fractionDigits: 1 });
+
+var formatPercentMarks =  new google.visualization.NumberFormat({pattern:'#,### %'} );
+
+
+
+// formatterSub.format(subjectResult, 14); // Apply formatter to 11th column
+formatPercentMarks.format(subjectResult, 7);
+
+var myViewResultSub = new google.visualization.DataView(subjectResult);
+
+myViewResultSub.hideColumns([8, 9, 10, 11]);
+
+
+ 
+
+
+
+
+
+ table3 = new google.visualization.Table(document.getElementById("table_div5"));
+    table3.draw(myViewResultSub, {allowHtml: true, showRowNumber: true, height: '100%', 
+     cssClassNames: cssClassNames, page: 'disable', frozenColumns: 1});
+
+    
+
+      var visitResult = google.visualization.data.group(
+  data,
+  [5],
+  [ {'column': 4, 'aggregation': rtAttempt, 'type': 'number', 'label': 'RT'}, {'column': 4, 'aggregation': wgAttempt, 'type': 'number', 'label': 'WG'}, {'column': 4, 'aggregation': notAttempt, 'type': 'number', 'label': 'NA'}, 
+  {'column': 4, 'aggregation': google.visualization.data.count, 'type': 'number', 'label': 'T.Qs'}, 
+  {'column': 7, 'aggregation': getAggregateScore, 'type': 'number', 'label': 'Marks Obtained'}, {'column': 7, 'aggregation': getAggregateScoreT, 'type': 'number', 'label': 'Total Marks'}, {'column': 7, 'aggregation': percentScore, 'type': 'number', 'label': 'Marks'},
+   {'column': 6, 'aggregation': google.visualization.data.sum, 'type': 'number', 'label': 'T.Spent.Time'}, 
+   {'column': 6, 'aggregation': google.visualization.data.avg, 'type': 'number', 'label': 'A.S.Time'}, {'column': 6, 'aggregation': arrSumTimeInFormat, 'type': 'string', 'label': 'T.Spent.T'} , {'column': 6, 'aggregation': arrAvgTimeInFormat, 'type': 'string', 'label': 'Avg.S.T'}]
+);
+
+
+
+
+var formatterSub = new google.visualization.NumberFormat(
+    {fractionDigits: 1});
+
+var formatPercentMarks =  new google.visualization.NumberFormat({pattern:'#,### %'} );
+
+
+
+// formatterSub.format(subjectResult, 14); // Apply formatter to 11th column
+formatPercentMarks.format(visitResult, 7);
+
+var myViewVisit = new google.visualization.DataView(visitResult);
+
+myViewVisit.hideColumns([4, 5, 6, 7, 8, 9, 10, 11]);
+
+
+ 
+
+
+
+
+
+ table6 = new google.visualization.Table(document.getElementById("table_div6"));
+    table6.draw(myViewVisit, {allowHtml: true, showRowNumber: false, height: '100%',  
+     cssClassNames: cssClassNames, page: 'disable', frozenColumns: 1});
+
+
+
+
+
+
+
+var timeResult = google.visualization.data.group(
+  data,
+  [ {column:6, modifier:durationGroup, type:'string', 'label': 'Time group (seconds)'}],
+  [{'column': 4, 'aggregation': google.visualization.data.count, 'type': 'number', 'label': 'T.Qs'}, {'column': 4, 'aggregation': rtAttempt, 'type': 'number', 'label': 'RT'}, {'column': 4, 'aggregation': wgAttempt, 'type': 'number', 'label': 'WG'}, {'column': 4, 'aggregation': notAttempt, 'type': 'number', 'label': 'NA'}, 
+     {'column': 7, 'aggregation': getAggregateScore, 'type': 'number', 'label': 'Marks Obtained'}, {'column': 7, 'aggregation': getAggregateScoreT, 'type': 'number', 'label': 'Total Marks'}, {'column': 7, 'aggregation': percentScore, 'type': 'number', 'label': 'Marks'},
+   {'column': 6, 'aggregation': google.visualization.data.sum, 'type': 'number', 'label': 'T.Spent.Time'}, 
+   {'column': 6, 'aggregation': google.visualization.data.avg, 'type': 'number', 'label': 'A.S.Time'}, {'column': 6, 'aggregation': arrSumTimeInFormat, 'type': 'string', 'label': 'group spent time'} , {'column': 6, 'aggregation': arrAvgTimeInFormat, 'type': 'string', 'label': 'Avg Time Taken'}]
+);
+
+
+
+var formatterSub = new google.visualization.NumberFormat(
+    {fractionDigits: 1});
+
+var formatPercentMarks =  new google.visualization.NumberFormat({pattern:'#,### %'} );
+
+
+
+// formatterSub.format(subjectResult, 14); // Apply formatter to 11th column
+formatPercentMarks.format(timeResult, 7);
+
+var myViewTime = new google.visualization.DataView(timeResult);
+
+myViewTime.hideColumns([5, 6, 7, 8, 9]);
+
+var myViewTime2 = new google.visualization.DataView(timeResult);
+
+myViewTime2.hideColumns([1, 5, 6, 7, 8, 9, 10, 11]);
+
+
+
+
+
+ 
+ table7 = new google.visualization.Table(document.getElementById("table_div7"));
+    table7.draw(myViewTime, {allowHtml: true, showRowNumber: false, height: '100%',
+     cssClassNames: cssClassNames, page: 'disable', frozenColumns: 1});
+
+
+var myColors = { 'WG' : 'orangered', 'RT': 'lime', 'NA': '#ffd700'};
+
+var slicesColor = {};
+
+for( var i=0; i < result.getNumberOfRows(); i++){
+  // I assume the label is in the first column of each row here
+  // this is based on string matching, but you can define any criteria you want
+  slicesColor[i] = {color: myColors[result.getValue(i, 0)] };
+}
+
+
+
+
+
+var myColorsTimeChart = { "36-72": 'lime', "72-99": '#006400', "0-36":'#ffd700',
+ "99+" : '#ff4500'};
+
+var slicesColorTime = {};
+
+for( var i=0; i < myViewTime.getNumberOfRows(); i++){
+  // I assume the label is in the first column of each row here
+  // this is based on string matching, but you can define any criteria you want
+  slicesColorTime[i] = {color: myColorsTimeChart[myViewTime.getValue(i, 0)] };
+}
+
+
+
+var optionsMyView3result = {
+          title: 'Result',
+          pieSliceTextStyle: {color: 'black'},
+          is3D: true,
+          // slices: slicesColor
+           slices: {  
+          0: {offset: 0.05, color:  slicesColor[0]},
+          1: {offset: 0.05, color:  slicesColor[1]},
+          2: {offset: 0.05,  color:  slicesColor[2]},
+          },
+          // width: 600,
+          width: '120%',
+          height: 400,
+          // pieStartAngle: 100,       
+          // pieHole: 0.4,
+        
+};
+          
+          
+      
+var chartResult = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+chartResult.draw(result, optionsMyView3result);
+
+
+
+
+var optionsMyView3time = {
+          title: 'Time Spent (minutes)',
+          is3D: true,
+          // pieSliceTextStyle: {color: <string>, fontName: <string>, fontSize: <number>}
+          pieSliceTextStyle: {color: 'black'},
+          slices: { 
+          0: {offset: 0.1, color:  slicesColorTime[0]},
+          1: {offset: 0.1, color:  slicesColorTime[1]},
+          2: {offset: 0.1,  color:  slicesColorTime[2]},
+          3: {offset: 0.1, color:  slicesColorTime[3]},
+          },
+          // width: 600,
+          width: '120%',
+          height: 400,
+
+         
+          // pieStartAngle: 100
+          
+          // pieHole: 0.4,
+          // pieStartAngle: 100
+          
+};
+var chartTime = new google.visualization.PieChart(document.getElementById('piechart_3d2'));
+chartTime.draw(myViewTime, optionsMyView3time);
+
+
+
+
+
+ var optionsMyViewVisit = {
+    // width: 600,
+     width: '120%',
+    height: 400,
+    title: 'Visits & Accuracy',
+    legend: { position: 'top', maxLines: 3 },
+    bar: { groupWidth: '25%' },
+    // isStacked: true,
+    isStacked:'percent',
+    hAxis: {
+      title: 'no. of visits',
+      // format: 'h:mm a',
+      // viewWindow: {
+      //   min: [7, 30, 0],
+      //   max: [17, 30, 0]
+      // }
+    },
+    vAxis: {
+      title: 'questions (% in each category)'
+    },
+
+    colors: ['lime', 'orangered', '#ffd700', 'darkolivegreen'] 
+    // colors arranged as per the order of columns in the chart
+
+};
+
+var chartVisit = new google.visualization.ColumnChart(document.getElementById('column_chart'));
+chartVisit.draw(myViewVisit, optionsMyViewVisit);
+
+
+
+
+
+var mySubjectsChartView = new google.visualization.DataView(myViewResultSub);
+mySubjectsChartView.setColumns([0, 7 ]);
+// the following can be added as a lst column in setcolumns above 
+// { calc: "stringify",
+//                          sourceColumn: 0,
+//                          type: "string",
+//                          role: "annotation" } 
+                       
+var optionsMyView = {
+          title: 'subject-wise performance',
+          // is3D: true,
+          // width: 600,
+           height: 400,
+
+          width: '120%',
+         
+       
+    
+          
+         
+          legend: {position: 'right' },
+
+
+          
+        // chartArea: {width: '50%'},
+        hAxis: {
+          title: 'percentage marks',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'subject',
+
+        },
+       
+          
+        };
+var subChart = new google.visualization.BarChart(document.getElementById('myBarChart'));
+subChart.draw(mySubjectsChartView, optionsMyView);
+      
+
+
+ var optionsMyViewTime2 = {
+    // width: 600,
+     width: '120%',
+    height: 400,
+    title: 'Time vs Accuracy',
+    legend: { position: 'top', maxLines: 3 },
+    bar: { groupWidth: '25%' },
+    // isStacked: true,
+    isStacked:'true',
+    hAxis: {
+      title: 'time(s)',
+      // format: 'h:mm a',
+      // viewWindow: {
+      //   min: [7, 30, 0],
+      //   max: [17, 30, 0]
+      // }
+    },
+    vAxis: {
+      title: 'number of questions'
+    },
+
+    colors: ['lime', 'orangered', '#ffd700', 'darkolivegreen'] 
+    // colors arranged as per the order of columns in the chart
+
+};
+
+var chartTime2 = new google.visualization.ColumnChart(document.getElementById("columnChart2"));
+chartTime2.draw(myViewTime2, optionsMyViewTime2);
+
+
+}
+
+
+
+
+// swipe detection for touch 
+
+function swipedetect(el, callback){
+  
+    var touchsurface = el,
+    hSwipedir,
+    vSwipedir,
+    startX,
+    startY,
+    distX,
+    distY,
+    threshold = 150, //required min distance traveled to be considered swipe
+    restraint = 100, // maximum distance allowed at the same time in perpendicular direction
+    allowedTime = 300, // maximum time allowed to travel that distance
+    elapsedTime,
+    startTime,
+    handleswipe = callback || function(hSwipedir,vSwipedir, distX, distY, elapsedTime){}
+  
+    touchsurface.addEventListener('touchstart', function(e){
+        var touchobj = e.changedTouches[0]
+        swipedir = 'none'
+        dist = 0
+        startX = touchobj.pageX
+        startY = touchobj.pageY
+        startTime = new Date().getTime() // record time when finger first makes contact with surface
+        // e.preventDefault()
+    }, false)
+  
+    touchsurface.addEventListener('touchmove', function(e){
+        // e.preventDefault() // prevent scrolling when inside DIV
+    }, false)
+  
+    touchsurface.addEventListener('touchend', function(e){
+        var touchobj = e.changedTouches[0]
+        distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+        distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+        elapsedTime = new Date().getTime() - startTime // get time elapsed
+        // if (elapsedTime <= allowedTime){ // first condition for awipe met
+        //     if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){ // 2nd condition for horizontal swipe met
+        //         swipedir = (distX < 0)? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+        //     }
+        //     else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint){ // 2nd condition for vertical swipe met
+        //         swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+        //     }
+        // }
+
+        hSwipedir = (distX < 0)? 'left' : 'right' ;
+        vSwipedir = (distY < 0)? 'down' : 'up' ;
+
+
+        // alert(`distx:${distX}, disty:${distY}, elapsedtime:${elapsedTime}`);
+
+        handleswipe(hSwipedir,vSwipedir, distX, distY, elapsedTime);
+        // e.preventDefault()
+    }, false)
+}
+  
+//USAGE:
+/*
+var el = document.getElementById('someel')
+swipedetect(el, function(swipedir){
+    swipedir contains either "none", "left", "right", "up", or "down"
+    if (swipedir =='left')
+        alert('You just swiped left!')
+})
+*/
+
+swipedetect(sidebarSection, function(hSwipedir,vSwipedir, distX, distY, elapsedTime){
+    // swipedir contains either "none", "left", "right", "top", or "down"
+    // if (swipedir =='left') {alert('You just swiped left!');}
+    // if (swipedir =='top') {getPreviousQuestion();}
+    // if (swipedir =='down') {getNextQuestion();}
+   
+
+    if(Math.abs(distX) > 15 && Math.abs(distX) < 250 && Math.abs(Math.atan(distY / distX)*180/Math.PI) < 30 && elapsedTime < 250  ) {
+      switch(hSwipedir) {
+        case "left":
+        if((Math.abs(distX)- Math.abs(distY)) > 15) {
+           getNextQuestion();
+        }
+       
+        break;
+        case "right":
+         if((Math.abs(distX)- Math.abs(distY)) > 15) {
+            getPreviousQuestion();
+        }
+        break;
+      }
+    }
+
+     if(Math.abs(distX) > 75 && Math.abs(distX) < 500 && Math.abs(Math.atan(distY / distX)*180/Math.PI) < 30 && elapsedTime > 250 && elapsedTime < 900 ) {
+      switch(hSwipedir) {
+        case "left":
+          sidenavRightClick();
+        break;
+        case "right":
+        // if (prepMode = 'practice' || formSubmitted){
+        //     checkAnswer();
+        // }
+      
+        break;
+
+
+      }
+    }
+
+        
+})
+
+
+
+
+
+<!-- answer sectio -->
+swipedetect(mainSection, function(hSwipedir,vSwipedir, distX, distY, elapsedTime){
+    // swipedir contains either "none", "left", "right", "top", or "down"
+    // if (swipedir =='left') {alert('You just swiped left!');}
+    // if (swipedir =='top') {getPreviousQuestion();}
+    // if (swipedir =='down') {getNextQuestion();}
+
+    if(Math.abs(distX) > 15 && Math.abs(distX) < 250 && Math.abs(Math.atan(distY / distX)*180/Math.PI) < 30 && elapsedTime < 250 ) {
+      switch(hSwipedir) {
+        case "left":
+       if((Math.abs(distX)- Math.abs(distY)) > 15) {
+           getNextQuestion();
+        }
+        break;
+        case "right":
+         if((Math.abs(distX)- Math.abs(distY)) > 15) {
+            getPreviousQuestion();
+        }
+        break;
+      }
+    }
+
+     if(Math.abs(distX) > 75 && Math.abs(distX) < 500 && 
+      Math.abs(Math.atan(distY / distX)*180/Math.PI) < 30 &&  elapsedTime > 250 && elapsedTime < 900 && Math.abs(distY/distX) < 0.2) {
+      switch(hSwipedir) {
+        case "left":
+        if(distX < distY) {
+           sidenavRightClick();
+        }
+        break;
+        case "right":
+        // if (prepMode = 'practice' || formSubmitted){
+        //     checkAnswer();
+        // }
+      
+        break;
+
+
+      }
+    }
+
+        
+})
+
+
+
+
+
+
+<!-- context menu -->
+
+        document.onclick = hideMenu;
+        document.oncontextmenu = rightClick;
+  
+        function hideMenu() {
+            document.getElementById("contextMenu").style.display = "none";
+        }
+  
+        function rightClick(e) {
+          console.log(e);
+            e.preventDefault();
+  
+            if (document.getElementById("contextMenu").style.display == "block") {
+                hideMenu();
+            }
+              
+            else {
+                var menu = document
+                    .getElementById("contextMenu")
+                      
+                menu.style.display = 'block';
+                if (e.pageX + 110 >= window.innerWidth) {
+                  menu.style.left = (2*e.pageX + 100 - window.innerWidth)/2 + "px";
+                } else{
+                   menu.style.left = e.pageX + 10 + "px";
+                }
+
+                 
+                if (e.pageY + 330 >= window.innerHeight) {
+                  menu.style.top = (2*e.pageY + 300 - window.innerHeight)/2 + "px";
+                } else{
+                   menu.style.top = e.pageY + "px";
+                }  
+                
+            }
+        }
+
+
+
+
+function checkAnswerRightClick() {
+  if(prepMode == 'practice' || formSubmitted){
+    checkAnswer();
+    mainSectionToggle();
+
+  }
+  
+}
+
+function sidenavRightClick() {
+  var sidenavEl = document.getElementById("mobile-links");
+   sidenav = M.Sidenav.getInstance(sidenavEl);
+  sidenav.open();
+
+}
+
+
+
+ function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+
+
+
+// speech synthesis
+
+  // Init SpeechSynth API
+  const synth = window.speechSynthesis; // select voice, lang , methods speak, play, pause and properties paused, pending etc
+  var speakText = new SpeechSynthesisUtterance(); // set the text input and settings like rate, pitch, volume etc.
+  var selectedVoice;
+  // DOM Elements
+  // const textForm = document.querySelector('form');
+  // const textInput = document.querySelector('#text-input');
+  var amIPending = false;
+  var amISpeaking = synth.speaking;
+  var amIPaused = false;
+  var answerSpeaker= document.getElementById("answerSpeak");
+  var os; // operating system
+  var answeSpeaking;
+  var mainSection = document.getElementsByClassName("main")[0];
+  var speakTranslateSection = document.getElementsByClassName("notranslate")[0];
+  // Global event listeners
+
+document.addEventListener('dblclick', function(e) {
+  speakTranslateSection.classList.toggle('noDisplay');
+})
+
+  
+  
+  
+  // Init voices array
+  let voices = [];
+  
+  const getVoices = () => {
+    voices = synth.getVoices();
+    // console.log(voices);
+    os = getOperatingSystem();
+    
+  
+  
+   
+  };
+  
+  //Line 35, 36 causes voice list duplication
+  getVoices();
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = getVoices;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  // Speak function
+  const gsSpeak = function (textInputForSpeech){
+    // Check if speaking
+    if (synth.speaking) {
+      synth.cancel(); 
+    }
+  
+  
+      var selectedVoiceArr = voices.filter(function(voice) {
+          // console.log(voice);
+          // || voice.localService == true
+          let userAgentString = navigator.userAgent;
+          if(voice.default == true || voice.lang == 'hi-IN' || voice.localService == true){
+            switch (os){
+              case "Windows OS":
+              if(userAgentString.indexOf("Chrome") > -1) {
+                speakText.lang = 'hi-IN';
+                speakText.voice = voice;
+                selectedVoice = voice;
+                return true;
+              } else {
+                  speakText.lang = voice.lang;
+                  speakText.voice = voice;
+                  selectedVoice = voice;
+                  return true;
+              }
+              
+              case "Android OS":
+              if(voice.default == true){
+                speakText.lang = voice.lang;
+                speakText.voice = voice;
+                selectedVoice = voice;
+                return true;
+              }
+              
+            default:
+              speakText.lang = voice.lang;
+              speakText.voice = voice;
+              selectedVoice = voice;
+              return true;
+            }
+  
+          } else {
+            return false;
+          }
+  
+        })
+  
+  
+    
+    
+  
+  
+    // voices.forEach(function(voice) {
+    //     // console.log(voice);
+    //     if (voice.name === 'Google हिन्दी') {
+    //       speakText.voice = voice;
+    //       selectedVoice = voice;
+    //       speakText.lang = 'hi-IN';
+          
+    //       console.log(selectedVoice);
+    //         console.log(selectedVoice.localService + 'local service');
+    //     } 
+    // });
+  
+   
+   
+    
+  
+    // console.log(`selected voice: ${selectedVoice}`);
+    // console.log(`selected voice: ${selectedVoice.lang}`);
+  
+  
+    if (textInputForSpeech !== '') {
+      // alert(selectedVoice.localService);
+      
+  
+          const str = textInputForSpeech;
+  
+      if(str.length > 190 && selectedVoice.localService == false) {
+        // if(str.length > 170 ) {
+  
+          // var regex = /\.^\D/g;
+      
+  
+        var myArr = str.split('.');
+  
+        // var myArr = str.split(regex);
+  
+        // Logger.log(myArr.length);
+        // var newArr = [];
+        // var groupLength = 1;
+        // var prevIndex = 0;
+        // var nextIndex = groupLength;
+  
+        // while(nextIndex <= myArr.length) {
+  
+  
+        //   newArr.push(myArr.slice(prevIndex, nextIndex).join('.') + '.');
+        //   prevIndex = nextIndex;
+        //   nextIndex += groupLength;
+          
+        //   // Logger.log(newArr.length);
+        // }
+  
+        // if(nextIndex > myArr.length) {
+        //   newArr.push(myArr.slice(prevIndex, myArr.length).join('.'));
+        // }
+        // console.log('arrspeak section executed');
+  
+        arrSpeak(myArr);
+  
+      } else {
+  
+          speakText.text = textInputForSpeech;
+          speakText.lang = "en-US";
+          synth.speak(speakText);
+          // alert("else en-GBsection executed");
+  
+      }
+  
+  
+  
+  
+      }
+  
+  
+      
+  
+  
+  
+  
+  
+  
+  
+      // Get speak text
+      
+  
+  
+  
+  
+  
+  
+  
+      // Speak end
+      speakText.onend = e => {
+  
+          // console.log('Done speaking...');
+      document.getElementById("answerSpeakI").textContent = "play_circle_filled"; 
+      answeSpeaking = false; 
+  
+        
+        // body.style.background = '#141414';
+      };
+  
+      // Speak error
+      speakText.onerror = e => {
+        // console.error('Something went wrong');
+      };
+  
+      // Loop through voices
+      
+  
+      // Set pitch and rate
+      // speakText.rate = rate.value;
+      // speakText.pitch = pitch.value;
+      // Speak
+      // synth.speak(speakText);
+      
+    
+  };
+  
+  // EVENT LISTENERS
+  
+  // Text form submit
+  // textForm.addEventListener('submit', e => {
+  //   e.preventDefault();
+  //   var textInputToSpeak = textInput.value;
+  //   gsSpeak(textInputToSpeak);
+  //   textInput.blur();
+  // });
+  
+  
+  function eachSpeak(utterText, index=0) {
+    if(utterText !== '' && utterText !== '.' ) {
+            // synth.pause();
+            // synth.resume();
+            
+            speakText = new SpeechSynthesisUtterance(utterText);
+            speakText.text = utterText ;
+            speakText.rate = 1.0;
+            
+            //  speakText.lang = "en-US";
+            speakText.lang = "hi-IN";
+  
+            
+            // voices.forEach(function(voice) {
+            //     // console.log(voice);
+            //     if (voice.name === 'Google हिन्दी') {
+            //       speakText.voice = voice;
+            //       speakText.lang = "hi-IN";
+            //       // console.log(voice);
+            //     } 
+            // });
+            
+  
+            speakText.voice = selectedVoice;
+            synth.speak(speakText);
+            // amIPending = synth.pending;
+            // console.log(`am i pending: ${amIPending}, ${index}`);
+            // console.log(`am i speaking: ${amISpeaking}, ${index}`);
+            //  console.log(`am i paused: ${amIPaused}, ${index}`);
+            // console.log(utterText);
+  
+             speakText.onend = e => {
+              //  console.log('Done speaking...');
+             
+        
+        // body.style.background = '#141414';
+      };
+  
+    }
+  
+     
+  
+    
+  }
+  
+  
+  function arrSpeak(newArr=[]) {
+  
+    newArr.forEach(function(utterText, index) {
+            if (utterText.length < 190) {
+              eachSpeak(utterText, index);
+            } else {
+  
+              var utterTextNewArr = utterText.split(',');
+              utterTextNewArr.forEach(function(utterTextN){
+               let string = utterTextN;
+                let numParts = parseInt(string.length/190) + 1;
+                let m = parseInt(string.length/numParts) + 1;
+                // console.log(`m value is ${m}, sringlength:${string.length}`);
+                let start = 0;
+                for( let i = 0; i < numParts; i++) {
+  
+                  let k = i * m;
+                  while(string.charAt(k+m) !== " " && k+2*m <= string.length+190) {
+                    k++;
+                  }
+                  // let currentText = string.substring(i * m, Math.min(((i+1)*m), i*m + 190 ));
+                  let currentText = string.substring(start, Math.min((k+m), k + 190 ));
+                  start = Math.min((k+m), k + 190 );
+                  eachSpeak(currentText);
+                  // console.log(currentText);
+                }
+          
+              })
+            }
+    })
+               
+  
+             
+              //   let string = utterText;
+              //   let numParts = parseInt(string.length/190) + 1;
+              //   let m = parseInt(string.length/numParts) + 1;
+              //   console.log(`m value is ${m}, sringlength:${string.length}`);
+                
+              //   for( let i = 0; i < numParts; i++) {
+              //     let currentText = string.substring(i * m, Math.min(((i+1)*m), i*m + 190 ));
+              //     eachSpeak(currentText);
+              //     console.log(currentText);
+              //   }
+          
+              //   }
+              // })
+               
+  
+  }
+  
+  
+  
+  
+  
+  
+  // event listener functions for speech synthesis
+  
+  function stopSpeak() {
+    if (synth.speaking) {
+      synth.cancel(); 
+      amIPaused = false;
+      document.getElementById("pause-resume").textContent="pause";
+      document.getElementById("answerSpeakI").textContent = "play_circle_filled"; 
+      answeSpeaking = false; 
+    }       
+  }
+  
+  function resumeSpeak() {
+    if (synth.speaking) {
+        // console.log(amIPaused);
+      if(document.getElementById("pause-resume").textContent == "play_arrow") {
+        synth.resume();
+        document.getElementById("pause-resume").textContent="pause";
+        amIPaused = false;
+        //  console.log('inside resume executed');
+      } else {
+        pauseSpeak();
+        document.getElementById("pause-resume").textContent="play_arrow";
+        amIPaused = true;
+        // console.log('outside resume executed');
+      }
+    } 
+    
+  }
+  
+  function pauseSpeak() {
+   if (synth.speaking) {
+      synth.pause();
+    }
+  
+  }
+  
+  function answerSpeak() {
+  
+    if(!answeSpeaking) {
+        if (synth.speaking) {
+          synth.cancel(); 
+        }  
+      // var textInputForSpeech = mcqs[currentQuestionNo - 1].answerToSpeak;
+    var textInputForSpeech = mainSection.textContent;
+    answeSpeaking = true;
+    document.getElementById("answerSpeakI").textContent = "stop";
+    gsSpeak(` ${textInputForSpeech}.  over.`);
+    document.getElementById("pause-resume").textContent="pause";
+    
+    } else {
+      stopSpeak();
+      answeSpeaking = false;
+     
+    }
+  
+      if(os == "Windows OS") {
+        if(document.getElementById("pause-resume").classList.contains("noDisplay")) {
+          document.getElementById("pause-resume").classList.remove("noDisplay");
+        }
+  
+      }
+  
+  }
+  
+  
+  function referenceActiveTabSpeak() {
+  
+  
+  }
+    
+  
+  
+  function questionSpeak() {
+    if (synth.speaking) {
+      synth.cancel();  
+    }  
+  
+  
+      var textInputForSpeech = mcqs[currentQuestionNo - 1].questionToSpeak;
+      // var textInputForSpeech = sidebarSection.textContent;
+      gsSpeak(`question number ${mcqs[currentQuestionNo - 1].qnum}...  ${textInputForSpeech} . question number ${mcqs[currentQuestionNo - 1].qnum} over.`);
+      document.getElementById("pause-resume").textContent="pause";
+      answeSpeaking = false;
+      amIPaused = false;
+  
+      document.getElementById("answerSpeakI").textContent = "play_circle_filled"; 
+      if(os == "Windows OS") {
+        if(document.getElementById("pause-resume").classList.contains("noDisplay")) {
+          document.getElementById("pause-resume").classList.remove("noDisplay");
+        }
+  
+      }
+  
+      
+  }
+  
+  
+  
+  function getOperatingSystem() {
+  
+      var os = "Unknown OS";
+          if (navigator.userAgent.indexOf("Win") != -1) { os = "Windows OS"; }
+          if (navigator.userAgent.indexOf("Mac") != -1) { os = "Macintosh"; }
+          if (navigator.userAgent.indexOf("Linux") != -1) { os = "Linux OS"; }
+          if (navigator.userAgent.indexOf("Android") != -1) { os = "Android OS"; }
+          if (navigator.userAgent.indexOf("like Mac") != -1) { os = "iOS"; }
+  
+      // alert(os);
+      return os;
+    
+  }
+
+
+
+
+//  google translation
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages : 
+  'hi,as,bh,bn,dz,gu,kn,ks,ml,mr,ne,or,pa,te,ta,ur,sa,sd,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+
+
+
+function polity() {
+ 
+  referenceMaterialDisplay();
+
+  document.getElementById("polity_div").innerHTML = `
+  <iframe src="https://gnprasad2.github.io/upscpol/index.html" name="iframe_a" title="polity" width="95%" height="600" frameBorder="0"  ></iframe>
+`
+}
+
+function geography() {
+  var btn = document.createElement("BUTTON");   // Create a <button> element
+  btn.innerHTML =` <div id="google_translate_element"></div>`;                   // Insert text
+  document.getElementById("ifameContent") .appendChild(btn);               // Append <button> to <body>
+  referenceMaterialDisplay();
+
+}
+
+function economy() {
+ referenceMaterialDisplay();
+}
+
+function history() {
+  referenceMaterialDisplay();
+}
+
+function evs() {
+  referenceMaterialDisplay();
+}
+
+
+function referenceMaterialDisplay() {
+
+ 
+  if(navigationSection.classList.contains("noDisplay")) {
+    navigationSection.classList.remove("noDisplay");
+  }
+
+    if(!reportSection.classList.contains('noDisplay')) {
+       reportSection.classList.add('noDisplay');
+  }
+ 
+  
+
+  if(!sidebarSection.classList.contains('noDisplay')) {
+       sidebarSection.classList.add('noDisplay');
+  }
+
+   if(!mainSection.classList.contains('noDisplay')) {
+       mainSection.classList.add('noDisplay');
+  }
+
+   if(referenceSection.classList.contains("noDisplay")) {
+    referenceSection.classList.remove("noDisplay");
+  }
+
+    if(!answerSpeaker.classList.contains("noDisplay")) {
+    answerSpeaker.classList.add("noDisplay");
+  }
+
+  // document.getElementById("reference").style.maxWidth = "700px";
+ 
+
+}
+
+
+
+
+
+
+
+
+
+function goBack() {
+  // window.history.back();
+}
+
+function goForward() {
+  // window.history.back();
+}
+
+
+
+
+
+// google.script.history.setChangeHandler(function (e) {
+//   console.log(e.state);
+//   console.log(e.location.parameters);
+//   console.log(e.location.hash);
+
+//   // Adjust web app UI to match popped state here...
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,789 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base target="_self">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GS IAS</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+     <?!= includeExternalFile("testing-css"); ?>
+
+
+    <style>
+      nav .badge{
+        position: relative;
+        top: 20px;
+        right: 20px;
+      }
+    </style>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    
+  </head>
+
+
+  <body>
+   
+
+
+    <!-- above google sign in added -->
+    <div id='navbarFixed' class="navbar-fixed">
+    <nav class="nav-wrapper indigo">
+      <div class="container">
+        
+        
+        
+        <ul class="right notranslate">
+          <li href="#" class="sidenav-trigger  purple  show-on-large  right " data-position="top" data-tooltip="click" data-target="mobile-links">
+
+            
+          <i class="material-icons">menu</i>
+        </li>
+            <!-- <a class="brand-logo center">GS IAS</a> -->
+            
+           <!-- <li>  <label id="shortListSettingL" class="tooltipped" data-position="top" data-tooltip="short List choices">
+        <input id="shortListSetting" type="checkbox"  class="filled-in"  checked="checked" />
+         <span></span>
+      </label></li> -->
+
+     
+
+        
+
+
+
+  <li id="answerSpeak" class="col s2 noDisplay"><a  href="javascript:answerSpeak()"><i id="answerSpeakI" class="tiny orange-text material-icons">play_circle_filled</i></a></li>
+         <li class="waves-effect waves-pink purple btn tooltipped" data-position="top" data-tooltip="Show / Hide Answer" id="btnA"><i class="material-icons centre yellow-text ans">more</i></li>
+            <li class="waves-effect waves-light btn tooltipped" data-position="top" data-tooltip="Previous Question" id="btnP"><i class="material-icons centre pre">skip_previous</i></li>
+            <li class="btn waves-effect waves-orange  tooltipped" data-position="top" data-tooltip="Score Analysis at the bottom" id="btnQ"><i class="material-icons centre indigo-text Q">live_help</i></li>
+            <li class="waves-effect waves-light btn tooltipped" data-position="top" data-tooltip="Next Question" id="btnN"><i class="material-icons centre nxt">skip_next</i></li>
+
+     
+           
+            </ul>
+
+             <ul class="left notranslate">
+            <label id="remainingTime"> </label>
+            </ul>
+
+       
+
+
+
+
+
+
+        <ul class="left hide-on-med-and-down">
+           
+           <a class="brand-logo center">GS IAS</a>
+          
+        </ul>
+
+        
+
+
+
+
+
+      </div>
+    </nav>
+  </div>
+
+  <ul class="sidenav notranslate" id="mobile-links">
+   
+      <li>
+        <a class="brand-logo center">GS IAS Logo</a>
+        <h4>GS IAS </h4>
+        </li>
+        <hr>
+         <li>
+      <!-- <a class="waves-effect waves-light btn-small tooltipped" data-position="top" data-tooltip="Submit Test for Evaluation" id="btnSubmit"><i class="material-icons centre top">navigation</i>submit</a> -->
+      </li>
+      <li>
+         <div class="container">
+    
+
+    <a class="btn orange modal-trigger" href="#terms2">Submit Test</a>
+
+    <div id="terms2" class="modal notranslate">
+      <div class="modal-content">
+        <h4>Submit Test:</h4>
+        <h5>
+          Do you want to close the test and Submit?
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <a  class="modal-close btn orange" onclick="submitButtonClicked()">Yes</a>
+         <a  class="modal-close btn orange">No</a>
+      </div>
+    </div>
+  
+
+  </div>
+        </li>
+
+      <!-- <div class="row">        
+        <div id="speech" class="col s12">
+          <ul class="center"> 
+           
+              <li class="col s4"><a href="javascript:pauseSpeak()"><i class="small material-icons">pause_circle_filled</i></a></li>
+              <li class="col s4"><a href="javascript:resumeSpeak()"><i class="small material-icons">play_circle_outline</i></a></li>
+              <li class="col s4"><a href="javascript:stopSpeak()"><i class="small material-icons">stop</i></a></li>
+          </ul>
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+        <div class="left">
+
+          <label id="duration" class="notranslate">
+
+          </label>
+
+          <div id="google_translate_element"></div>
+          
+
+
+
+           <ul class="collapsible">
+
+              <li class="active">
+                <div class="collapsible-header"><i class="material-icons">help</i>Q-Buttons</div>
+                    <div class="collapsible-body ">
+                       <ul id="mySidebarButtons" >
+                          <!-- question buttons -->
+                       </ul>
+                    </div>
+              </li>
+
+
+              <li>
+                <div class="collapsible-header"><i class="material-icons">done_all</i>Evaluation</div>
+                    <div class="collapsible-body">
+
+                      <div id="sidebarScoretable_div"> </div>
+                   
+
+
+                </div>
+              </li>
+
+                <li> 
+                   <div class="collapsible-header"><i class="material-icons">settings</i>settings</div>
+                      <div class="collapsible-body">
+
+
+                        <label id="shortListSettingL" class="tooltipped" data-position="top" data-tooltip="short List choices">
+                        <input id="shortListSetting" type="checkbox"  class="filled-in"  checked="checked" />
+                        <span>short list choices</span>
+                        </label>
+
+                        <label id="qidSettingL" class="tooltipped" data-position="top" data-tooltip="question id">
+                        <input id="qidSetting" type="checkbox"  class="filled-in"  />
+                        <span>question id</span>
+                        </label>
+
+
+                   </div>
+
+                </li>
+
+                 <li> 
+                   <div class="collapsible-header"><i class="material-icons">subject</i>reference material</div>
+                      <div class="collapsible-body">
+
+
+                        <label id="polityL">
+                        <a  href="javascript:polity()">
+                          <i  class="tiny orange-text material-icons">S</i>tandard Reference Material</a>
+                        </label>
+
+                        <!-- <label id="geographyL">
+                         <a  href="javascript:geography()">
+                           <i  class="tiny orange-text material-icons">G</i>eography</a>
+                        </label>
+                        
+
+                        <label id="historyL">
+                         <a  href="javascript:history()">
+                           <i  class="tiny orange-text material-icons">H</i>istory</a>
+                        </label>
+                        
+
+                        <label id="economyL">
+                         <a  href="javascript:economy()">
+                           <i  class="tiny orange-text material-icons">E</i>conomy</a>
+                        </label>
+
+                          <label id="evsL">
+                         <a  href="javascript:evs()">
+                           <i  class="tiny orange-text material-icons">E</i>vs</a>
+                        </label> -->
+                       
+
+
+                   </div>
+
+                </li>
+
+               
+                  
+
+      
+      
+              <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Q-Buttons Info</div>
+                <div class="collapsible-body">
+                  <table id="button-info" class="striped">
+
+                      <thead>
+                      
+                        <caption></caption>
+
+                        <tr id="button-info-header">
+                          <th>B.Colour </th>
+                          <th>D.Test</th>
+                          <th>A.Submit </th>
+                        
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td> <span style="color:purple">purple</span></td>
+                          <td> current</td>
+                          <td>--</td>
+                        </tr>
+
+                        <tr>
+                          <td><span style="color:grey">grey</span></td>
+                          <td> Unvisited</td>
+                          <td>--</td>
+                        </tr>
+
+                        <tr>
+                          <td><span style="color:orange">orange</span></td>
+                          <td> Visited but NA</td>
+                          <td>--</td>
+                        </tr>
+
+                        <tr>
+                          <td><span style="color:indigo">indigo</span></td>
+                          <td>Answer Marked</td>
+                          <td>--</td>
+                        </tr>
+
+                        <tr>
+                          <td><span style="color:green">green</span></td>
+                          <td>Answer Checked & Right</td>
+                          <td>Right</td>
+                        </tr>
+
+                        <tr>
+                          <td><span style="color:red">red</span></td>
+                          <td> Answer Checked & Wrong</td>
+                          <td>Wrong</td>
+                        </tr>
+
+              
+                        <tr>
+                          <td> <span style="color:cyan">cyan</span></td>
+                          <td> NA but Answer Checked</td>
+                          <td>Not Attempted</td>
+                        </tr>
+
+
+                      </tbody>
+
+                    </table>
+
+
+
+
+
+                  .</div>
+              </li>
+              
+            </ul>
+            
+          
+         
+         
+
+
+
+        
+
+
+               
+
+
+
+
+
+
+
+                
+          
+        </div>
+
+    
+
+      
+    <!-- <li><a href="">Home</a></li>
+    <li><a href="">About</a></li>
+    <li><a href="">Contact</a></li> -->
+  </ul>
+
+      </nav>
+    </div>
+    
+   
+   
+
+
+
+
+
+    <div class="task-3-2 container">
+      <!-- <div class="task-3-2"> -->
+      <div class="item header">
+        <h1>
+          <i>
+            hello
+          </i>
+        </h1>
+            <div class="row">
+             
+              <div class="input-field col s6">
+                
+                <input id="fn" disabled value=<?= usertest ()[1]?> type="text" class="validate">
+                <label for="fn">Name</label>
+              </div>
+              
+              <div class="input-field col s6">
+                <input id="email" disabled value=<?= usertest ()[0]?> type="text" class="validate">
+                <label for="email">Email</label>
+              </div>
+              <!-- <div class="input-field col s6">
+                <i class="material-icons prefix indigo-text">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">Telephone</label>
+              </div> -->
+            </div>
+            <!-- <div class="row">
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate">
+                <i class="material-icons indigo-text Large">contact_mail</i>
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="password" type="password" class="validate">
+                <i class="material-icons indigo-text Large">password</i>
+                <label for="password">Password</label>
+              </div>
+            </div> -->
+            <!-- <div class="row">
+             
+            </div>
+            <div class="row">
+              blank row
+            </div> -->
+            
+            <label>
+              <i class="material-icons pink-text Large">build</i>
+              Build your test :
+            </label>
+            <hr><br>
+            
+
+              <div class="row">
+              <!-- multi select -->
+                <div class="input-field col s6">
+                  <select id="exams" multiple>
+                    <!-- <option value="" disabled selected></option> -->
+                    <optgroup label="Data Set">
+                      <option value="ALL" selected>All</option>
+                      <option value="UPSC">Previous UPSC</option>
+                      <option value="vsn">SET 1</option>
+                      <option value="aus">SET 2</option>
+                      <option value="vaj">SET 3</option>
+                    </optgroup> 
+                    <optgroup label="Sub Set">
+                      <option value="AWA">All previous Wrong Attemps</option>
+                      <option value="MIS"> Only the Wrong Attempts Not Correctly Attempted Yet</option>
+                    </optgroup>
+                    <!-- <option value="3">Option 3</option> -->
+                  </select>
+
+                  
+                  <label>Test Questions :</label>
+                 <i class="material-icons indigo-text Large">question_answer</i>
+                </div>
+                 <div class="input-field col s6">
+                  <input id="year" value="2017" type="text" class="validate" data-length="4">
+                   <label class="active" for="year"> UPSC year(onwards):</label>
+                 </div>
+            </div>  
+
+            <div class="row">
+              <div class="input-field col s6">
+                <select id="subjects" multiple>
+                  <option value="ALL"  selected>All</option>
+                  <option value="Polity">Polity</option>
+                  <option value="Economy">Economy</option>
+                  <option value="Indian Geography">Geography of India</option>
+                  <option value="World Geography">World Geography</option>
+                  <option value="Ancient History">Ancient History</option>
+                  <option value="Medieval History">Medieval History</option>
+                  <option value="Modern India">Modern India</option>
+                  <option value="Art and Culture">Art and Culture</option>
+                  <option value="International Relations">International Relations</option>
+                  <option value="Science and Tech">Science and Tech</option>
+                  <option value="Environment">Environment</option>
+                   <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+               
+                <label>Subject :</label>
+                <i class="material-icons indigo-text Large">book</i>
+              </div>
+              <div class="input-field col s6">
+                <div id="chip" class="chips chips-initial chips-placeholder chips-autocomplete orange white-text">
+
+
+                </div>
+                
+              </div>
+            </div> 
+             <!-- end multi select -->
+             <div class="row">
+               <div class="input-field col s6">
+                <select id="numQuestions">
+                  <!-- <option value="" disabled selected>Choose your option</option> -->
+                  
+                 
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                   <option value="100">100</option>
+                </select>
+                
+                <label>Number of Questions :</label>
+                <i class="material-icons indigo-text Large">filter_9_plus</i>
+               </div>
+
+               <!-- radio box for mode of test -->
+                <div class="input-field col s6">
+                 
+                <ul>
+                  
+                 <fieldset>
+                    <legend>Preparation Mode:</legend>
+                    <label>
+                      
+                      <input name="prep-mode" type="radio" value="test" />
+                      <span>Test</span>
+
+                    </label>
+                    
+               
+                  
+                    <label style="padding-left: 45px;">
+                      
+                      <input name="prep-mode" type="radio" value="practice" checked />
+                      <span>Practice</span>
+                    </label>
+                  </fieldset>
+                  
+                </ul>
+                
+
+               </div>
+
+
+
+
+
+             </div>
+
+              <div class="row">
+                <button id="btnR" class="btn waves-effect waves-light" type="submit" name="action">Run It
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
+        header
+      </div>
+
+
+      <div class="item navigation">
+
+              <!-- <div>
+                <nav>
+                  <div class="nav-wrapper">
+                    <ul class="left">
+                      <li><a href="#table_div">Evaluated MCQs</a></li>
+                      <li><a href="#table_div3">Result</a></li>
+                      <li><a href="#table_div7">Time-Spent</a></li>
+                      <li><a href="#table_div6">Visits</a></li>
+                      <li><a href="#myBarChart">Subject-wise Performance</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div> -->
+
+               <ul id="myButtons">
+                <!-- question buttons -->
+
+               
+             
+              </ul>
+
+              
+
+            <div id="report" class="row">
+                <div  class="col s12">
+                  <ul class="tabs">
+                    <li class="tab col s2"><a class="active" href="#table_div">Evaluated MCQs</a></li>
+                    <li class="tab col s2"><a  href="#resultdiv">Attemps</a></li>
+                    <li class="tab col s2"><a href="#timediv">Time-Spent</a></li>
+                    <li class="tab col s2"><a href="#visitsdiv">Visits</a></li>
+                    <li class="tab col s2"><a href="#subjectsdiv">Score</a></li>
+                  </ul>
+
+                </div>
+               
+            
+             
+
+               <div id="table_div" class="col s12"> </div>
+
+
+                  <div id='resultdiv' class="col s12">
+                    <ul class='horizontal-list'>
+                     
+                       
+                       <li id="piechart_3d" class='tablright'></li>
+                       <li id="table_div3"> </li>
+                    </ul>
+                  </div>
+                 
+                      
+                      <div id='timediv' class="col s12">
+                        <ul class='horizontal-list'>
+                          
+                          <li id="piechart_3d2"> </li>
+                          <li id="table_div7" > </li>
+                          <li id="columnChart2" > </li>
+                       </ul>
+                      </div>
+
+
+
+                      <div id='visitsdiv' class="col s12">
+                        <ul class='horizontal-list'>
+                          
+                          <li id="column_chart"> </li>
+                           <li id="table_div6"> </li> 
+                         
+                       </ul>
+                      </div>
+
+
+
+                      <div id='subjectsdiv' class="col s12">
+                        <ul class='horizontal-list'>
+                            <li id="msgBox">  </li>
+                          <!-- score displayed here -->
+                          <li id="myBarChart"> </li>
+                          <li id="table_div5"> </li>
+                            
+                           
+                       </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                       
+                        <!-- <div id="table_div5"> </div>
+                        <div id="myBarChart" style="width: 900px; height: 500px;"> </div>
+                        
+                        
+
+                        <div id="table_div4"> </div> -->
+
+                 
+            
+      
+              </div>
+
+
+               <div id="reference" class="row">
+            
+                <div id="reference_sub" class="col s12">
+                  <!-- <ul class="tabs">
+                    <li class="tab col s2"><a class="active" href="#polity_div">Polity</a></li>
+                    <li class="tab col s2"><a  href="#geography_div">Geography</a></li>
+                    <li class="tab col s2"><a href="#history_div">History</a></li>
+                    <li class="tab col s2"><a href="#economy_div">Economy</a></li>
+                    <li class="tab col s2"><a href="#evs_div">EVS</a></li>
+                  </ul> -->
+                </div>
+
+               <div id="polity_div" class="col s12">
+                 <iframe id="ifameContent" src="https://gnprasad2.github.io/upscpol/index.html" name="iframe_a1" title="Iframe Example" width="95%" height="500" frameBorder="0" ></iframe>
+                  </div>
+               <div id="geography_div" class="col s12"> </div>
+               <div id="history_div" class="col s12"> </div>
+               <div id="economy_div" class="col s12"> </div>
+               <div id="evs_div" class="col s12"> </div>
+
+               </div>
+
+              
+           
+
+             
+              
+              
+              
+               
+
+               
+               
+               
+
+        
+       
+       
+         
+        
+          
+         
+
+
+
+
+
+
+          
+
+        <!-- navigation -->
+      </div>
+
+
+      <div class="item main"  >
+       Loading .... 
+       keyboard shortcuts:
+       right arrow key ->  Next Question
+       left arrow key  - previous question
+       a - answer
+       q - Score analysis show/hide. <br>
+
+       Important Instructions:<br>
+
+      (i) Rememeber to press ENTER after typing the important word you are looking for in the key-word box to get relevant questions. <br>
+      (ii) SUBMIT button can be accessed by clicking the menu symbol on the top right corner after completing the test to instant view your performance in the test.<br>
+      (iii) In practice mode, answer can be viewed any time but options would get disabled and would be added to your mistake question set. You can revise these questions later.<br>
+      (iV) For detailed instructions visit the link in the sidebar.
+      </div>
+
+      <div class="item sidebar" >
+        <div class="explanation">
+          explanation
+         
+
+        </div>
+
+       <section id="welcomes"><span class="welcome"> Dear <?= usertest ()[1]?> </span>, <br>
+
+          Hard Work, Self Confidence and firm determination are the three good qualities required for a person to achieve his / her goal. <br>
+          Fix your target, believe yourself and march forward with confidence. You will surely lead and succeed.
+          You can do it and you'll surely do it.
+          Wishing you all the success. <br>
+
+          Team GS IAS </section><br>
+         <span class="welcome"> "Practice makes a person perfect." </span> </br>
+
+       All the Best. ...  Loading Questions. ... 
+          <!-- sidebar` -->
+      </div>
+
+      <div class="item ads">
+         <!-- <h2>Modals</h2>
+         <a class="btn orange modal-trigger" href="#terms">Terms & Conditions</a>
+         <div id="terms" class="modal">
+           <div class="modal-content">
+             <h4>Terms & Conditions</h4>
+             <p>Write the terms and conditions here.</p>
+           </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close btn orange">Agree</a>
+           </div>
+         </div> -->
+        ads
+      </div>
+
+      <div class="item footer">
+       
+
+
+
+    </div>
+
+
+    <!-- context menu -->
+
+    
+  
+    <div id="contextMenu" class="context-menu" 
+        style="display:none">
+        <ul>
+            
+            <li><a href="javascript:checkAnswerRightClick()">Toggle Answer</a></li>
+            <li><a href="javascript:sidenavRightClick()">sidebar open ..</a></li>
+            <li><a href="javascript:getNextQuestion()">next question</a></li>
+            <li><a href="javascript:getPreviousQuestion()">previous question</a></li>
+            <li><a href="javascript:navigationSectionToggle()">report toggle</a></li>
+             <li><a href="javascript:questionSpeak()">speak question</a></li>
+        </ul>
+    </div>
+
+  
+
+    <!-- code from google site for jquery  -->
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+   <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+
+
+
+
+ 
+  <?!= includeExternalFile("testing-js"); ?>
+  </body>
+</html>
