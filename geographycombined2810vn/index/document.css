@@ -138,11 +138,12 @@ body {
     padding-right: 60px;
     padding-left: 30px;
     padding-top: 30px;
+    padding-bottom: 30px;
     
     
 }
 
-@media screen and (min-width: 850px) and (max-width: 1200px) {
+@media screen and (min-width: 850px) and (max-width: 1000px) {
     body {
         padding-right: 100px;
         padding-left: 50px;
@@ -150,12 +151,21 @@ body {
     
   }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
     body {
      column-count: 2;
-      column-gap: 40px;
+      column-gap: 60px;
+    }
+    table{
+      column-span:all;
+      
+  
     }
     
   }
 
+   p{
+    text-align: justify !important;
+    font-family: 'Courier New', Courier, monospace !important;
+  }
 
