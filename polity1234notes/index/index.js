@@ -465,18 +465,32 @@ function googleTranslateElementInit() {
   }
 
   window.onload = (event) => {
-    M.AutoInit();
-    if (synth.speaking) {
-      synth.cancel();  
-    }  
-    
-      // if(window.location == window.top.location) {
-    //   window.location = "https://script.google.com/macros/s/AKfycbyaV7YNwZLEfpRagpgkMctfJPrwjACjoOP5fmumjcc/dev";
-    // }
+  
+  M.AutoInit();
+  if (synth.speaking) {
+    synth.cancel();  
+  } 
+  setTimeout(() => {
+    if (window.location == window.top.location) {
+      window.location = "https://app.gs-ias.com";
+    }
+    let domain = window.top.location.href;
+    if(!domain.includes('gs-ias.com')){
+      window.location = "https://app.gs-ias.com";
+    }
+
+  }, 60000);
+
+};
 
 
-  };
 
+
+
+document.addEventListener('contextmenu', function (ev) {
+  ev.preventDefault();
+  return false;
+}, false);
 
 
   

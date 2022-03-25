@@ -111,23 +111,24 @@
  .s115 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 110%; }
  .s116 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 110%; }
  table, tbody {vertical-align: top; overflow: visible; }
-.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+ .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
  html {  background-color:ivory; } 
 body {
     min-height: 100vh;
     max-width: 1700px;
     background-color:ivory;
-    margin: 10px auto;
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 20px;
     padding-right: 60px;
-    padding-left: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-top: 5px;
     
     
 }
 
-@media screen and (min-width: 850px) and (max-width: 1200px) {
+@media screen and (min-width: 850px) and (max-width: 1000px) {
     body {
         padding-right: 100px;
         padding-left: 50px;
@@ -135,10 +136,57 @@ body {
     
   }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
     body {
      column-count: 2;
-      column-gap: 40px;
+      column-gap: 60px;
+    }
+    table{
+      column-span:all;
+      
+  
     }
     
   }
+
+   p{
+    text-align: justify !important;
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+  @media screen and (max-width: 700px)  {
+    .notranslate li {
+      display:inline; padding: 5px;
+    }
+    
+  }
+
+  .s7{
+    font-family:fantasy !important;
+    font-style: normal !important;
+    color: #B1A200 !important;
+
+  }
+
+  .s6{
+    font-family:cursive !important;
+    font-style: normal !important;
+    color: #B1A200 !important;
+
+  }
+
+  .s10{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    font-style: normal !important;
+    color:#616161 !important;
+  }
+
+
+  .s11{
+    font-family:cursive !important;
+    font-style: normal !important;
+    color:#616161 !important;
+
+  }
+
+
+
