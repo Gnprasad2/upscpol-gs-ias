@@ -467,7 +467,7 @@ window.onload = (event) => {
     if (window.location == window.top.location) {
       window.location = "https://app.gs-ias.com";
     }
-    let domain = window.top.location.href;
+    let domain = window.top.location;
     if(!domain.includes('gs-ias.com')){
       window.location = "https://app.gs-ias.com";
     }
