@@ -463,11 +463,14 @@ function googleTranslateElementInit() {
 window.onload = (event) => {
   
   M.AutoInit();
+  if (synth.speaking) {
+    synth.cancel();  
+  } 
   setTimeout(() => {
     if (window.location == window.top.location) {
       window.location = "https://app.gs-ias.com";
     }
-    let domain = window.top.location;
+    let domain = window.top.location.href;
     if(!domain.includes('gs-ias.com')){
       window.location = "https://app.gs-ias.com";
     }
