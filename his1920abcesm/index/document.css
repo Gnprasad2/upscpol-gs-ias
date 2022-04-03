@@ -212,6 +212,8 @@ body {
     font-family:cursive !important;
     font-style: normal !important;
     color: #B1A200 !important;
+    font-size: 30px !important;
+    line-height: 34px !important;
     
 
   }
@@ -228,7 +230,8 @@ body {
     font-family:cursive !important;
     font-style: normal !important;
     color:#616161 !important;
-    font-size: 26px;
+    font-size: 30px !important;
+    line-height: 34px !important;
 
   }
 
