@@ -123,7 +123,7 @@
  .s122 { color: #111; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
  table, tbody {vertical-align: top; overflow: visible; }
 
- .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
  html {  background-color:ivory; } 
 body {
@@ -140,7 +140,7 @@ body {
     
 }
 
-@media screen and (min-width: 850px) and (max-width: 1200px) {
+@media screen and (min-width: 850px) and (max-width: 1000px) {
     body {
         padding-right: 100px;
         padding-left: 50px;
@@ -148,10 +148,64 @@ body {
     
   }
 
-@media screen and (min-width: 1200px) {
+   
+
+ 
+
+@media screen and (min-width: 1000px) {
     body {
      column-count: 2;
-      column-gap: 40px;
+      column-gap: 60px;
+    }
+    table{
+      column-span:all;
+      
+  
     }
     
+  }
+
+    p{
+    text-align: justify !important;
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+  @media screen and (max-width: 700px)  {
+    .notranslate li {
+      display:inline; padding: 5px;
+    }
+    
+  }
+
+  @media screen and (max-width: 500px) {
+    body {
+        
+        
+        margin-left: 10px;
+        margin-bottom: 20px;
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-right: 5px;
+       
+        
+  
+    }
+    
+    p{
+     
+     
+      font-size: 1.2rem !important;
+      font-family: 'Roboto Mono' !important;
+      text-align: justify !important;
+      line-height: 1.5em !important;
+      padding-right: 10px !important;
+      
+
+    }
+    
+  }
+
+
+  html,
+  body {
+      overscroll-behavior-y: contain !important;
   }
