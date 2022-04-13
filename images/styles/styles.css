@@ -32,3 +32,8 @@
   text-align: center;
 
 }
+
+
+ul#map-links li{
+  display:inline-block;
+}
