@@ -8,13 +8,27 @@
 
 
 /* Bottom right text */
-.text-block {
+.text-block-color{
   position: absolute;
   bottom:1%;
   right: 1%;
-  background-color:rgb(146, 195, 237);
+  background-color:rgba(153,214,255,255);
   color:black;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 40%;
+  text-align: center;
 }
 
+.text-block{
+  position: absolute;
+  bottom:1%;
+  right: 1%;
+  background-color:azure;
+  color:black;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 100%;
+  text-align: center;
+
+}
