@@ -190,10 +190,23 @@ body {
     
   }
 
-  html,
+   html,
   body {
       overscroll-behavior-y: contain !important;
   }
+
+
+
+  img{
+    transition: transform 2s;
+  }
+
+  img:hover{
+    position:relative;
+    transform: scale(1.5) !important;
+  } 
+  
+  
   @media screen and (max-width: 700px)  {
     .notranslate li {
       display:inline; padding: 5px;
