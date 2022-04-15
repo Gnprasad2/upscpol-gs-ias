@@ -108,6 +108,9 @@ ul#map-links li{
     color: brown;
 }
 
+html {
+  overflow-y:scroll !important;
+}
 
 
 
