@@ -3,9 +3,18 @@
   position: relative;
   width: 100%;
   padding: 5px;
-  transition: width 2s;
-  transition-delay: 0.1s;
   
+  /* transition: width 2s;
+  transition-delay: 0.1s; */
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+  
+  
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 
@@ -19,6 +28,8 @@
 
   .container:hover{
     width: 50% !important;
+    
+    
   
   }
 
@@ -26,22 +37,14 @@
 
 }
 
-/* #map{
-  transition: width 2s;
-} */
+
 @media screen and (max-width: 840px) {
 
-  
-
   .container:hover{
-    transition: transform 2s; /* Animation */
-  
+    
     transform: scale(1.5) !important;
     
-  
   }
-
-  
 
 }
 
