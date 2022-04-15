@@ -11,6 +11,12 @@
   
 }
 
+#navbar{
+  text-align: center;
+  display: block;
+  background-color: rgb(12, 12, 134);
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -34,7 +40,6 @@
   }
 
   
-
 }
 
 
