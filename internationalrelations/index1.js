@@ -459,6 +459,11 @@ function googleTranslateElementInit() {
   }
 
      window.onload = (event) => {
+  if (document.getElementById("gsias2")) {
+   if(!(window.location == window.top.location)){
+      document.getElementById("gsias2").style.display = "none";
+    }
+  }
   
   M.AutoInit();
   if (synth.speaking) {
