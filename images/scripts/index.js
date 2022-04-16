@@ -227,8 +227,8 @@ $(document).ready(function () {
 
 window.onload = (event) => {
   if (document.getElementById("gsias2")) {
-   if(!(window.location == window.top.location)){
-      document.getElementById("gsias2").style.display = "none";
+  if(window.location == window.top.location){
+      document.getElementById("gsias2").classList.remove('noDisplay');
     }
   }
 
