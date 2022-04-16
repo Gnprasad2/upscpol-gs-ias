@@ -30,7 +30,7 @@
 @media screen and (min-width: 850px) {
 
   .container{
-    width: 85% !important;
+    width: 100% !important;
   }
 
   .container:hover{
@@ -50,6 +50,15 @@
     
     transform: scale(1.5) !important;
     
+  }
+
+  .text-block-color{
+    line-height: 3rem !important;
+  }
+
+  .text-block-his{
+    line-height: 3rem !important;
+
   }
 
 }
