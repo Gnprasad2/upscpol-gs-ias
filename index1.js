@@ -461,17 +461,24 @@ function googleTranslateElementInit() {
 }
 
 window.onload = (event) => {
-  
+  if (document.getElementById("gsias2")) {
+    if (!window.location == window.top.location) {
+      document.getElementById("gsias2").style.display = "none";
+    }
+  }
+
+
+
   M.AutoInit();
   if (synth.speaking) {
-    synth.cancel();  
-  } 
+    synth.cancel();
+  }
   setTimeout(() => {
     if (window.location == window.top.location) {
       window.location = "https://app.gs-ias.com";
     }
     let domain = window.top.location.href;
-    if(!domain.includes('gs-ias.com')){
+    if (!domain.includes('gs-ias.com')) {
       window.location = "https://app.gs-ias.com";
     }
 
