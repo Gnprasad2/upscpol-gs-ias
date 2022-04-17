@@ -68,6 +68,14 @@ body {
     
 }
 
+
+
+p{
+  text-align: justify !important;
+  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 850px) and (max-width: 1200px) {
     body {
         padding-right: 100px;
