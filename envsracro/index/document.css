@@ -36,6 +36,10 @@
 .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
   html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; } 
+ .container{
+   width: 100%;
+ }
+  
 body {
     min-height: 100vh;
     max-width: 1700px;
