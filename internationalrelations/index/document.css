@@ -389,9 +389,11 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
     overscroll-behavior-y: contain;
+    height:fit-content;
     
     
 }
+
 
 
 
