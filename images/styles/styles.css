@@ -54,10 +54,12 @@
 
   .text-block-color{
     line-height: 1.7rem !important;
+    bottom:1.2% !important;
   }
 
   .text-block-his{
     line-height: 1.7rem !important;
+    bottom:1.2% !important;
 
   }
 
