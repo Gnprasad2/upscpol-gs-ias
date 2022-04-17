@@ -110,9 +110,12 @@
  .s115 { color: #B1A200; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
  .s116 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
  table, tbody {vertical-align: top; overflow: visible; }
-.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+ .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
   html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; } 
+ h1, h2, h3 {
+   font-size: 1.9rem !important;
+ } 
  .container{
    width: 100%;
  }
@@ -121,14 +124,26 @@ body {
     min-height: 100vh;
     max-width: 1700px;
     background-color:ivory;
-    margin-top: 5px;
-    margin-left: 30px;
-    margin-bottom: 20px;
+    margin: 10px auto;
     padding-right: 60px;
-    padding-left: 50px;
-    padding-top: 5px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overscroll-behavior-y: contain;
+    height:fit-content;
     
     
+}
+
+
+
+
+*{
+
+  text-align: justify;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
+ 
+
 }
 
 @media screen and (min-width: 850px) and (max-width: 1000px) {
@@ -177,6 +192,11 @@ body {
        
         
   
+    }
+
+    *{
+      font-family: 'Roboto Mono' !important;
+
     }
     
     p{

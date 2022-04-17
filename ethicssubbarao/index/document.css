@@ -378,6 +378,9 @@
 .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
   html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; } 
+ h1, h2, h3 {
+   font-size: 1.9rem !important;
+ } 
  .container{
    width: 100%;
  }
@@ -400,10 +403,12 @@ body {
 
 
 
-p{
-  text-align: justify !important;
-  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
-  font-weight: bold;
+*{
+
+  text-align: justify;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
+ 
+
 }
 
 @media screen and (min-width: 850px) and (max-width: 1000px) {
@@ -452,6 +457,11 @@ p{
        
         
   
+    }
+
+    *{
+      font-family: 'Roboto Mono' !important;
+
     }
     
     p{

@@ -114,6 +114,9 @@
  .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
   html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; } 
+ h1, h2, h3 {
+   font-size: 1.9rem !important;
+ } 
  .container{
    width: 100%;
  }
@@ -178,6 +181,11 @@ body {
        
         
   
+    }
+
+    *{
+      font-family: 'Roboto Mono' !important;
+
     }
     
     p{
