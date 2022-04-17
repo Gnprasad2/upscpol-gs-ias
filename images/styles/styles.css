@@ -3,6 +3,7 @@
   position: relative;
   width: 100%;
   padding: 5px;
+  height: fit-content !important;
  
   
   /* transition: width 2s; */
@@ -55,11 +56,13 @@
   .text-block-color{
     line-height: 1.7rem !important;
     bottom:1.2% !important;
+  
   }
 
   .text-block-his{
     line-height: 1.7rem !important;
     bottom:1.2% !important;
+    
 
   }
 
@@ -87,6 +90,7 @@
   width: 100%;
   text-align: center;
   line-height: 48px;
+  
 }
 
 .text-block-his{
@@ -101,6 +105,7 @@
   text-align: center;
   /* background-color:rgba(134,209,241,255); */
   line-height: 52px;
+  
 
 }
 
