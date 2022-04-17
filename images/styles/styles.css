@@ -1,3 +1,6 @@
+
+html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; } 
+
 /* Container holding the image and the text */
 .container {
   position: relative;
@@ -24,6 +27,8 @@
   position: sticky;
   top: 0;
 }
+
+
 
 
 
@@ -62,6 +67,29 @@
   .text-block-his{
     line-height: 1.7rem !important;
     bottom:1.2% !important;
+    
+
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .container:hover{
+    
+    transform: scale(1.5) !important;
+    
+  }
+
+  .text-block-color{
+    line-height: 1.3rem !important;
+    bottom:0.7% !important;
+  
+  }
+
+  .text-block-his{
+    line-height: 1.3rem !important;
+    bottom:0.7% !important;
     
 
   }
