@@ -54,7 +54,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
 
   .container:hover{
     
-    transform: scale(1.5) !important;
+    transform: scale(1.2) !important;
     
   }
 
@@ -77,18 +77,18 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
 
   .container:hover{
     
-    transform: scale(1.5) !important;
+    transform: scale(1.2) !important;
     
   }
 
   .text-block-color{
-    line-height: 1.3rem !important;
+    line-height: 1.4rem !important;
     bottom:0.7% !important;
   
   }
 
   .text-block-his{
-    line-height: 1.3rem !important;
+    line-height: 1.4rem !important;
     bottom:0.7% !important;
     
 
