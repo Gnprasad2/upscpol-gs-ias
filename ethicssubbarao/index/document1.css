@@ -119,8 +119,9 @@
 .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
  html {  background-color:ivory; } 
-body {
-    min-height: 100vh;
+  body {
+  padding-bottom: 30px;
+  min-height: 100vh;
     max-width: 1700px;
     background-color:ivory;
     margin: 10px auto;
@@ -128,7 +129,7 @@ body {
     padding-left: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
-    overscroll-behavior-y: contain;
+      
     
     
 }
@@ -195,7 +196,4 @@ body {
     
   }
 
-  html,
-  body {
-      overscroll-behavior-y: contain !important;
-  }
+ 

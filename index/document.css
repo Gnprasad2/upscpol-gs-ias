@@ -114,10 +114,7 @@
 body { margin: 20px; }
 
 
-html,
-body {
-    overscroll-behavior-y: contain !important;
-}
+
 
 
 
@@ -127,6 +124,6 @@ img{
 
 img:hover{
   position:relative;
-  transform: scale(1.5) !important;
+  transform: scale(1.3) !important;
 }
 

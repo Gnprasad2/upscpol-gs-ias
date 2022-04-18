@@ -116,8 +116,9 @@
  .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
  .noDisplay {display: none;}
  html {  background-color:ivory; } 
-body {
-    min-height: 100vh;
+  body {
+  padding-bottom: 30px;
+  min-height: 100vh;
     max-width: 600px;
     background-color:ivory;
     margin: 0px auto;
