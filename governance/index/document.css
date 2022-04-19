@@ -87,7 +87,7 @@ h2, h3 {
   text-align: center !important;
 } 
  body {
-  overscroll-behavior-x: contain;
+   
   padding-bottom: 30px;
   min-height: 100vh;
   max-width: 1700px;

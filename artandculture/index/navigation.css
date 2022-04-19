@@ -8,6 +8,10 @@ font-weight: bold;
 background-color: white;
 cursor: pointer;
 text-decoration:none;
+padding-right: 30px;
+padding-right: 30px;
+margin: 10px;
+
 }
 .nav > a:hover, .top_nav > a:hover, .toc > a:hover
 {

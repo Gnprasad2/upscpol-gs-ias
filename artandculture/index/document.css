@@ -8,7 +8,7 @@
 
 h4 {
   color: darkolivegreen;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
@@ -18,7 +18,7 @@ h4 {
 .p,
 p {
   color: black;
-  font-family: Calibri, sans-serif;
+  font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
@@ -28,224 +28,224 @@ p {
 
 h2 {
   color: goldenrod;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 125%;
 }
 
-.s1 {
+/* .s1 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 125%;
-}
+} */
 
 h3 {
   color: darkolivegreen;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 125%;
 }
 
-.s2 {
+/* .s2 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s3 {
+/* .s3 {
   color: #355E91;
   font-family: Cambria, serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 124%;
-}
+} */
 
-.s4 {
+/* .s4 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s5 {
+/* .s5 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: italic;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s6 {
+/* .s6 {
   color: black;
   font-family: "Times New Roman", serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
 .s7 {
   color: #355E91;
-  font-family: Cambria, serif;
+  /* font-family: Cambria, serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 124%;
-  vertical-align: 1pt;
+  vertical-align: 1pt; */
 }
 
 .s8 {
   color: #355E91;
-  font-family: Cambria, serif;
+  /* font-family: Cambria, serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 124%;
-  vertical-align: -3pt;
+  vertical-align: -3pt; */
 }
 
 .s9 {
   color: #355E91;
-  font-family: Cambria, serif;
+  /* font-family: Cambria, serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 124%;
-  vertical-align: -4pt;
+  vertical-align: -4pt; */
 }
 
-.s10 {
+/* .s10 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 125%;
   vertical-align: 5pt;
-}
+} */
 
-.s12 {
+/* .s12 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s13 {
+/* .s13 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: italic;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s14 {
+/* .s14 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 124%;
-}
+} */
 
 .s15 {
   color: #233E5F;
-  font-family: Cambria, serif;
+  /* font-family: Cambria, serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
-  font-size: 125%;
+  font-size: 125%; */
 }
 
-.s16 {
+/* .s16 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: italic;
   font-weight: bold;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
 .s17 {
   color: #FFF;
-  font-family: Calibri, sans-serif;
+  /*  font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
-  font-size: 125%;
+  font-size: 125%; */
 }
 
-.s18 {
+/* .s18 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s19 {
+/* .s19 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s20 {
+/* .s20 {
   color: black;
   font-family: Symbol, serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s21 {
+/* .s21 {
   color: black;
   font-family: "Times New Roman", serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s23 {
+/* .s23 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: italic;
   font-weight: bold;
   text-decoration: none;
   font-size: 125%;
-}
+} */
 
-.s24 {
+/* .s24 {
   color: #221E1F;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
-
+} */
+/* 
 .s26 {
   color: black;
   font-family: Symbol, serif;
@@ -253,115 +253,115 @@ h3 {
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s27 {
+/* .s27 {
   color: black;
   font-family: "Times New Roman", serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 130%;
-}
+} */
 
-.s28 {
+/* .s28 {
   color: black;
   font-family: Cambria, serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 124%;
-}
+} */
 
-.s29 {
+/* .s29 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: underline;
   font-size: 130%;
-}
+} */
 
-.s30 {
+/* .s30 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 125%;
-}
+} */
 
 .s31 {
   color: #355E91;
-  font-family: Cambria, serif;
+  /* font-family: Cambria, serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 124%;
-  vertical-align: -2pt;
+  vertical-align: -2pt; */
 }
 
-.s32 {
+/* .s32 {
   color: black;
-  font-family: Calibri, sans-serif;
+   font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   font-size: 125%;
-}
+} */
 
 h1 {
   color: #00C;
-  font-family: Calibri, sans-serif;
+  /*  font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: underline;
-  font-size: 125%;
+  font-size: 125%; */
 }
 
 .s33 {
   color: #00F;
-  font-family: Calibri, sans-serif;
+  /*  font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
-  font-size: 130%;
+  font-size: 130%; */
 }
 
-.s34 {
+/* .s34 {
   color: black;
   font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   text-decoration: none;
   font-size: 125%;
-}
+} */
 
 .s35 {
   color: #434343;
-  font-family: Arial, sans-serif;
+  /* font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
-  font-size: 124%;
+  font-size: 124%; */
 }
 
 .s36 {
   color: #00C;
-  font-family: Calibri, sans-serif;
+  /*  font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: bold;
   text-decoration: underline;
-  font-size: 125%;
+  font-size: 125%; */
 }
 
 a {
   color: #00F;
-  font-family: Calibri, sans-serif;
+  /*  font-family: Calibri, sans-serif !important;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
-  font-size: 130%;
+  font-size: 130%; */
 }
 
 table,
@@ -373,8 +373,8 @@ tbody {
 .notranslate li {
   text-align: justify;
   display: inline;
-  padding: 25px;
-  padding-bottom: 5px;
+  padding: 5px;
+  padding-bottom: 30px;
 }
 
 .noDisplay {
@@ -384,22 +384,19 @@ tbody {
       html {  background-color:ivory; margin: 5px; width:100%; padding: 2px; }
 
    html {
+    
     font-size: 18px !important;
     font-family: 'Roboto Mono' !important;
     font-size: 1.2rem !important;
     line-height: 1.6rem !important;
     font-weight: bold !important;
     color: black !important;
-    
+    margin-bottom: 40px;
+    margin-top: 40px;
     
 } 
 
-p {
-  text-align: justify !important;
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
-  font-size: 20px !important;
 
-}
 
 
 h1 {
@@ -415,7 +412,7 @@ h2, h3 {
 } 
 
 body {
-  overscroll-behavior-x: contain;
+   
   padding-bottom: 30px;
   min-height: 100vh;
   max-width: 1700px;
@@ -425,7 +422,8 @@ body {
   padding-left: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
-  overscroll-behavior-x: contain;
+  
+   
 
   height: fit-content;
 
@@ -477,12 +475,7 @@ body {
 
 }
 
-p {
-  text-align: justify !important;
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
-  font-size: 20px !important;
 
-}
 
 @media screen and (max-width: 700px) {
   .notranslate li {
