@@ -11,7 +11,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   
   /* transition: width 2s; */
   transition-delay: 0.2s;
-  transition: width 2s, height 2s, background-color 2s, transform 2s;
+  transition: width 5s, height 3s, background-color 2s, transform 2s;
   
   
 }
@@ -40,7 +40,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   }
 
   .container:hover{
-    width: 50% !important;
+    width:85vmin !important;
     
     
   
@@ -109,7 +109,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
 /* Bottom right text */
 .text-block-color{
   position: absolute;
-  bottom:1.7%;
+  bottom:1.4%;
   right: 0%;
   background-color:black;
   color:beige;
@@ -117,13 +117,13 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   padding-right: 2px; */
   width: 100%;
   text-align: center;
-  line-height: 48px;
+  line-height: 36px;
   
 }
 
 .text-block-his{
   position: absolute;
-  bottom: 2%;
+  bottom: 1.7%;
   right: 0%;
   background-color:black;
   color:beige;
@@ -132,7 +132,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   width: 100%;
   text-align: center;
   /* background-color:rgba(134,209,241,255); */
-  line-height: 52px;
+  line-height: 42px;
   
 
 }
