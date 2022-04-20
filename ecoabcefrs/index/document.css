@@ -37,11 +37,16 @@ h2 {
 }
 
 h3, h5{
-    color: blue !important;
+    color:darkgoldenrod !important;
 }
 
 a{
-    color: ;
+  color: #663300 !important; 
+}
+
+p > a{
+  color:#663300 !important;
+  font-weight: bold;
 }
 
 
@@ -232,4 +237,24 @@ img:hover {
   position: relative;
   transform: scale(1.2) !important;
 
+}
+
+
+.s2{
+  color:crimson !important;
+  font-weight: bold;
+}
+
+
+.main > p{
+  font-weight: bold !important;
+  font-family: Calibri, sans-serif !important;
+  color: black !important;
+}
+
+.main > p ~p{
+  font-weight: 400 !important;
+  font-family: Calibri, sans-serif !important;
+  
+  line-height: 1.4em !important;
 }

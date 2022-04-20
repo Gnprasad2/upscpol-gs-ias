@@ -1,59 +1,106 @@
-﻿@charset "UTF-8"; * {margin:0; padding:0; text-indent:0; }
- h1 { color: #18186F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s1 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
- .p, p { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  margin:0pt; }
- .s2 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s3 { color:#800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s4 { color:#800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .h4, h4 { color:#800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- h3 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s5 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- h2 { color: #FF8B00; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s6 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
- .s7 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; vertical-align: 4pt; }
- .s8 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s9 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
- .s10 { color: #FF8B00; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s11 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
- .s12 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;  text-decoration: none;    font-size: 125%; }
- .s13 { color: #FF8B00; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s14 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s16 { color: #0000ED; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
- .s17 { color: #0000ED; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
- a { color: #0000ED; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
- .s18 { color: #4B4B4B; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
- .s20 { color: #606060; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
- .s21 { color: #606060; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 124%; }
- .s24 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
- .s25 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
- .s26 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
- .s27 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
- .s28 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
- .s29 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: underline;   font-size: 125%; }
- .s30 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
- .s31 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
+@charset "UTF-8";
 
- .s32 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
- .s34 { color: #800000; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: -3pt; }
+* {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  color: black !important;
+}
 
- table, tbody {vertical-align: top; overflow: visible; }
+h4 {
+  color: darkolivegreen !important;
+   font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 125%;
+}
 
-.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
- .noDisplay {display: none;}
-        html {  background-color:ivory; margin: 5px; width:100%; padding: 2px; }
+.p,
+p {
+  color: black !important;
+  font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 100%;
+  margin: 0pt;
+}
+
+h2 {
+  color: goldenrod !important;
+   font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 125%;
+}
+
+h3, h5{
+    color:darkgoldenrod !important;
+}
+
+a{
+  color: #663300 !important; 
+}
+
+p > a{
+  color:#663300 !important;
+  font-weight: bold;
+}
+
+
+
+span{
+    color:black !important;
+  font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 100%;
+  margin: 0pt;
+
+}
+
+
+
+
+
+table,
+tbody {
+  vertical-align: top;
+  overflow: visible;
+}
+
+.notranslate li {
+  text-align: justify;
+  display: inline;
+  padding: 5px;
+  padding-bottom: 30px;
+}
+
+.noDisplay {
+  display: none;
+}
+
+      html {  background-color:ivory; margin: 5px; width:100%; padding: 2px; }
 
    html {
+    
     font-size: 18px !important;
     font-family: 'Roboto Mono' !important;
     font-size: 1.2rem !important;
     line-height: 1.6rem !important;
     font-weight: bold !important;
     color: black !important;
-    
+    margin-bottom: 40px;
+    margin-top: 40px;
     
 } 
 
-       
+
+
+
 h1 {
   font-size: 2.5rem !important;
   padding-left: 0px !important;
@@ -65,7 +112,8 @@ h2, h3 {
   padding-left: 0px !important;
   text-align: center !important;
 } 
- body {
+
+body {
    
   padding-bottom: 30px;
   min-height: 100vh;
@@ -76,6 +124,8 @@ h2, h3 {
   padding-left: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
+  
+   
 
   height: fit-content;
 
@@ -89,89 +139,126 @@ h2, h3 {
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (min-width: 850px) and (max-width: 1000px) {
-    body {
-        padding-right: 100px;
-        padding-left: 50px;
-    }
-    
+  body {
+    padding-right: 100px;
+    padding-left: 50px;
   }
 
- 
+}
+
+
+
+
 
 @media screen and (min-width: 1000px) {
-    body {
-     column-count: 2;
-      column-gap: 60px;
-    }
-    table{
-      column-span:all;
-      
-  
-    }
-    
+  body {
+    column-count: 2;
+    column-gap: 60px;
   }
 
-    p{
-    text-align: justify !important;
-    font-family: 'Courier New', Courier, monospace !important;
-  }
-   @media screen and (max-width: 700px)  {
-    .notranslate li {
-      display:inline; padding: 5px;
-    }
-    body {
-      column-count: 1;
-       
-     }
-    
+  table {
+    column-span: all;
+
+
   }
 
-   @media screen and (max-width: 850px) {
-    body {
-        
-        
-        margin-left: 10px !important;
-        margin-bottom: 20px !important;
-        padding-right: 5px !important;
-        padding-left: 5px !important;
-        margin-right: 5px !important;
-       
-        
-  
-    }
-    
-    p{
-     
-     
-      font-size: 1.2rem !important;
-      font-family: 'Roboto Mono' !important;
-      text-align: justify !important;
-      line-height: 1.5em !important;
-      padding-right: 10px !important;
-      
-
-    }
-
-    
-    
-  }
-
-   
-
-
-
-  img{
-    transition: transform 2s;
-  }
-
-  img:hover{
-    position:relative;
-    transform: scale(1.3) !important;
-  }
-
-  #gsias2:hover{
-    text-decoration: underline;
 }
+
+
+
+@media screen and (max-width: 700px) {
+  .notranslate li {
+    display: inline;
+    padding: 5px;
+  }
+
+  body {
+    column-count: 1;
+
+  }
+
+}
+
+@media screen and (max-width: 850px) {
+  body {
+
+
+    margin-left: 10px !important;
+    margin-bottom: 20px !important;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    margin-right: 5px !important;
+
+
+    
+  }
+
+  p {
+
+
+    font-size: 1.2rem !important;
+    font-family: 'Roboto Mono' !important;
+    text-align: justify !important;
+    line-height: 1.5em !important;
+    padding-right: 10px !important;
+
+
+  }
+
+
+
+
+
+}
+
+
+
+
+
+
+img {
+  transition: transform 2s;
+}
+
+img:hover {
+  position: relative;
+  transform: scale(1.2) !important;
+
+}
+
+
+.s2{
+  color:crimson !important;
+  font-weight: bold;
+}
+
+.s4{
+    font-weight: bold !important;
+}
+
+
+.main > p{
+    font-weight: bold !important;
+    font-family: Calibri, sans-serif !important;
+    color: black !important;
+  }
+  
+  .main > p ~p{
+    font-weight: 400 !important;
+    font-family: Calibri, sans-serif !important;
+    
+    line-height: 1.4em !important;
+  }

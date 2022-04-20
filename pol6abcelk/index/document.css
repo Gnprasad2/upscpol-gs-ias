@@ -1063,12 +1063,14 @@ h1 {
   font-size: 2.5rem !important;
   padding-left: 0px !important;
   text-align: center !important;
+  font-weight: bold !important;
 }
 
 h2, h3 {
   font-size: 2rem !important;
   padding-left: 0px !important;
   text-align: center !important;
+  font-weight: bold !important;
 } 
 
 
@@ -1176,4 +1178,83 @@ img:hover {
 
 #gsias2:hover {
   text-decoration: underline;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+
+h4 {
+  color: darkolivegreen;
+   font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 125%;
+}
+
+.p,
+p {
+  color: black;
+  font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 100%;
+  margin: 0pt;
+}
+
+h2 {
+  color: goldenrod;
+   font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+ 
+}
+
+/* .s1 {
+  color: black;
+   font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 125%;
+} */
+
+h3 {
+  color: darkolivegreen;
+   font-family: Calibri, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  
+}
+
+
+
+
+
+
+
+.main > p{
+  font-weight: bold !important;
+  font-family: Calibri, sans-serif !important;
+  color: black !important;
+}
+
+.main > p ~p{
+  font-weight: 400 !important;
+  font-family: Calibri, sans-serif !important;
+  
+  line-height: 1.4em !important;
+}
+
+a{
+  font-size: 1.2rem !important;
+  font-family: Calibri, sans-serif !important;
+  font-style: italic !important;
 }

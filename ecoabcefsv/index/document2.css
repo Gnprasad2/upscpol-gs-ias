@@ -1,0 +1,190 @@
+﻿@charset "UTF-8"; * {margin:0; padding:0; text-indent:0; }
+ .p, p { color:darkolivegreen; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  margin:0pt; }
+ .s2 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s3 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s4 { color:maroon; font-family:Georgia, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s5 { color: #00F; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 130%;  }
+ .s6 { color: #00F; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s7 { color: black; font-family:"Bookman Old Style", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s8 { color:darkolivegreen; font-family:Georgia, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 3pt; }
+ .s9 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s10 { color:mediumblue; font-family:"Times New Roman", serif; font-style: normal; font-weight:normal; text-decoration: none; font-size: 130%;  }
+ .s11 { color:mediumblue; font-family:"Times New Roman", serif; font-style:italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s12 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .a, a { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s13 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s14 { color:mediumblue; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s15 { color: black; font-family:Cambria, serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s16 { color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s17 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  vertical-align: -3pt; }
+ .s18 { color: black; font-family:Cambria, serif; font-style: italic; font-weight: normal; text-decoration: underline; font-size: 130%;  }
+ .s19 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  vertical-align: 3pt; }
+ .s20 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  vertical-align: 3pt; }
+ .s21 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s22 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 130%;  }
+ .s23 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 130%;  }
+ .s24 { color: black; font-family:"Bookman Old Style", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s25 { color: black; font-family:Cambria, serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ h3 { color:crimson; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ h4 { color: #212121; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s26 { color:darkolivegreen; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s27 { color: darkolivegreen; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s28 { color: #212121; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; vertical-align: 4pt; }
+ .s29 { color: #23292D; font-family:"Arial Unicode MS", sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s30 { color: #23292D; font-family:"Arial Unicode MS", sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s31 { color: black; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s32 { color:darkolivegreen; font-family:"Arial Unicode MS", sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s33 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ h2 { color: #212121; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s34 { color: #212121; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s35 { color: #212121; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s36 { color: black; font-family:"Microsoft Sans Serif", sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s37 { color: #23292D; font-family:Georgia, serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s38 { color: black; font-family:Georgia, serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s39 { color: black; font-family:Georgia, serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s40 { color: black; font-family:Georgia, serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s41 { color: #212121; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 124%; vertical-align: 4pt; }
+ .s42 { color: #23282D; font-family:Georgia, serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s43 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ h1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s44 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s45 { color:darkgoldenrod; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s46 { color: #464646; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ table, tbody {vertical-align: top; overflow: visible; }
+ .notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+ .noDisplay {display: none;}
+        html {  background-color:ivory; margin: 5px; width:100%; padding: 2px; }
+
+   html {
+    font-size: 18px !important;
+    font-family: 'Roboto Mono' !important;
+    font-size: 1.2rem !important;
+    line-height: 1.6rem !important;
+    font-weight: bold !important;
+    color: black !important;
+    
+    
+} 
+
+       
+h1 {
+  font-size: 2.5rem !important;
+  padding-left: 0px !important;
+  text-align: center !important;
+}
+
+h2, h3 {
+  font-size: 2rem !important;
+  padding-left: 0px !important;
+  text-align: center !important;
+} 
+ body {
+   
+  padding-bottom: 30px;
+  min-height: 100vh;
+  max-width: 1700px;
+  background-color: ivory;
+  margin: 10px auto;
+  padding-right: 60px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  height: fit-content;
+
+  column-count: 1;
+
+
+
+
+}
+
+
+
+
+    
+
+@media screen and (min-width: 850px) and (max-width: 1000px) {
+    body {
+        padding-right: 100px;
+        padding-left: 50px;
+    }
+    
+  }
+
+ 
+
+@media screen and (min-width: 1000px) {
+    body {
+     column-count: 2;
+      column-gap: 60px;
+    }
+    table{
+      column-span:all;
+      
+  
+    }
+    
+  }
+
+    p{
+    text-align: justify !important;
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+   @media screen and (max-width: 700px)  {
+    .notranslate li {
+      display:inline; padding: 5px;
+    }
+    body {
+      column-count: 1;
+       
+     }
+    
+  }
+
+   @media screen and (max-width: 850px) {
+    body {
+        
+        
+        margin-left: 10px !important;
+        margin-bottom: 20px !important;
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+        margin-right: 5px !important;
+       
+        
+  
+    }
+    
+    p{
+     
+     
+      font-size: 1.2rem !important;
+      font-family: 'Roboto Mono' !important;
+      text-align: justify !important;
+      line-height: 1.5em !important;
+      padding-right: 10px !important;
+      
+
+    }
+
+    
+    
+  }
+
+   
+
+
+
+  img{
+    transition: transform 2s;
+  }
+
+  img:hover{
+    position:relative;
+    transform: scale(1.3) !important;
+  }
+
+  #gsias2:hover{
+    text-decoration: underline;
+}

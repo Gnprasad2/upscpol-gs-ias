@@ -1,0 +1,515 @@
+﻿@charset "UTF-8"; * {margin:0; padding:0; text-indent:0; }
+ .s1 { color: #B5642B; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight:normal; text-decoration: none; font-size: 110%; }
+ .s2 { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 120%; }
+ .p, p { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; margin:0pt; }
+ .s3 { color: #F79E23; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s4 { color: #F79E23; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s5 { color: #B5642B; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s6 { color: #B5642B; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s7 { color: #F79E23; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s8 { color: #F79E23; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s9 { color: #B39C8C; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s10 { color: #F79E23; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 130%;  vertical-align: 5pt; }
+ .s11 { color: #F79E23; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s12 { color: #F79E23; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s14 { color: #000F67; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s15 { color: #F79E23; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s16 { color: #F79E23; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s17 { color: #F79E23; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s18 { color: #F79E23; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s19 { color: #000F67; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s20 { color: #59A8AA; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s21 { color: #89D4E2; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s22 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s23 { color: #89D4E2; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s24 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s25 { color: #59A8AA; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s26 { color: #59A8AA; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s27 { color: #89D4E2; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s28 { color: #89D4E2; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s30 { color: #62BAD4; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s31 { color: #62BAD4; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s32 { color: #89D4E2; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s33 { color: #89D4E2; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s34 { color: #89D4E2; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s35 { color: #950808; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s36 { color: #EF826E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s37 { color: #EF826E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s38 { color: #EF826E; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s39 { color: #EF826E; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s40 { color: #EF826E; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s41 { color: #EF826E; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s43 { color: #EF826E; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s44 { color: #EF826E; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s45 { color: #EF826E; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s46 { color: #EF826E; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s47 { color: #CC7728; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s48 { color: #DFBA72; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s49 { color: #00AEEF; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s50 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s51 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .h3, h3 { color: #037BA7; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s52 { color: #037BA7; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s53 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s54 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  vertical-align: 5pt; }
+ .s56 { color: #4F0C62; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s57 { color: #62BAD4; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s58 { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s59 { color: #037BA7; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s60 { color: #037BA7; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s62 { color: #62BAD4; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s63 { color: #000559; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s64 { color: #3B70F6; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s65 { color: #3B70F6; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s66 { color: #3B70F6; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s67 { color: #3B70F6; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s68 { color: #3B70F6; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s69 { color: #3B70F6; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s70 { color: #3B70F6; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s71 { color: #3FAEE1; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s72 { color: #3B70F6; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s74 { color: #3B70F6; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s75 { color: #3B70F6; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s76 { color: #3B70F6; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s77 { color: #4F0872; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s78 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s79 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s80 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s81 { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s82 { color: #21184F; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s83 { color: #21184F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s84 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s85 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s86 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s87 { color: #E89EC1; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s88 { color: #231F1F; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s89 { color: #D1232A; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  vertical-align: 5pt; }
+ .s91 { color: #E89EC1; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s92 { color: #4F0C62; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s93 { color: #E89EC1; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s94 { color: #000F67; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s95 { color: #4F0C62; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ h1 { color: #4F0C62; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s96 { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s97 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s98 { color: #E89EC1; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s100 { color: #E89EC1; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s101 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s102 { color: #E89EC1; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s103 { color: #E89EC1; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s104 { color: #EFDFD6; font-family:"Courier New", monospace; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s105 { color: #EFDFD6; font-family:"Courier New", monospace; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ h2 { color: #3D130A; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s106 { color: #3D130A; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s107 { color: #6E5444; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s108 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s110 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s111 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s112 { color: #543D38; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s113 { color: #6E5444; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s114 { color: #543D38; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s115 { color: #6E5444; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s116 { color: #6E5444; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s117 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s118 { color: #6E5444; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s119 { color: #543D38; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s120 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s121 { color: #6E5444; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s122 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s123 { color: #543D38; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s124 { color: #6E5444; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s125 { color: #6E5444; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s126 { color: #6E5444; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s127 { color: #837472; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s128 { color: #422A26; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s130 { color: #543D38; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s131 { color: #6E5444; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s132 { color: #6E5444; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s133 { color: #543D38; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s134 { color: #422A26; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s135 { color: #837472; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s136 { color: #6E5444; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s137 { color: #837472; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s138 { color: #543D38; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s139 { color: #6E5444; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s140 { color: #837472; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s141 { color: #543D38; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s142 { color: #6E5444; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s144 { color: #837472; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s145 { color: #E2C8BC; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s147 { color: #E2C8BC; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s148 { color: #E2C8BC; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s149 { color: #E2C8BC; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s150 { color: #591C0C; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s151 { color: #C16E59; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s152 { color: #C16E59; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s153 { color: #C16E59; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s154 { color: #C16E59; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s155 { color: #C16E59; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s156 { color: #C16E59; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s157 { color: #C16E59; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s158 { color: #87693F; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s159 { color: #EB008C; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s160 { color: #231F1F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s161 { color: #231F1F; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s162 { color: #D1232A; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  }
+ .s163 { color: #C16E59; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s165 { color: #C16E59; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s166 { color: #C16E59; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s167 { color: #591C0C; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s169 { color: #C16E59; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s170 { color: #A04934; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s171 { color: #BC700C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s172 { color: #BC700C; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s173 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s174 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s175 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s176 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s177 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s178 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s179 { color: #4F0C62; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s180 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s181 { color: #BF50B5; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s184 { color: #BF50B5; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s185 { color: #BF50B5; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s186 { color: #BF50B5; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s187 { color: #332AA1; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s188 { color: #E8521F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s189 { color: #E8521F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s190 { color: #E8521F; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s191 { color: #640397; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s192 { color: #640397; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s193 { color: #E8521F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s194 { color: #E8521F; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s196 { color: #E8521F; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s197 { color: #E8521F; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s198 { color: #E8521F; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s199 { color: #4D3621; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s200 { color: #FFAE0E; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s201 { color: #FFAE0E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s202 { color: #FFAE0E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s203 { color: #FFAE0E; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s204 { color: #FFAE0E; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s205 { color: #FFAE0E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s207 { color: #FFAE0E; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s208 { color: #FFAE0E; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s209 { color: #03A5AC; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s210 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s211 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s212 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s213 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s214 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s215 { color: #91AE1A; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s216 { color: #91AE1A; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s217 { color: #21AC8E; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s218 { color: #4F0C62; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s219 { color: #BFB1B3; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s220 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s221 { color: #21AC8E; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s223 { color: #21AC8E; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s224 { color: #21AC8E; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s225 { color: #21AC8E; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s226 { color: #CC932B; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s227 { color: #CC932B; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s228 { color: #CC932B; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s229 { color: #03A5AC; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s230 { color: #03A5AC; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s231 { color: #CC932B; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s232 { color: #CC932B; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s234 { color: #CC932B; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s235 { color: #CC932B; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s236 { color: #3D2121; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s237 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s238 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s239 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s240 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s241 { color: #9E7577; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s242 { color: #9E7577; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s243 { color: #ED9A9C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s244 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s245 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s246 { color: #ED9A9C; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s248 { color: #ED9A9C; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s249 { color: #ED9A9C; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s250 { color: #ED9A9C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ h4 { color: #234275; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s251 { color: #827754; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s252 { color: #B6AA82; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s253 { color: #827754; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s254 { color: #9C8E69; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s255 { color: #827754; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s256 { color: #9C8E69; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s257 { color: #827754; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s258 { color: #675B36; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s259 { color: #9C8E69; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s260 { color: #827754; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s261 { color: #827754; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s262 { color: #9C8E69; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s263 { color: #9C8E69; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s264 { color: #827754; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s265 { color: #827754; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s267 { color: #9C8E69; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s268 { color: #827754; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s270 { color: #827754; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s271 { color: #675B36; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s273 { color: #827754; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s274 { color: #9C8E69; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s275 { color: #827754; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s276 { color: #828EA5; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s277 { color: #54627C; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s278 { color: #6B7790; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s279 { color: #54627C; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s280 { color: #6B7790; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s281 { color: #54627C; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s282 { color: #828EA5; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s283 { color: #54627C; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s284 { color: #6B7790; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s285 { color: #6B7790; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s286 { color: #6B7790; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s287 { color: #828EA5; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s288 { color: #828EA5; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s290 { color: #6B7790; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s291 { color: #6B7790; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s292 { color: #6B7790; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s293 { color: #6B7790; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s294 { color: #828EA5; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 124%; }
+ .s295 { color: #2A4980; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s296 { color: #798C34; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s297 { color: #798C34; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s298 { color: #798C34; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s299 { color: #798C34; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s300 { color: #798C34; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s301 { color: #798C34; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s302 { color: #798C34; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s303 { color: #798C34; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s306 { color: #798C34; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s307 { color: #798C34; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s308 { color: #904834; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s309 { color: #E1775D; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s310 { color: #E1775D; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s311 { color: #E1775D; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s312 { color: #E1775D; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s313 { color: #E1775D; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s315 { color: #E1775D; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s316 { color: #E1775D; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s317 { color: #E1775D; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s318 { color: #000F67; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s319 { color: #E1775D; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s320 { color: #381D1F; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s321 { color: #CC8085; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s322 { color: #CC8085; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s323 { color: #CC8085; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s324 { color: #CC8085; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s325 { color: #CC8085; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s326 { color: #CC8085; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s327 { color: #CC8085; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s328 { color: #CC8085; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s330 { color: #CC8085; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s331 { color: #CC8085; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s332 { color: #CC8085; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s333 { color: #808908; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s334 { color: #808908; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s335 { color: #808908; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s336 { color: #808908; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s337 { color: #808908; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s338 { color: #808908; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s339 { color: #808908; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s340 { color: #72CA15; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s342 { color: #808908; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 6pt; }
+ .s345 { color: #808908; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s347 { color: #808908; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s348 { color: black; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s349 { color: #808908; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s350 { color: #000F67; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s351 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s353 { color: #0F4956; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s354 { color: #05B66E; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s355 { color: #05B66E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s356 { color: #05B66E; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s357 { color: #05B66E; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s358 { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  vertical-align: -4pt; }
+ .s359 { color: #05B66E; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s360 { color: #0F4956; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s361 { color: #0F4956; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s363 { color: #05B66E; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s364 { color: #05B66E; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s365 { color: #05B66E; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s366 { color: #3B2A1F; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s367 { color: #F67C7C; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s368 { color: #F67C7C; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s369 { color: #F67C7C; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s370 { color: #F67C7C; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s371 { color: #F67C7C; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s372 { color: #3B2A1F; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s373 { color: #3B2A1F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s375 { color: #F67C7C; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s376 { color: #F67C7C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s377 { color: #F67C7C; font-family:Calibri, sans-serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s378 { color: #608052; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s379 { color: #72C34B; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s380 { color: #72C34B; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s381 { color: #72C34B; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s382 { color: #72C34B; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s383 { color: #72C34B; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s384 { color: #000F67; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; vertical-align: 5pt; }
+ .s386 { color: #72C34B; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s387 { color: #72C34B; font-family:Calibri, sans-serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .a, a { color: #3F6B5B; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s388 { color: #4FB111; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s389 { color: #4FB111; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s390 { color: #4FB111; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s391 { color: #4FB111; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s392 { color: #D1232A; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 130%;  vertical-align: -4pt; }
+ .s393 { color: #3B2A1F; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s394 { color: #3B2A1F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline;   font-size: 125%; }
+ .s395 { color: #4FB111; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  vertical-align: 5pt; }
+ .s396 { color: #4FB111; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 130%;  }
+ .s397 { color: #000F67; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s398 { color: #EB008C; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s399 { color: #EB008C; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s400 { color: #EB008C; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s401 { color: #EB008C; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s402 { color: #574446; font-family:"Trebuchet MS", sans-serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s403 { color: #00AEEF; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ .s404 { color: #00AEEF; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s405 { color: #00AEEF; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none;   font-size: 125%; }
+ .s406 { color: #00AEEF; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none;   font-size: 125%; }
+ table, tbody {vertical-align: top; overflow: visible; }
+.notranslate li {text-align: justify; display:inline; padding: 25px; padding-bottom: 5px;}
+
+ .noDisplay {display: none;}
+        html {  background-color:ivory; margin: 5px; width:100%; padding: 2px; }
+
+   html {
+    font-size: 18px !important;
+    font-family: 'Roboto Mono' !important;
+    font-size: 1.2rem !important;
+    line-height: 1.6rem !important;
+    font-weight: bold !important;
+    color: black !important;
+    
+    
+} 
+
+       
+h1 {
+  font-size: 2.5rem !important;
+  padding-left: 0px !important;
+  text-align: center !important;
+}
+
+h2, h3 {
+  font-size: 2rem !important;
+  padding-left: 0px !important;
+  text-align: center !important;
+} 
+ body {
+   
+  padding-bottom: 30px;
+  min-height: 100vh;
+  max-width: 1700px;
+  background-color: ivory;
+  margin: 10px auto;
+  padding-right: 60px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  height: fit-content;
+
+  column-count: 1;
+
+
+
+
+}
+
+
+
+
+    
+
+@media screen and (min-width: 850px) and (max-width: 1000px) {
+    body {
+        padding-right: 100px;
+        padding-left: 50px;
+    }
+    
+  }
+
+ 
+
+@media screen and (min-width: 1000px) {
+    body {
+     column-count: 2;
+      column-gap: 60px;
+    }
+    table{
+      column-span:all;
+      
+  
+    }
+    
+  }
+
+    p{
+    text-align: justify !important;
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+   @media screen and (max-width: 700px)  {
+    .notranslate li {
+      display:inline; padding: 5px;
+    }
+    body {
+      column-count: 1;
+       
+     }
+    
+  }
+
+   @media screen and (max-width: 850px) {
+    body {
+        
+        
+        margin-left: 10px !important;
+        margin-bottom: 20px !important;
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+        margin-right: 5px !important;
+       
+        
+  
+    }
+    
+    p{
+     
+     
+      font-size: 1.2rem !important;
+      font-family: 'Roboto Mono' !important;
+      text-align: justify !important;
+      line-height: 1.5em !important;
+      padding-right: 10px !important;
+      
+
+    }
+
+    
+    
+  }
+
+   
+
+
+
+  img{
+    transition: transform 2s;
+  }
+
+  img:hover{
+    position:relative;
+    transform: scale(1.3) !important;
+  }
+
+  #gsias2:hover{
+    text-decoration: underline;
+}

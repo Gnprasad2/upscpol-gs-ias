@@ -188,3 +188,17 @@ h2, h3 {
   #gsias2:hover{
     text-decoration: underline;
 }
+
+
+.main > p{
+  font-weight: bold !important;
+  font-family: Calibri, sans-serif !important;
+  color: black !important;
+}
+
+.main > p ~p{
+  font-weight: 400 !important;
+  font-family: Calibri, sans-serif !important;
+  
+  line-height: 1.4em !important;
+}
