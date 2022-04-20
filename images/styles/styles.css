@@ -6,7 +6,8 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   position: relative;
   width: 100%;
   padding: 5px;
-  height: fit-content !important;
+  
+  
  
   
   /* transition: width 2s; */
@@ -26,7 +27,19 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+ 
 }
+
+/* #imageP{
+  position: absolute;
+  top: 0;
+} */
+
+
+
+
+
+
 
 
 
@@ -40,7 +53,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
   }
 
   .container:hover{
-    width:85vmin !important;
+    width:80vmin !important;
     
     
   
