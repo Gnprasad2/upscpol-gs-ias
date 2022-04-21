@@ -370,6 +370,13 @@ tbody {
   overflow: visible;
 }
 
+@media screen and (max-width: 850px) {
+  .search-table-outter { overflow-x: scroll !important; }
+th, td { min-width: 300px !important; }
+
+}
+
+
 .notranslate li {
   text-align: justify;
   display: inline;
