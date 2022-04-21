@@ -74,7 +74,7 @@ tbody {
 
 @media screen and (max-width: 850px) {
   .search-table-outter { overflow-x: scroll !important; }
-th, td { min-width: 300px !important; }
+th, td {  max-width: fit-content !important;}
 
 }
 
@@ -197,6 +197,13 @@ body {
 
   }
 
+  #slider {
+    overflow: hidden;
+    width: 80% !important;
+    display: block;
+  }
+
+
 }
 
 @media screen and (max-width: 850px) {
@@ -216,7 +223,7 @@ body {
   p {
 
 
-    font-size: 1.2rem !important;
+    font-size: 1.2em !important;
     font-family: 'Roboto Mono' !important;
     text-align: justify !important;
     line-height: 1.5em !important;
@@ -225,6 +232,9 @@ body {
 
   }
 
+ 
+
+ 
 
 
 
@@ -264,4 +274,11 @@ img:hover {
     font-family: Calibri, sans-serif !important;
     
     line-height: 1.4em !important;
+  }
+
+
+  #slider {
+    overflow: hidden;
+    width: 55%;
+    display: block;
   }

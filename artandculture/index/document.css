@@ -511,10 +511,10 @@ body {
     
   }
 
-  p {
+   p {
 
 
-    font-size: 1.2rem !important;
+    font-size: 1.2em !important;
     font-family: 'Roboto Mono' !important;
     text-align: justify !important;
     line-height: 1.5em !important;
