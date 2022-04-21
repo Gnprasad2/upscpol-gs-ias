@@ -1034,6 +1034,12 @@ tbody {
   overflow: visible;
 }
 
+@media screen and (max-width: 850px) {
+  .search-table-outter { overflow-x: scroll !important; }
+th, td { min-width: 200px !important; text-align: center !important; padding: 5px !important;}
+
+}
+
 .notranslate li {
   text-align: justify;
   display:inline-block !important;
