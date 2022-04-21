@@ -40,14 +40,14 @@ h3, h5{
     color:darkgoldenrod !important;
 }
 
-/* a{
+a{
   color: #663300 !important; 
 }
 
 p > a{
   color:#663300 !important;
-  
-} */
+  font-weight: bold;
+}
 
 
 
@@ -97,18 +97,6 @@ tbody {
     margin-top: 40px;
     
 } 
-
-.main > p{
-  font-weight: bold !important;
-  
-  text-decoration: underline;
-}
-.main > p ~p{
-  font-weight: 400 !important;
-  text-decoration: none;
-
-}
-
 
 
 
