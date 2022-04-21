@@ -72,14 +72,14 @@ tbody {
   overflow: visible;
 }
 
-table {
+/* table {
   display: block;
   max-width: -moz-fit-content;
-  max-width: fit-content;
+  max-width: fit-content !important;
   margin: 0 auto;
   overflow-x: auto;
   white-space: nowrap;
-}
+} */
 
 .notranslate li {
   text-align: justify;
