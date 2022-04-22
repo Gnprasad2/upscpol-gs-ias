@@ -500,9 +500,9 @@ document.addEventListener('contextmenu', function (ev) {
 window.onload = (event) => {
   var slider = document.createElement("input");
   slider.type = 'range';
-  slider.value = 21;
+      slider.value = 25;
   slider.min = 15;
-  slider.max = 26;
+  slider.max = 30;   
   slider.step = 0.1;
   slider.id = "slider";
 
