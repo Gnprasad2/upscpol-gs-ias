@@ -1,5 +1,6 @@
 // speech synthesis
 
+
 // Init SpeechSynth API
 const synth = window.speechSynthesis; // select voice, lang , methods speak, play, pause and properties paused, pending etc
 var speakText = new SpeechSynthesisUtterance(); // set the text input and settings like rate, pitch, volume etc.
@@ -457,6 +458,10 @@ function goForward() {
   window.history.forward();
 }
 
+
+
+
+
 //  google translation
 
 function googleTranslateElementInit() {
@@ -484,11 +489,10 @@ window.onload = (event) => {
 };
 
 
-
 window.onload = (event) => {
   var slider = document.createElement("input");
   slider.type = 'range';
-  slider.value = 18;
+  slider.value = 21;
   slider.min = 15;
   slider.max = 26;
   slider.step = 0.1;
@@ -517,6 +521,15 @@ window.onload = (event) => {
  
 
 }
+
+
+
+
+
+
+
+
+ 
 
 
 

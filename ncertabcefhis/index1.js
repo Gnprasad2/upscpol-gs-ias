@@ -1,5 +1,6 @@
 // speech synthesis
 
+
   // Init SpeechSynth API
   const synth = window.speechSynthesis; // select voice, lang , methods speak, play, pause and properties paused, pending etc
   var speakText = new SpeechSynthesisUtterance(); // set the text input and settings like rate, pitch, volume etc.
@@ -473,10 +474,7 @@ function googleTranslateElementInit() {
     if (window.location == window.top.location) {
       window.location = "https://app.gs-ias.com";
     }
-    let domain = window.top.location.href;
-    if(!domain.includes('gs-ias.com')){
-      window.location = "https://app.gs-ias.com";
-    }
+           
 
   }, 60000);
 

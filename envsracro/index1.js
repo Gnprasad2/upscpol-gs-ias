@@ -1,5 +1,6 @@
 // speech synthesis
 
+
   // Init SpeechSynth API
   const synth = window.speechSynthesis; // select voice, lang , methods speak, play, pause and properties paused, pending etc
   var speakText = new SpeechSynthesisUtterance(); // set the text input and settings like rate, pitch, volume etc.
@@ -473,10 +474,7 @@ function googleTranslateElementInit() {
     if (window.location == window.top.location) {
       window.location = "https://app.gs-ias.com";
     }
-    let domain = window.top.location.href;
-    if(!domain.includes('gs-ias.com')){
-      window.location = "https://app.gs-ias.com";
-    }
+           
 
   }, 60000);
 
@@ -492,28 +490,7 @@ document.addEventListener('contextmenu', function (ev) {
 }, false);
 
 
-window.onload = (event)=>{
-  let newNode = document.createElement("span")
 
-// Get a reference to the parent node
-let parentDiv = document.getElementById("childElement").parentNode
-
-// Begin test case [ 1 ] : Existing childElement (all works correctly)
-let sp2 = document.getElementById("childElement")
-parentDiv.insertBefore(newNode, sp2)
-// End test case [ 1 ]
-
-// // Begin test case [ 2 ] : childElement is of Type undefined
-// let sp2 = undefined // Non-existent node of id "childElement"
-// parentDiv.insertBefore(newNode, sp2) // Implicit dynamic cast to type Node
-// // End test case [ 2 ]
-
-// // Begin test case [ 3 ] : childElement is of Type "undefined" ( string )
-// let sp2 = "undefined" // Non-existent node of id "childElement"
-// parentDiv.insertBefore(newNode, sp2) // Generates "Type Error: Invalid Argument"
-// // End test case [ 3 ]
-
-}
 
 
 

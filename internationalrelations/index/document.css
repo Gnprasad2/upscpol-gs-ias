@@ -264,3 +264,10 @@ img:hover {
     
     line-height: 1.4em !important;
   }
+
+
+  #slider {
+    overflow: hidden;
+    width: 55%;
+    display: block;
+  }

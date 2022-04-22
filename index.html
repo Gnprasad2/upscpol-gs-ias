@@ -11,7 +11,17 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
- 
+        a {
+            font-size: 1.1rem !important;
+            line-height: 1.5em !important;
+        }
+
+        a:hover {
+            font-size: 1.2rem !important;
+            line-height: 1.5em !important;
+            color: darkblue;
+
+        }
 
         @media screen and (max-width: 500px) {
             body {
@@ -31,8 +41,18 @@
             text-decoration: underline;
         }
 
-        .noDisplay{
+        .noDisplay {
             display: none;
+        }
+
+        #slider {
+            overflow: hidden;
+            width: 25%;
+            display: block;
+            margin-left: 50px;
+        }
+        .img{
+            margin-left: 12%;
         }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -54,11 +74,15 @@
 
 
 
-
-    <img class="responsive-img center-align" style="display: inline-block; padding-left: 10px; padding-top: 10px;"
-        src="FINAL LOGO.png" width="64px" alt="GS IAS Logo">
-    <p  style="font-size:1.4em; font-family:Verdana, Geneva, Tahoma, sans-serif; color:blanchedalmond;font-weight: bold; display: block;background-color: darkslategrey;padding: 5px;width: 100%;margin-left: 30px;"><i class="material-icons pink-text Large">book</i>
-        Quick reference: </p>
+    <div class="img">
+        <img class="responsive-img center-align" style="display: inline-block; padding-left: 10px; padding-top: 10px;"
+            src="FINAL LOGO.png" width="64px" alt="GS IAS Logo">
+    </div>
+    <p class="top_nav"
+        style="font-size:23px; font-family:Verdana, Geneva, Tahoma, sans-serif; color:blanchedalmond;font-weight: bold; display: block;background-color: darkslategrey;padding: 5px;width: 100%;margin-left: 30px;">
+        <i class="material-icons pink-text Large">book</i>
+        Quick reference:
+    </p>
     <div id="cse" style="width: 75%; margin-top: 20px; margin-left: 5%; margin-right: 5%;background-color:ivory;">
 
         <br>
@@ -80,9 +104,10 @@
 
 
             <ul>
-                <li id="gsias2"  class="noDisplay" style="padding: 20px;"> <span class="orange-text"> <a class="orange-text"
-                            href="https://app.gs-ias.com"
-                            style="font-family:Verdana, Geneva, Tahoma, sans-serif;font-weight: bold;color: greenyellow;">For quick
+                <li id="gsias2" class="noDisplay" style="padding: 20px;"> <span class="orange-text"> <a
+                            class="orange-text" href="https://app.gs-ias.com"
+                            style="font-family:Verdana, Geneva, Tahoma, sans-serif;font-weight: bold;color: greenyellow;">For
+                            quick
                             maps, upsc prelims test practice and more. ...visit </a> </span><br>
                     <span style="color: blue;"> <a href="https://app.gs-ias.com"
                             style="color: blue;font-family: Verdana, Geneva, Tahoma, sans-serif;"
@@ -164,11 +189,12 @@
 
 
 
-           
+
 
         </ul>
         <ul>
-            <li id="gsias1" class="flow-text noDisplay" style="padding: 30px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <li id="gsias1" class="flow-text noDisplay"
+                style="padding: 30px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
                 <a href="https://app.gs-ias.com" style="color: darkolivegreen;">Go to the GS IAS app for quick maps,
                     upsc prelims test practice, detailed analysis, quick reference, previous mistakes practice, keywords
                     search questions and more. ...</a><br>
@@ -178,14 +204,16 @@
 
             <li>
                 <p class="black-text"
-                    style="font-family:Verdana, Geneva, Tahoma, sans-serif;font-size: 18px;line-height: 28px;padding: 30px;">Quick
+                    style="font-family:Verdana, Geneva, Tahoma, sans-serif;font-size: 18px;line-height: 28px;padding: 30px;">
+                    Quick
                     reference material can be accessed in your mother tongue by selecting the tranlation section at the
                     bottom of the pages. Also in android mobiles, dictionary feature enabled on selection of a word.
-            </p>
+                </p>
             </li>
         </ul>
-        <script src="index1.js"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="index1.js"></script>
 </body>
 
 </html>

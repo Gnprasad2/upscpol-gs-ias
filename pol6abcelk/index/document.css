@@ -1259,8 +1259,15 @@ h3 {
   line-height: 1.4em !important;
 }
 
-a{
+/* a{
   font-size: 1.2rem !important;
   font-family: Calibri, sans-serif !important;
   font-style: italic !important;
+} */
+
+
+#slider {
+  overflow: hidden;
+  width: 55%;
+  display: block;
 }

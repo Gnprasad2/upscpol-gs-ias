@@ -1,5 +1,6 @@
 // speech synthesis
 
+
   // Init SpeechSynth API
   const synth = window.speechSynthesis; // select voice, lang , methods speak, play, pause and properties paused, pending etc
   var speakText = new SpeechSynthesisUtterance(); // set the text input and settings like rate, pitch, volume etc.
@@ -496,6 +497,42 @@ document.addEventListener('contextmenu', function (ev) {
   ev.preventDefault();
   return false;
 }, false);
+
+
+
+window.onload = (event) => {
+  var slider = document.createElement("input");
+  slider.type = 'range';
+  slider.value = 21;
+  slider.min = 15;
+  slider.max = 26;
+  slider.step = 0.1;
+  slider.id = "slider";
+
+
+  slider.oninput = function () {
+    let body = document.getElementsByTagName('body')[0];
+    let html = document.getElementsByTagName('html')[0];
+    body.style.fontSize = this.value + 'px';
+    html.style.fontSize = this.value + 'px';
+    
+    
+  }
+
+  // Get a reference to the parent node
+  
+  let parentDiv = document.getElementsByClassName("top_nav")[0].parentNode;
+  // let parentDiv = document.getElementById("google_translate_element").parentNode
+
+  // Begin test case [ 1 ] : Existing childElement (all works correctly)
+  let sp2 =  document.getElementsByClassName("top_nav")[0] || "undefined";
+  parentDiv.insertBefore(slider, sp2);
+
+
+ 
+
+}
+
 
 
   

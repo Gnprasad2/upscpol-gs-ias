@@ -288,3 +288,10 @@ img:hover {
       font-size: 30px;
       font-weight: bold;
   }
+
+  #slider {
+    overflow: hidden;
+    width: 55%;
+    display: block;
+  }
+

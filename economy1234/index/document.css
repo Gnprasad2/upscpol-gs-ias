@@ -269,6 +269,13 @@ img:hover {
   }
 
 
+  #slider {
+    overflow: hidden;
+    width: 55%;
+    display: block;
+  }
+
+
   .main > p{
     font-weight: bold !important;
     font-family: Calibri, sans-serif !important;
@@ -280,4 +287,11 @@ img:hover {
     font-family: Calibri, sans-serif !important;
     
     line-height: 1.4em !important;
+  }
+
+
+  #slider {
+    overflow: hidden;
+    width: 55%;
+    display: block;
   }

@@ -269,12 +269,7 @@ img:hover {
     color: black !important;
   }
   
-  .main > p ~p{
-    font-weight: 400 !important;
-    font-family: Calibri, sans-serif !important;
-    
-    line-height: 1.4em !important;
-  }
+
 
 
   #slider {
@@ -282,3 +277,5 @@ img:hover {
     width: 55%;
     display: block;
   }
+
+

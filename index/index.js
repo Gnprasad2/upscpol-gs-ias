@@ -1,5 +1,6 @@
 // speech synthesis
 
+
   // Init SpeechSynth API
   const synth = window.speechSynthesis; // select voice, lang , methods speak, play, pause and properties paused, pending etc
   var speakText = new SpeechSynthesisUtterance(); // set the text input and settings like rate, pitch, volume etc.
