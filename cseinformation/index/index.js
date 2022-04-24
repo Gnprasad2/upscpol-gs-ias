@@ -478,11 +478,11 @@ function googleTranslateElementInit() {
   } 
   setTimeout(() => {
     if (window.location == window.top.location) {
-      window.location = "https://app.gs-ias.com";
+       window.location = "https://app.gs-ias.com/#qr";
     }
     let domain = window.top.location.href;
     if(!domain.includes('gs-ias.com')){
-      window.location = "https://app.gs-ias.com";
+       window.location = "https://app.gs-ias.com/#qr";
     }
 
   }, 60000);

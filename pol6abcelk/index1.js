@@ -472,7 +472,7 @@ function googleTranslateElementInit() {
   } 
   setTimeout(() => {
     if (window.location == window.top.location) {
-      window.location = "https://app.gs-ias.com";
+       window.location = "https://app.gs-ias.com/#qr";
     }
            
 

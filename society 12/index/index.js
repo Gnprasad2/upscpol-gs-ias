@@ -478,7 +478,7 @@ function googleTranslateElementInit() {
   } 
   setTimeout(() => {
     if (window.location == window.top.location) {
-      window.location = "https://app.gs-ias.com";
+      window.location = "https://app.gs-ias.com/#qr";
     }
            
 
@@ -499,6 +499,23 @@ document.addEventListener('contextmenu', function (ev) {
 
 
 window.onload = (event) => {
+  if (document.getElementById("gsias2")) {
+    if(window.location == window.top.location){
+        document.getElementById("gsias2").classList.remove('noDisplay');
+      }
+    }
+    
+    M.AutoInit();
+    if (synth.speaking) {
+      synth.cancel();  
+    } 
+    setTimeout(() => {
+      if (window.location == window.top.location) {
+         window.location = "https://app.gs-ias.com/#qr";
+      }
+             
+  
+    }, 6000);
   var slider = document.createElement("input");
   slider.type = 'range';
       slider.value = 25;

@@ -90,7 +90,7 @@ html {  background-color:ivory; margin: 2px; width:100%; padding: 2px; }
 
   .container:hover{
     
-    transform: scale(1.5) !important;
+    transform: scale(3.0) !important;
     
   }
 
@@ -171,6 +171,7 @@ ul#map-links li{
 
 @media screen and (max-width: 850px) {
   .search-table-outter { overflow-x: scroll !important; 
+    overflow-y:scroll !important;
     margin-top: 30px;
   }
 

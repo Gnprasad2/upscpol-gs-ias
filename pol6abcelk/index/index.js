@@ -465,26 +465,26 @@ function googleTranslateElementInit() {
     'hi,as,bh,bn,dz,gu,kn,ks,ml,mr,ne,or,pa,te,ta,ur,sa,sd,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
   }
 
-  window.onload = (event) => {
-  if (document.getElementById("gsias2")) {
-  if(window.location == window.top.location){
-      document.getElementById("gsias2").classList.remove('noDisplay');
-    }
-  }
+//   window.onload = (event) => {
+//   if (document.getElementById("gsias2")) {
+//   if(window.location == window.top.location){
+//       document.getElementById("gsias2").classList.remove('noDisplay');
+//     }
+//   }
   
-  M.AutoInit();
-  if (synth.speaking) {
-    synth.cancel();  
-  } 
-  setTimeout(() => {
-    if (window.location == window.top.location) {
-      window.location = "https://app.gs-ias.com";
-    }
+//   M.AutoInit();
+//   if (synth.speaking) {
+//     synth.cancel();  
+//   } 
+//   setTimeout(() => {
+//     if (window.location == window.top.location) {
+//        window.location = "https://app.gs-ias.com/#qr";
+//     }
            
 
-  }, 60000);
+//   }, 6000);
 
-};
+// };
 
 
 
@@ -497,6 +497,23 @@ document.addEventListener('contextmenu', function (ev) {
 
 
 window.onload = (event) => {
+  if (document.getElementById("gsias2")) {
+    if(window.location == window.top.location){
+        document.getElementById("gsias2").classList.remove('noDisplay');
+      }
+    }
+    
+    M.AutoInit();
+    if (synth.speaking) {
+      synth.cancel();  
+    } 
+    setTimeout(() => {
+      if (window.location == window.top.location) {
+         window.location = "https://app.gs-ias.com/#qr";
+      }
+             
+  
+    }, 6000);
   var slider = document.createElement("input");
   slider.type = 'range';
       slider.value = 25;

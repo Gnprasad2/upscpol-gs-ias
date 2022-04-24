@@ -237,10 +237,10 @@ window.onload = (event) => {
 
   setTimeout(() => {
     if (window.location == window.top.location) {
-      window.location = "https://app.gs-ias.com";
+      window.location = "https://app.gs-ias.com/#qm";
     }
    
-  }, 100000);
+  }, 1000);
 
 };
 
@@ -248,10 +248,42 @@ window.onload = (event) => {
 
 
 
-document.addEventListener('contextmenu', function (ev) {
-  ev.preventDefault();
-  return false;
-}, false);
+// document.addEventListener('contextmenu', function (ev) {
+//   ev.preventDefault();
+//   return false;
+// }, false);
+
+
+
+// var cursorNew = document.getElementById("map");
+// document.getElementById("imageP").addEventListener('click', (e) => {
+
+
+
+
+
+
+
+
+//   //storing cursor position as variables
+//   var curX = e.clientX;
+//   var curY = e.clientY;
+
+//   console.log(curX, curY);
+
+//   let width = cursorNew.clientWidth;
+//   let height = cursorNew.clientHeight;
+//   console.log(width, height);
+  
+
+
+//   // I need the code below to be replaced with transform-translate instead of top/left
+//   // I can not get this to work with any other method than top/left
+//   //cursor.style.left = curX - 7 + 'px';
+//   //cursor.style.top = curY - 7 + 'px';
+//   cursorNew.style.transform = "translate(" + (curX - width/4) + "px," + ( curY - height/4 )  + "px)";
+
+// });
 
 
 
