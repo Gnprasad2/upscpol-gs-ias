@@ -240,7 +240,7 @@ window.onload = (event) => {
       window.location = "https://app.gs-ias.com";
     }
    
-  }, 1000);
+  }, 100000);
 
 };
 
