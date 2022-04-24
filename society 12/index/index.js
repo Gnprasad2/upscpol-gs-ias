@@ -78,13 +78,34 @@ document.addEventListener('dblclick', function(e) {
                   return true;
               }
               
-              case "Android OS":
-              if(voice.default == true){
-                speakText.lang = voice.lang;
-                speakText.voice = voice;
-                selectedVoice = voice;
-                return true;
-              }
+               case "Android OS":
+          if (voice.default == true) {
+            speakText.lang = voice.lang;
+            speakText.voice = voice;
+            selectedVoice = voice;
+            return true;
+          }
+
+
+
+        case "iOS":
+          if (voice.default == true) {
+            speakText.lang = voice.lang;
+            speakText.voice = voice;
+            selectedVoice = voice;
+            return true;
+          }
+
+
+
+        case "Macintosh":
+          if (voice.default == true) {
+            speakText.lang = voice.lang;
+            speakText.voice = voice;
+            selectedVoice = voice;
+            return true;
+          }
+
               
             default:
               speakText.lang = voice.lang;
