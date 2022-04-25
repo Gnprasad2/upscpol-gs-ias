@@ -266,8 +266,15 @@ document.addEventListener('dblclick', function(e) {
             speakText.text = utterText ;
             speakText.rate = 1.0;
             
-            //  speakText.lang = "en-US";
-            speakText.lang = "hi-IN";
+            if(userAgentString.indexOf("Chrome") > -1 && os == "Windows OS") {
+              speakText.lang = "hi-IN";
+
+
+            } else {
+
+              speakText.lang = "en-US";
+
+            }
   
             
             // voices.forEach(function(voice) {
