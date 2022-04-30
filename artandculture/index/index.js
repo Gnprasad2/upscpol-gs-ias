@@ -513,7 +513,7 @@ function googleTranslateElementInit() {
        window.location = "https://app.gs-ias.com/#qr";
     }
 
-  }, 60000);
+  }, 300000);
 
 };
 
@@ -545,7 +545,7 @@ window.onload = (event) => {
       }
              
   
-    }, 6000);
+   }, 300000);
   var slider = document.createElement("input");
   slider.type = 'range';
       slider.value = 25;

@@ -513,7 +513,7 @@ function googleTranslateElementInit() {
        window.location = "https://app.gs-ias.com/#qr";
     }
 
-  }, 60000);
+  }, 300000);
 
 };
 

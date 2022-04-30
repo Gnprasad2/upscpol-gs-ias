@@ -510,7 +510,7 @@ function googleTranslateElementInit() {
       }
              
   
-    }, 6000);
+   }, 300000);
   var slider = document.createElement("input");
   slider.type = 'range';
       slider.value = 25;

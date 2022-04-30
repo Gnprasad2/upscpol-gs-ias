@@ -504,7 +504,7 @@ function googleTranslateElementInit() {
     }
            
 
-  }, 60000);
+  }, 300000);
 
 };
 
