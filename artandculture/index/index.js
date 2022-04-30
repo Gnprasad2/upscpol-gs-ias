@@ -242,6 +242,9 @@ document.addEventListener('dblclick', function(e) {
             speakText = new SpeechSynthesisUtterance(utterText);
             speakText.text = utterText ;
             speakText.rate = 1.0;
+           
+            
+            let userAgentString = navigator.userAgent;
             
             if(userAgentString.indexOf("Chrome") > -1 && os == "Windows OS") {
               speakText.lang = "hi-IN";
