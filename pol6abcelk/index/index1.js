@@ -15,6 +15,12 @@
   var os; // operating system
   var answeSpeaking;
   var mainSection = document.getElementsByClassName("main")[0];
+  var speakTranslateSection = document.getElementsByClassName("notranslate")[0];
+  // Global event listeners
+
+document.addEventListener('dblclick', function(e) {
+  speakTranslateSection.classList.toggle('noDisplay');
+})
 
   
   
@@ -468,26 +474,26 @@ function googleTranslateElementInit() {
     'hi,as,bh,bn,dz,gu,kn,ks,ml,mr,ne,or,pa,te,ta,ur,sa,sd,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
   }
 
-     window.onload = (event) => {
-  if (document.getElementById("gsias2")) {
-   if(window.location == window.top.location){
-      document.getElementById("gsias2").classList.remove('noDisplay');
-    }
-  }
+//   window.onload = (event) => {
+//   if (document.getElementById("gsias2")) {
+//   if(window.location == window.top.location){
+//       document.getElementById("gsias2").classList.remove('noDisplay');
+//     }
+//   }
   
-  M.AutoInit();
-  if (synth.speaking) {
-    synth.cancel();  
-  } 
-  setTimeout(() => {
-    if (window.location == window.top.location) {
-         //  window.location = "https://app.gs-ias.com/#qr";
-    }
+//   M.AutoInit();
+//   if (synth.speaking) {
+//     synth.cancel();  
+//   } 
+//   setTimeout(() => {
+//     if (window.location == window.top.location) {
+//          //  window.location = "https://app.gs-ias.com/#qr";
+//     }
            
 
-  }, 300000);
+//  }, 300000);
 
-};
+// };
 
 
 
@@ -498,6 +504,56 @@ document.addEventListener('contextmenu', function (ev) {
   return false;
 }, false);
 
+
+window.onload = (event) => {
+  if (document.getElementById("gsias2")) {
+    if(window.location == window.top.location){
+        // document.getElementById("gsias2").classList.remove('noDisplay');
+      }
+    }
+    
+    M.AutoInit();
+    if (synth.speaking) {
+      synth.cancel();  
+    } 
+    setTimeout(() => {
+      if (window.location == window.top.location) {
+           //  window.location = "https://app.gs-ias.com/#qr";
+      }
+             
+  
+   }, 300000);
+  // var slider = document.createElement("input");
+  // slider.type = 'range';
+  //     slider.value = 25;
+  // slider.min = 15;
+  // slider.max = 30;   
+  // slider.step = 0.1;
+  // slider.id = "slider";
+
+
+  // slider.oninput = function () {
+  //   let body = document.getElementsByTagName('body')[0];
+  //   let html = document.getElementsByTagName('html')[0];
+  //   body.style.fontSize = this.value + 'px';
+  //   html.style.fontSize = this.value + 'px';
+    
+    
+  // }
+
+  // Get a reference to the parent node
+  
+  let parentDiv = document.getElementsByClassName("top_nav")[0].parentNode;
+  // let parentDiv = document.getElementById("google_translate_element").parentNode
+
+  // Begin test case [ 1 ] : Existing childElement (all works correctly)
+  // let sp2 =  document.getElementsByClassName("top_nav")[0] || "undefined";
+  // parentDiv.insertBefore(slider, sp2);
+
+
+ 
+
+}
 
 
   

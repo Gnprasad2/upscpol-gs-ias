@@ -19,7 +19,7 @@ window.onload = (event) => {
 
   setTimeout(() => {
     if (window.location == window.top.location) {
-       window.location = "https://app.gs-ias.com/#qr";
+      //    //  window.location = "https://app.gs-ias.com/#qr";
     }
            
 
